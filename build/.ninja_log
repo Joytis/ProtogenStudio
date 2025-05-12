@@ -1,0 +1,13 @@
+# ninja log v6
+353	511	7687903615612516	protogen_studio.exe	4cb9e0ae08dfc961
+8	1592	7687917343866242	CMakeFiles/protogen_studio.dir/src/main.cpp.obj	e3ec1eaf824b1d48
+16	2598	7687917343980925	CMakeFiles/protogen_studio.dir/libs/imgui/imgui_draw.cpp.obj	77e5c4f632640e2
+27	2804	7687917344119124	CMakeFiles/protogen_studio.dir/libs/imgui/imgui_widgets.cpp.obj	65da15d064486ffa
+30	217	7687920966993345	build.ninja	165eadf6695e6be1
+69	1684	7687917344492241	CMakeFiles/protogen_studio.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj	3045942559b649f2
+60	1704	7687917344427133	CMakeFiles/protogen_studio.dir/libs/imgui/backends/imgui_impl_sdl3.cpp.obj	6a475f6de3a57cd8
+22	2148	7687917344020970	CMakeFiles/protogen_studio.dir/libs/imgui/imgui_tables.cpp.obj	a1863dc3c97dcc2b
+38	4976	7687917344338213	CMakeFiles/protogen_studio.dir/libs/imgui/imgui.cpp.obj	40ca0533def61820
+13	2252	7687917343929086	CMakeFiles/protogen_studio.dir/libs/imgui/imgui_demo.cpp.obj	6ec217d155fd663b
+33	229	7687920966993345	build.ninja	165eadf6695e6be1
+38	225	7687920968029660	protogen_studio.exe	f8a2b43c00712d45
