@@ -1,0 +1,4 @@
+C:/Users/Clark/Documents/GitHub/ProtogenStudio/out/build/x64-Debug/CMakeFiles/Protogen.dir
+C:/Users/Clark/Documents/GitHub/ProtogenStudio/out/build/x64-Debug/CMakeFiles/ProtogenStudio.dir
+C:/Users/Clark/Documents/GitHub/ProtogenStudio/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Clark/Documents/GitHub/ProtogenStudio/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir

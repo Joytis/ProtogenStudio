@@ -4,10 +4,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug protogen_studio",
+            "name": "Debug ProtogenStudio",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/protogen_studio.exe",
+            "program": "${workspaceFolder}/build/ProtogenStudio.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

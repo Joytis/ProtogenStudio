@@ -1,3 +1,4 @@
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/protogen_studio.dir
+C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/Protogen.dir
+C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/ProtogenStudio.dir
 C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/edit_cache.dir
 C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/rebuild_cache.dir

@@ -36,86 +36,138 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/Clark/Documents/GitHub/ProtogenStudio/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target protogen_studio
+# Object build statements for STATIC_LIBRARY target Protogen
 
 
 #############################################
-# Order-only phony target for protogen_studio
+# Order-only phony target for Protogen
 
-build cmake_object_order_depends_target_protogen_studio: phony || .
+build cmake_object_order_depends_target_Protogen: phony || .
 
-build CMakeFiles/protogen_studio.dir/src/main.cpp.obj: CXX_COMPILER__protogen_studio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/main.cpp || cmake_object_order_depends_target_protogen_studio
-  DEP_FILE = CMakeFiles\protogen_studio.dir\src\main.cpp.obj.d
+build CMakeFiles/Protogen.dir/src/protogen/ProjectSettings.cpp.obj: CXX_COMPILER__Protogen_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen/ProjectSettings.cpp || cmake_object_order_depends_target_Protogen
+  DEP_FILE = CMakeFiles\Protogen.dir\src\protogen\ProjectSettings.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends
-  OBJECT_DIR = CMakeFiles\protogen_studio.dir
-  OBJECT_FILE_DIR = CMakeFiles\protogen_studio.dir\src
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
+  OBJECT_DIR = CMakeFiles\Protogen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\src\protogen
 
-build CMakeFiles/protogen_studio.dir/libs/imgui/imgui_demo.cpp.obj: CXX_COMPILER__protogen_studio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_demo.cpp || cmake_object_order_depends_target_protogen_studio
-  DEP_FILE = CMakeFiles\protogen_studio.dir\libs\imgui\imgui_demo.cpp.obj.d
+build CMakeFiles/Protogen.dir/src/protogen/ProtogenProject.cpp.obj: CXX_COMPILER__Protogen_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen/ProtogenProject.cpp || cmake_object_order_depends_target_Protogen
+  DEP_FILE = CMakeFiles\Protogen.dir\src\protogen\ProtogenProject.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends
-  OBJECT_DIR = CMakeFiles\protogen_studio.dir
-  OBJECT_FILE_DIR = CMakeFiles\protogen_studio.dir\libs\imgui
-
-build CMakeFiles/protogen_studio.dir/libs/imgui/imgui_draw.cpp.obj: CXX_COMPILER__protogen_studio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_draw.cpp || cmake_object_order_depends_target_protogen_studio
-  DEP_FILE = CMakeFiles\protogen_studio.dir\libs\imgui\imgui_draw.cpp.obj.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends
-  OBJECT_DIR = CMakeFiles\protogen_studio.dir
-  OBJECT_FILE_DIR = CMakeFiles\protogen_studio.dir\libs\imgui
-
-build CMakeFiles/protogen_studio.dir/libs/imgui/imgui_tables.cpp.obj: CXX_COMPILER__protogen_studio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_tables.cpp || cmake_object_order_depends_target_protogen_studio
-  DEP_FILE = CMakeFiles\protogen_studio.dir\libs\imgui\imgui_tables.cpp.obj.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends
-  OBJECT_DIR = CMakeFiles\protogen_studio.dir
-  OBJECT_FILE_DIR = CMakeFiles\protogen_studio.dir\libs\imgui
-
-build CMakeFiles/protogen_studio.dir/libs/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__protogen_studio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_protogen_studio
-  DEP_FILE = CMakeFiles\protogen_studio.dir\libs\imgui\imgui_widgets.cpp.obj.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends
-  OBJECT_DIR = CMakeFiles\protogen_studio.dir
-  OBJECT_FILE_DIR = CMakeFiles\protogen_studio.dir\libs\imgui
-
-build CMakeFiles/protogen_studio.dir/libs/imgui/imgui.cpp.obj: CXX_COMPILER__protogen_studio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui.cpp || cmake_object_order_depends_target_protogen_studio
-  DEP_FILE = CMakeFiles\protogen_studio.dir\libs\imgui\imgui.cpp.obj.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends
-  OBJECT_DIR = CMakeFiles\protogen_studio.dir
-  OBJECT_FILE_DIR = CMakeFiles\protogen_studio.dir\libs\imgui
-
-build CMakeFiles/protogen_studio.dir/libs/imgui/backends/imgui_impl_sdl3.cpp.obj: CXX_COMPILER__protogen_studio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends/imgui_impl_sdl3.cpp || cmake_object_order_depends_target_protogen_studio
-  DEP_FILE = CMakeFiles\protogen_studio.dir\libs\imgui\backends\imgui_impl_sdl3.cpp.obj.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends
-  OBJECT_DIR = CMakeFiles\protogen_studio.dir
-  OBJECT_FILE_DIR = CMakeFiles\protogen_studio.dir\libs\imgui\backends
-
-build CMakeFiles/protogen_studio.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__protogen_studio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_protogen_studio
-  DEP_FILE = CMakeFiles\protogen_studio.dir\libs\imgui\backends\imgui_impl_opengl3.cpp.obj.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends
-  OBJECT_DIR = CMakeFiles\protogen_studio.dir
-  OBJECT_FILE_DIR = CMakeFiles\protogen_studio.dir\libs\imgui\backends
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
+  OBJECT_DIR = CMakeFiles\Protogen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\src\protogen
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target protogen_studio
+# Link build statements for STATIC_LIBRARY target Protogen
 
 
 #############################################
-# Link the executable protogen_studio.exe
+# Link the static library libProtogen.a
 
-build protogen_studio.exe: CXX_EXECUTABLE_LINKER__protogen_studio_ CMakeFiles/protogen_studio.dir/src/main.cpp.obj CMakeFiles/protogen_studio.dir/libs/imgui/imgui_demo.cpp.obj CMakeFiles/protogen_studio.dir/libs/imgui/imgui_draw.cpp.obj CMakeFiles/protogen_studio.dir/libs/imgui/imgui_tables.cpp.obj CMakeFiles/protogen_studio.dir/libs/imgui/imgui_widgets.cpp.obj CMakeFiles/protogen_studio.dir/libs/imgui/imgui.cpp.obj CMakeFiles/protogen_studio.dir/libs/imgui/backends/imgui_impl_sdl3.cpp.obj CMakeFiles/protogen_studio.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj | C$:/msys64/ucrt64/lib/libSDL3.dll.a
-  LINK_LIBRARIES = C:/msys64/ucrt64/lib/libSDL3.dll.a  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\protogen_studio.dir
+build libProtogen.a: CXX_STATIC_LIBRARY_LINKER__Protogen_ CMakeFiles/Protogen.dir/src/protogen/ProjectSettings.cpp.obj CMakeFiles/Protogen.dir/src/protogen/ProtogenProject.cpp.obj
+  OBJECT_DIR = CMakeFiles\Protogen.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = protogen_studio.exe
-  TARGET_IMPLIB = libprotogen_studio.dll.a
-  TARGET_PDB = protogen_studio.exe.dbg
+  TARGET_FILE = libProtogen.a
+  TARGET_PDB = Protogen.a.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target ProtogenStudio
+
+
+#############################################
+# Order-only phony target for ProtogenStudio
+
+build cmake_object_order_depends_target_ProtogenStudio: phony || cmake_object_order_depends_target_Protogen
+
+build CMakeFiles/ProtogenStudio.dir/src/studio/main.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/studio/main.cpp || cmake_object_order_depends_target_ProtogenStudio
+  DEP_FILE = CMakeFiles\ProtogenStudio.dir\src\studio\main.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\src\studio
+
+build CMakeFiles/ProtogenStudio.dir/src/studio/ProtogenStudio.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/studio/ProtogenStudio.cpp || cmake_object_order_depends_target_ProtogenStudio
+  DEP_FILE = CMakeFiles\ProtogenStudio.dir\src\studio\ProtogenStudio.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\src\studio
+
+build CMakeFiles/ProtogenStudio.dir/src/studio/SimpleWindows.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/studio/SimpleWindows.cpp || cmake_object_order_depends_target_ProtogenStudio
+  DEP_FILE = CMakeFiles\ProtogenStudio.dir\src\studio\SimpleWindows.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\src\studio
+
+build CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_demo.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_demo.cpp || cmake_object_order_depends_target_ProtogenStudio
+  DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\imgui_demo.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui
+
+build CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_draw.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_draw.cpp || cmake_object_order_depends_target_ProtogenStudio
+  DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\imgui_draw.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui
+
+build CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_tables.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_tables.cpp || cmake_object_order_depends_target_ProtogenStudio
+  DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\imgui_tables.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui
+
+build CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_ProtogenStudio
+  DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\imgui_widgets.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui
+
+build CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui.cpp || cmake_object_order_depends_target_ProtogenStudio
+  DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\imgui.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui
+
+build CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_sdl3.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends/imgui_impl_sdl3.cpp || cmake_object_order_depends_target_ProtogenStudio
+  DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\backends\imgui_impl_sdl3.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui\backends
+
+build CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_ProtogenStudio
+  DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\backends\imgui_impl_opengl3.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui\backends
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target ProtogenStudio
+
+
+#############################################
+# Link the executable ProtogenStudio.exe
+
+build ProtogenStudio.exe: CXX_EXECUTABLE_LINKER__ProtogenStudio_ CMakeFiles/ProtogenStudio.dir/src/studio/main.cpp.obj CMakeFiles/ProtogenStudio.dir/src/studio/ProtogenStudio.cpp.obj CMakeFiles/ProtogenStudio.dir/src/studio/SimpleWindows.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_demo.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_draw.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_tables.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_widgets.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_sdl3.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj | libProtogen.a C$:/msys64/ucrt64/lib/libSDL3.dll.a || libProtogen.a
+  LINK_LIBRARIES = libProtogen.a  C:/msys64/ucrt64/lib/libSDL3.dll.a  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = ProtogenStudio.exe
+  TARGET_IMPLIB = libProtogenStudio.dll.a
+  TARGET_PDB = ProtogenStudio.exe.dbg
 
 
 #############################################
@@ -143,7 +195,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build protogen_studio: phony protogen_studio.exe
+build Protogen: phony libProtogen.a
+
+build ProtogenStudio: phony ProtogenStudio.exe
 
 # =============================================================================
 # Folder targets.
@@ -153,7 +207,7 @@ build protogen_studio: phony protogen_studio.exe
 #############################################
 # Folder: C:/Users/Clark/Documents/GitHub/ProtogenStudio/build
 
-build all: phony protogen_studio.exe
+build all: phony libProtogen.a ProtogenStudio.exe
 
 # =============================================================================
 # Built-in targets
