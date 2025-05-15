@@ -37,6 +37,18 @@ namespace Studio
         return true;
     }
 
+    void ProtogenStudio::Save()
+    {
+        _project.SaveProject(_rootPath);
+        _statusBar.SetStatus(StatusBar::Status::Info, "Save successful!");
+    }
+
+    void ProtogenStudio::Reload()
+    {
+        _project.LoadProject(_rootPath);
+        _statusBar.SetStatus(StatusBar::Status::Info, "Reload successful!");
+    }
+
     void ProtogenStudio::RenderStudioSettings()
     {
         ImGui::SeparatorText("Studio Settings");
@@ -49,6 +61,18 @@ namespace Studio
         ImGui::EndChild();
     }
 
+    void ProtogenStudio::CheckInput()
+    {
+        if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_S))
+        {
+            Save();
+        }
+        if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_R))
+        {
+            Reload();
+        }
+    }
+
     bool ProtogenStudio::RenderStandardUI(ImGuiIO& io)
     {
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
@@ -59,18 +83,22 @@ namespace Studio
         {
             ImGui::Begin("Main Window");
 
-            // Menu!
-            if (ImGui::BeginMenu("Menu"))
+            if (ImGui::BeginMainMenuBar())
             {
-                if (ImGui::MenuItem("Save", "Ctrl+S")) 
+                // Menu!
+                if (ImGui::BeginMenu("File"))
                 {
-                    _project.SaveProject(_rootPath);
+                    if (ImGui::MenuItem("Save", "Ctrl+S"))
+                    {
+                        Save();
+                    }
+                    if (ImGui::MenuItem("Reload", "Ctrl+R"))
+                    {
+                        Reload();
+                    }
+                    ImGui::EndMenu();
                 }
-                if (ImGui::MenuItem("Reload", "Ctrl+R")) 
-                {
-                    _project.LoadProject(_rootPath);
-                }
-                ImGui::EndMenu();
+                ImGui::EndMainMenuBar();
             }
 
             RenderStudioSettings();
@@ -93,7 +121,16 @@ namespace Studio
 
     bool ProtogenStudio::Render(ImGuiIO& io)
     {
+        float dt = io.DeltaTime;
+
+        CheckInput();
+
         ImGui::NewFrame();
+
+        // Render the status bar at the bottom of screen. 
+        _statusBar.Render(dt);
+
+
         bool shouldContinue = true;
         try
         {
