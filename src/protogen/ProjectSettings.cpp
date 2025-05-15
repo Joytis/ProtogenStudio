@@ -7,15 +7,15 @@
 
 namespace Proto
 {
-    void ProjectSettings::Load(rapidjson::Document& d)
+    void ProjectSettings::Load(rapidjson::Value& value)
     {
-        panelWidth = d["PanelWidth"].GetInt();
-        panelHeight = d["PanelHeight"].GetInt();
+        panelWidth = Utils::GetIntOr(value, "PanelWidth", 0);
+        panelHeight = Utils::GetIntOr(value, "PanelHeight", 0);
     }
 
-    void ProjectSettings::Save(rapidjson::Document& d)
+    void ProjectSettings::Save(rapidjson::Value& value, rapidjson::Document& d)
     {
-        d.AddMember("PanelWidth", panelWidth, d.GetAllocator());
-        d.AddMember("PanelHeight", panelHeight, d.GetAllocator());
+        value.AddMember("PanelWidth", panelWidth, d.GetAllocator());
+        value.AddMember("PanelHeight", panelHeight, d.GetAllocator());
     }
 }

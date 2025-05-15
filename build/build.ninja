@@ -58,6 +58,13 @@ build CMakeFiles/Protogen.dir/src/protogen/ProtogenProject.cpp.obj: CXX_COMPILER
   OBJECT_DIR = CMakeFiles\Protogen.dir
   OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\src\protogen
 
+build CMakeFiles/Protogen.dir/src/protogen/Utils.cpp.obj: CXX_COMPILER__Protogen_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen/Utils.cpp || cmake_object_order_depends_target_Protogen
+  DEP_FILE = CMakeFiles\Protogen.dir\src\protogen\Utils.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
+  OBJECT_DIR = CMakeFiles\Protogen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\src\protogen
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target Protogen
@@ -66,7 +73,7 @@ build CMakeFiles/Protogen.dir/src/protogen/ProtogenProject.cpp.obj: CXX_COMPILER
 #############################################
 # Link the static library libProtogen.a
 
-build libProtogen.a: CXX_STATIC_LIBRARY_LINKER__Protogen_ CMakeFiles/Protogen.dir/src/protogen/ProjectSettings.cpp.obj CMakeFiles/Protogen.dir/src/protogen/ProtogenProject.cpp.obj
+build libProtogen.a: CXX_STATIC_LIBRARY_LINKER__Protogen_ CMakeFiles/Protogen.dir/src/protogen/ProjectSettings.cpp.obj CMakeFiles/Protogen.dir/src/protogen/ProtogenProject.cpp.obj CMakeFiles/Protogen.dir/src/protogen/Utils.cpp.obj
   OBJECT_DIR = CMakeFiles\Protogen.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

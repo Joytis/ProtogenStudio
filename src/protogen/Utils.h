@@ -6,11 +6,13 @@
 #include <rapidjson/ostreamwrapper.h>
 #include <rapidjson/prettywriter.h>
 
-
+#include <filesystem>
 #include <fstream>
 
 namespace Proto::Utils
 {
+    int GetIntOr(rapidjson::Value& value, const char* name, int defaultValue);
+
     template <typename TData>
     void LoadFromJson(std::filesystem::path& path, TData& data)
     {
@@ -19,8 +21,9 @@ namespace Proto::Utils
         
         rapidjson::Document d;
         d.ParseStream(isw);
-
-        data.Load(d);
+        
+        rapidjson::Value value = d.GetObject();
+        data.Load(value);
     }
 
     template <typename TData>
@@ -28,7 +31,7 @@ namespace Proto::Utils
     {
         rapidjson::Document d;
         d.SetObject();
-        data.Save(d);
+        data.Save(d.GetObject(), d);
         
         std::ofstream ofs(path);
         rapidjson::OStreamWrapper osw(ofs);

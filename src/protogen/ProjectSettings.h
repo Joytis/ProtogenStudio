@@ -12,7 +12,7 @@ namespace Proto
         int panelWidth;
         int panelHeight;
         
-        void Load(rapidjson::Document& d);
-        void Save(rapidjson::Document& d);
+        void Load(rapidjson::Value& value);
+        void Save(rapidjson::Value& value, rapidjson::Document& d);
     };
 }
