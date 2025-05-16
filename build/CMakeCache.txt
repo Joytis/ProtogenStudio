@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//Path to a program.
+AWK:FILEPATH=C:/msys64/usr/bin/gawk.exe
+
 //Build the library as a shared library
 BUILD_SHARED_LIBS:BOOL=ON
 
@@ -22,6 +25,32 @@ CMAKE_ADDR2LINE:FILEPATH=C:/msys64/ucrt64/bin/addr2line.exe
 
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/msys64/ucrt64/bin/ar.exe
+
+//ASM compiler
+CMAKE_ASM_COMPILER:FILEPATH=C:/msys64/ucrt64/bin/cc.exe
+
+//A wrapper around 'ar' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_ASM_COMPILER_AR:FILEPATH=C:/msys64/ucrt64/bin/gcc-ar.exe
+
+//A wrapper around 'ranlib' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_ASM_COMPILER_RANLIB:FILEPATH=C:/msys64/ucrt64/bin/gcc-ranlib.exe
+
+//Flags used by the ASM compiler during all build types.
+CMAKE_ASM_FLAGS:STRING=
+
+//Flags used by the ASM compiler during DEBUG builds.
+CMAKE_ASM_FLAGS_DEBUG:STRING=-g
+
+//Flags used by the ASM compiler during MINSIZEREL builds.
+CMAKE_ASM_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+
+//Flags used by the ASM compiler during RELEASE builds.
+CMAKE_ASM_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+
+//Flags used by the ASM compiler during RELWITHDEBINFO builds.
+CMAKE_ASM_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
@@ -311,6 +340,10 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//DFA file containing customized build configuration settings for
+// libpng
+DFA_XTRA:FILEPATH=
+
 //Git command line client
 GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
 
@@ -353,6 +386,31 @@ PKG_CONFIG_ARGN:STRING=
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=C:/msys64/ucrt64/bin/pkg-config.exe
 
+//[Deprecated; please use ZLIB_ROOT]
+PNG_BUILD_ZLIB:BOOL=OFF
+
+//Enable debug output
+PNG_DEBUG:BOOL=OFF
+
+//Postfix to append to library file names under the Debug configuration
+PNG_DEBUG_POSTFIX:STRING=d
+
+//[Deprecated; please use PNG_TOOLS]
+PNG_EXECUTABLES:BOOL=ON
+
+//Build libpng as a framework bundle (not available on this platform)
+PNG_FRAMEWORK:BOOL=OFF
+
+//Enable hardware optimizations
+PNG_HARDWARE_OPTIMIZATIONS:BOOL=ON
+
+//Enable INTEL_SSE optimizations: on|off; on is default
+PNG_INTEL_SSE:STRING=on
+
+//C header file containing customized build configuration settings
+// for libpng
+PNG_LIBCONF_HEADER:FILEPATH=
+
 //Path to a library.
 PNG_LIBRARY_DEBUG:FILEPATH=PNG_LIBRARY_DEBUG-NOTFOUND
 
@@ -361,6 +419,21 @@ PNG_LIBRARY_RELEASE:FILEPATH=C:/msys64/mingw64/lib/libpng.dll.a
 
 //Path to a file.
 PNG_PNG_INCLUDE_DIR:PATH=PNG_PNG_INCLUDE_DIR-NOTFOUND
+
+//Prefix to prepend to the API function names
+PNG_PREFIX:STRING=
+
+//Build libpng as a shared library
+PNG_SHARED:BOOL=ON
+
+//Build libpng as a static library
+PNG_STATIC:BOOL=ON
+
+//Build the libpng tests
+PNG_TESTS:BOOL=ON
+
+//Build the libpng tools
+PNG_TOOLS:BOOL=ON
 
 //Value Computed by CMake
 SDL3_BINARY_DIR:STATIC=C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL
@@ -780,8 +853,20 @@ ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
 //Path to a library.
 ZLIB_LIBRARY_RELEASE:FILEPATH=C:/msys64/ucrt64/lib/libz.dll.a
 
+//Enable linker version script
+ld-version-script:BOOL=ON
+
 //The directory containing a CMake configuration file for libavif.
 libavif_DIR:PATH=libavif_DIR-NOTFOUND
+
+//Value Computed by CMake
+libpng_BINARY_DIR:STATIC=C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/libpng
+
+//Value Computed by CMake
+libpng_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+libpng_SOURCE_DIR:STATIC=C:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/libpng
 
 //Value Computed by CMake
 protogen_studio_BINARY_DIR:STATIC=C:/Users/Clark/Documents/GitHub/ProtogenStudio/build
@@ -834,6 +919,23 @@ webpdemux_LINK_LIBRARIES:STRING=
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_COMPILER
+CMAKE_ASM_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_COMPILER_AR
+CMAKE_ASM_COMPILER_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_COMPILER_RANLIB
+CMAKE_ASM_COMPILER_RANLIB-ADVANCED:INTERNAL=1
+CMAKE_ASM_COMPILER_WORKS:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_FLAGS
+CMAKE_ASM_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_FLAGS_DEBUG
+CMAKE_ASM_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_FLAGS_MINSIZEREL
+CMAKE_ASM_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_FLAGS_RELEASE
+CMAKE_ASM_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_FLAGS_RELWITHDEBINFO
+CMAKE_ASM_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=c:/Users/Clark/Documents/GitHub/ProtogenStudio/build
 //Major version of cmake used to create the current loaded cache
@@ -964,7 +1066,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1096,6 +1198,8 @@ HAVE_GCC_WUNDEF:INTERNAL=1
 HAVE_GCC_WUNUSED_LOCAL_TYPEDEFS:INTERNAL=1
 //Test HAVE_GDWARF_4
 HAVE_GDWARF_4:INTERNAL=1
+//Test HAVE_LD_VERSION_SCRIPT
+HAVE_LD_VERSION_SCRIPT:INTERNAL=
 //Have library m
 HAVE_LIBM:INTERNAL=1
 //Test HAVE_MFAPI_H
@@ -1110,6 +1214,8 @@ HAVE_SENSORSAPI_H:INTERNAL=1
 HAVE_SHELLSCALINGAPI_H:INTERNAL=1
 //Have include shobjidl_core.h
 HAVE_SHOBJIDL_CORE_H:INTERNAL=
+//Test HAVE_SOLARIS_LD_VERSION_SCRIPT
+HAVE_SOLARIS_LD_VERSION_SCRIPT:INTERNAL=
 //Have include tpcshrd.h
 HAVE_TPCSHRD_H:INTERNAL=1
 //Test HAVE_WIN32_CC
@@ -1440,6 +1546,8 @@ PC_Magick++_VERSION:INTERNAL=
 PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//STRINGS property for variable: PNG_INTEL_SSE
+PNG_INTEL_SSE-STRINGS:INTERNAL=on;off
 //ADVANCED property for variable: PNG_LIBRARY_DEBUG
 PNG_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PNG_LIBRARY_RELEASE

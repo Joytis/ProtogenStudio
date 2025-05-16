@@ -44,11 +44,19 @@ cmake_ninja_workdir = C$:/Users/Clark/Documents/GitHub/ProtogenStudio/build/
 
 build cmake_object_order_depends_target_Protogen: phony || .
 
+build CMakeFiles/Protogen.dir/libs/lodepng/lodepng.cpp.obj: CXX_COMPILER__Protogen_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng/lodepng.cpp || cmake_object_order_depends_target_Protogen
+  DEFINES = -DProtogen_EXPORTS
+  DEP_FILE = CMakeFiles\Protogen.dir\libs\lodepng\lodepng.cpp.obj.d
+  FLAGS = -std=gnu++20
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
+  OBJECT_DIR = CMakeFiles\Protogen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\libs\lodepng
+
 build CMakeFiles/Protogen.dir/src/protogen/Expression.cpp.obj: CXX_COMPILER__Protogen_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen/Expression.cpp || cmake_object_order_depends_target_Protogen
   DEFINES = -DProtogen_EXPORTS
   DEP_FILE = CMakeFiles\Protogen.dir\src\protogen\Expression.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
   OBJECT_DIR = CMakeFiles\Protogen.dir
   OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\src\protogen
 
@@ -56,7 +64,7 @@ build CMakeFiles/Protogen.dir/src/protogen/Mouth.cpp.obj: CXX_COMPILER__Protogen
   DEFINES = -DProtogen_EXPORTS
   DEP_FILE = CMakeFiles\Protogen.dir\src\protogen\Mouth.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
   OBJECT_DIR = CMakeFiles\Protogen.dir
   OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\src\protogen
 
@@ -64,7 +72,7 @@ build CMakeFiles/Protogen.dir/src/protogen/ProjectSettings.cpp.obj: CXX_COMPILER
   DEFINES = -DProtogen_EXPORTS
   DEP_FILE = CMakeFiles\Protogen.dir\src\protogen\ProjectSettings.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
   OBJECT_DIR = CMakeFiles\Protogen.dir
   OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\src\protogen
 
@@ -72,7 +80,7 @@ build CMakeFiles/Protogen.dir/src/protogen/Protogen.cpp.obj: CXX_COMPILER__Proto
   DEFINES = -DProtogen_EXPORTS
   DEP_FILE = CMakeFiles\Protogen.dir\src\protogen\Protogen.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
   OBJECT_DIR = CMakeFiles\Protogen.dir
   OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\src\protogen
 
@@ -80,7 +88,7 @@ build CMakeFiles/Protogen.dir/src/protogen/ProtogenProject.cpp.obj: CXX_COMPILER
   DEFINES = -DProtogen_EXPORTS
   DEP_FILE = CMakeFiles\Protogen.dir\src\protogen\ProtogenProject.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
   OBJECT_DIR = CMakeFiles\Protogen.dir
   OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\src\protogen
 
@@ -88,7 +96,7 @@ build CMakeFiles/Protogen.dir/src/protogen/Utils.cpp.obj: CXX_COMPILER__Protogen
   DEFINES = -DProtogen_EXPORTS
   DEP_FILE = CMakeFiles\Protogen.dir\src\protogen\Utils.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src/protogen
   OBJECT_DIR = CMakeFiles\Protogen.dir
   OBJECT_FILE_DIR = CMakeFiles\Protogen.dir\src\protogen
 
@@ -100,7 +108,7 @@ build CMakeFiles/Protogen.dir/src/protogen/Utils.cpp.obj: CXX_COMPILER__Protogen
 #############################################
 # Link the shared library libProtogen.dll
 
-build libProtogen.dll libProtogen.dll.a: CXX_SHARED_LIBRARY_LINKER__Protogen_ CMakeFiles/Protogen.dir/src/protogen/Expression.cpp.obj CMakeFiles/Protogen.dir/src/protogen/Mouth.cpp.obj CMakeFiles/Protogen.dir/src/protogen/ProjectSettings.cpp.obj CMakeFiles/Protogen.dir/src/protogen/Protogen.cpp.obj CMakeFiles/Protogen.dir/src/protogen/ProtogenProject.cpp.obj CMakeFiles/Protogen.dir/src/protogen/Utils.cpp.obj
+build libProtogen.dll libProtogen.dll.a: CXX_SHARED_LIBRARY_LINKER__Protogen_ CMakeFiles/Protogen.dir/libs/lodepng/lodepng.cpp.obj CMakeFiles/Protogen.dir/src/protogen/Expression.cpp.obj CMakeFiles/Protogen.dir/src/protogen/Mouth.cpp.obj CMakeFiles/Protogen.dir/src/protogen/ProjectSettings.cpp.obj CMakeFiles/Protogen.dir/src/protogen/Protogen.cpp.obj CMakeFiles/Protogen.dir/src/protogen/ProtogenProject.cpp.obj CMakeFiles/Protogen.dir/src/protogen/Utils.cpp.obj
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Protogen.dir
   POST_BUILD = cd .
@@ -117,82 +125,82 @@ build libProtogen.dll libProtogen.dll.a: CXX_SHARED_LIBRARY_LINKER__Protogen_ CM
 #############################################
 # Order-only phony target for ProtogenStudio
 
-build cmake_object_order_depends_target_ProtogenStudio: phony || cmake_object_order_depends_target_Protogen cmake_object_order_depends_target_SDL3-shared cmake_object_order_depends_target_SDL3_image-shared
+build cmake_object_order_depends_target_ProtogenStudio: phony || cmake_object_order_depends_target_Protogen cmake_object_order_depends_target_SDL3-shared
 
 build CMakeFiles/ProtogenStudio.dir/src/studio/main.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/studio/main.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\src\studio\main.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\src\studio
 
 build CMakeFiles/ProtogenStudio.dir/src/studio/ProtogenStudio.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/studio/ProtogenStudio.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\src\studio\ProtogenStudio.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\src\studio
 
 build CMakeFiles/ProtogenStudio.dir/src/studio/SimpleWindows.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/studio/SimpleWindows.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\src\studio\SimpleWindows.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\src\studio
 
 build CMakeFiles/ProtogenStudio.dir/src/studio/StatusBar.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/src/studio/StatusBar.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\src\studio\StatusBar.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\src\studio
 
 build CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_demo.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_demo.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\imgui_demo.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui
 
 build CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_draw.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_draw.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\imgui_draw.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui
 
 build CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_tables.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_tables.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\imgui_tables.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui
 
 build CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\imgui_widgets.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui
 
 build CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/imgui.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\imgui.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui
 
 build CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_sdl3.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends/imgui_impl_sdl3.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\backends\imgui_impl_sdl3.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui\backends
 
 build CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__ProtogenStudio_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_ProtogenStudio
   DEP_FILE = CMakeFiles\ProtogenStudio.dir\libs\imgui\backends\imgui_impl_opengl3.cpp.obj.d
   FLAGS = -std=gnu++20
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include/SDL3_image -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include
+  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/backends -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/lodepng -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/src -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   OBJECT_FILE_DIR = CMakeFiles\ProtogenStudio.dir\libs\imgui\backends
 
@@ -204,8 +212,8 @@ build CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.o
 #############################################
 # Link the executable ProtogenStudio.exe
 
-build ProtogenStudio.exe: CXX_EXECUTABLE_LINKER__ProtogenStudio_ CMakeFiles/ProtogenStudio.dir/src/studio/main.cpp.obj CMakeFiles/ProtogenStudio.dir/src/studio/ProtogenStudio.cpp.obj CMakeFiles/ProtogenStudio.dir/src/studio/SimpleWindows.cpp.obj CMakeFiles/ProtogenStudio.dir/src/studio/StatusBar.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_demo.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_draw.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_tables.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_widgets.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_sdl3.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj | libProtogen.dll.a libs/SDL_image/libSDL3_image.dll.a libs/SDL/libSDL3.dll.a C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/src/dynapi/SDL_dynapi.sym || libProtogen.dll libs/SDL/SDL3.dll libs/SDL_image/SDL3_image.dll
-  LINK_LIBRARIES = libProtogen.dll.a  -lopengl32  libs/SDL_image/libSDL3_image.dll.a  libs/SDL/libSDL3.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+build ProtogenStudio.exe: CXX_EXECUTABLE_LINKER__ProtogenStudio_ CMakeFiles/ProtogenStudio.dir/src/studio/main.cpp.obj CMakeFiles/ProtogenStudio.dir/src/studio/ProtogenStudio.cpp.obj CMakeFiles/ProtogenStudio.dir/src/studio/SimpleWindows.cpp.obj CMakeFiles/ProtogenStudio.dir/src/studio/StatusBar.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_demo.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_draw.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_tables.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui_widgets.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/imgui.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_sdl3.cpp.obj CMakeFiles/ProtogenStudio.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj | libProtogen.dll.a libs/SDL/libSDL3.dll.a C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/src/dynapi/SDL_dynapi.sym || libProtogen.dll libs/SDL/SDL3.dll
+  LINK_LIBRARIES = libProtogen.dll.a  libs/SDL/libSDL3.dll.a  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ProtogenStudio.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -2507,229 +2515,6 @@ build libs/SDL/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build libs/SDL/rebuild_cache: phony libs/SDL/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
-# Write statements declared in CMakeLists.txt:
-# C:/Users/Clark/Documents/GitHub/ProtogenStudio/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for SHARED_LIBRARY target SDL3_image-shared
-
-
-#############################################
-# Order-only phony target for SDL3_image-shared
-
-build cmake_object_order_depends_target_SDL3_image-shared: phony || cmake_object_order_depends_target_SDL3-shared
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_WIC.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_WIC.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_WIC.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_avif.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_avif.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_avif.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_bmp.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_bmp.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_bmp.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_gif.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_gif.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_gif.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_jpg.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_jpg.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_jpg.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_jxl.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_jxl.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_jxl.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_lbm.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_lbm.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_lbm.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_pcx.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_pcx.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_pcx.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_png.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_png.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_png.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_pnm.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_pnm.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_pnm.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_qoi.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_qoi.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_qoi.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_stb.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_stb.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_stb.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_svg.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_svg.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_svg.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_tga.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_tga.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_tga.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_tif.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_tif.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_tif.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_webp.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_webp.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_webp.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_xcf.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_xcf.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_xcf.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_xpm.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_xpm.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_xpm.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_xv.c.obj: C_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/IMG_xv.c || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\IMG_xv.c.obj.d
-  FLAGS = -fvisibility=hidden -Wall -Wextra
-  INCLUDES = -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -IC:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-build libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/version.rc.obj: RC_COMPILER__SDL3_image-shared_unscanned_ C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/version.rc || cmake_object_order_depends_target_SDL3_image-shared
-  DEFINES = -DBUILD_SDL -DDLL_EXPORT -DLOAD_BMP -DLOAD_GIF -DLOAD_JPG -DLOAD_LBM -DLOAD_PCX -DLOAD_PNG -DLOAD_PNM -DLOAD_QOI -DLOAD_SVG -DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DSDL_BUILD_MAJOR_VERSION=3 -DSDL_BUILD_MICRO_VERSION=0 -DSDL_BUILD_MINOR_VERSION=3 -DSDL_IMAGE_SAVE_JPG=1 -DSDL_IMAGE_SAVE_PNG=1 -DUSE_STBIMAGE
-  DEP_FILE = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src\version.rc.obj.d
-  INCLUDES = -I C:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/include -I C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/include-revision -I C:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  OBJECT_FILE_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir\src
-
-
-# =============================================================================
-# Link build statements for SHARED_LIBRARY target SDL3_image-shared
-
-
-#############################################
-# Link the shared library libs\SDL_image\SDL3_image.dll
-
-build libs/SDL_image/SDL3_image.dll libs/SDL_image/libSDL3_image.dll.a: C_SHARED_LIBRARY_LINKER__SDL3_image-shared_ libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_WIC.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_avif.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_bmp.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_gif.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_jpg.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_jxl.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_lbm.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_pcx.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_png.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_pnm.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_qoi.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_stb.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_svg.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_tga.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_tif.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_webp.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_xcf.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_xpm.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/IMG_xv.c.obj libs/SDL_image/CMakeFiles/SDL3_image-shared.dir/src/version.rc.obj | libs/SDL/libSDL3.dll.a C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/SDL_image.sym C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/src/dynapi/SDL_dynapi.sym || libs/SDL/SDL3.dll
-  LINK_FLAGS = -static-libgcc -Wl,--version-script=C:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/src/SDL_image.sym -Wl,--no-undefined
-  LINK_LIBRARIES = libs/SDL/libSDL3.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = libs\SDL_image\CMakeFiles\SDL3_image-shared.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  RESTAT = 1
-  TARGET_FILE = libs\SDL_image\SDL3_image.dll
-  TARGET_IMPLIB = libs\SDL_image\libSDL3_image.dll.a
-  TARGET_PDB = SDL3_image.dll.dbg
-
-
-#############################################
-# Utility command for edit_cache
-
-build libs/SDL_image/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Clark\Documents\GitHub\ProtogenStudio\build\libs\SDL_image && C:\msys64\ucrt64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build libs/SDL_image/edit_cache: phony libs/SDL_image/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build libs/SDL_image/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\Clark\Documents\GitHub\ProtogenStudio\build\libs\SDL_image && C:\msys64\ucrt64\bin\cmake.exe --regenerate-during-build -SC:\Users\Clark\Documents\GitHub\ProtogenStudio -BC:\Users\Clark\Documents\GitHub\ProtogenStudio\build"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build libs/SDL_image/rebuild_cache: phony libs/SDL_image/CMakeFiles/rebuild_cache.util
-
-# =============================================================================
 # Target aliases.
 
 build Protogen: phony libProtogen.dll
@@ -2739,10 +2524,6 @@ build ProtogenStudio: phony ProtogenStudio.exe
 build SDL3-shared: phony libs/SDL/SDL3.dll
 
 build SDL3.dll: phony libs/SDL/SDL3.dll
-
-build SDL3_image-shared: phony libs/SDL_image/SDL3_image.dll
-
-build SDL3_image.dll: phony libs/SDL_image/SDL3_image.dll
 
 build SDL3_test: phony libs/SDL/libSDL3_test.a
 
@@ -2770,27 +2551,20 @@ build all: phony libProtogen.dll ProtogenStudio.exe
 build libs/SDL/all: phony libs/SDL/SDL3.dll libs/SDL/libSDL3_test.a libs/SDL/libSDL_uclibc.a
 
 # =============================================================================
-
-#############################################
-# Folder: C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL_image
-
-build libs/SDL_image/all: phony libs/SDL_image/SDL3_image.dll
-
-# =============================================================================
 # Built-in targets
 
 
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Users/Clark/Documents/GitHub/ProtogenStudio/CMakeLists.txt C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/.git/HEAD C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/.git/refs/heads/main C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/CMakeLists.txt C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/3rdparty.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/FindLibUSB.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/GetGitRevisionDescription.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/GetGitRevisionDescription.cmake.in C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/PreseedEmscriptenCache.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/PreseedMSVCCache.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/SDL3Config.cmake.in C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/macros.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlchecks.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcommands.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcompilers.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcpu.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlmanpages.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlplatform.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include/build_config/SDL_build_config.h.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include/build_config/SDL_revision.h.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/CMakeLists.txt C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/Findwebp.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/GetGitRevisionDescription.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/PrivateSdlFunctions.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/sdlcpu.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/sdlmanpages.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/sdlplatform.cmake C$:/msys64/ucrt64/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/msys64/ucrt64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeParseArguments.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakePushCheckState.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCSourceRuns.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCXXCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLanguage.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLibraryExists.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLinkerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckStructHasMember.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckSymbolExists.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindGit.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindOpenGL.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPkgConfig.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindTIFF.cmake C$:/msys64/ucrt64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckLinkerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceRuns.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/ucrt64/share/cmake/Modules/SelectLibraryConfigurations.cmake C$:/msys64/ucrt64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.31.5/CMakeCCompiler.cmake CMakeFiles/3.31.5/CMakeCXXCompiler.cmake CMakeFiles/3.31.5/CMakeRCCompiler.cmake CMakeFiles/3.31.5/CMakeSystem.cmake libs/SDL/CMakeFiles/SDL_build_config.h.intermediate libs/SDL/CMakeFiles/git-data/grabRef.cmake
+build build.ninja: RERUN_CMAKE | C$:/Users/Clark/Documents/GitHub/ProtogenStudio/CMakeLists.txt C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/.git/HEAD C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/.git/refs/heads/main C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/CMakeLists.txt C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/3rdparty.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/FindLibUSB.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/GetGitRevisionDescription.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/GetGitRevisionDescription.cmake.in C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/PreseedEmscriptenCache.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/PreseedMSVCCache.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/SDL3Config.cmake.in C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/macros.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlchecks.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcommands.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcompilers.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcpu.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlmanpages.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlplatform.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include/build_config/SDL_build_config.h.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include/build_config/SDL_revision.h.cmake C$:/msys64/ucrt64/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/msys64/ucrt64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeParseArguments.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakePushCheckState.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCSourceRuns.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCXXCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLanguage.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLibraryExists.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLinkerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckStructHasMember.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckSymbolExists.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindGit.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindOpenGL.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPkgConfig.cmake C$:/msys64/ucrt64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckLinkerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceRuns.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/ucrt64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.31.5/CMakeCCompiler.cmake CMakeFiles/3.31.5/CMakeCXXCompiler.cmake CMakeFiles/3.31.5/CMakeRCCompiler.cmake CMakeFiles/3.31.5/CMakeSystem.cmake libs/SDL/CMakeFiles/SDL_build_config.h.intermediate libs/SDL/CMakeFiles/git-data/grabRef.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/Clark/Documents/GitHub/ProtogenStudio/CMakeLists.txt C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/.git/HEAD C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/.git/refs/heads/main C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/CMakeLists.txt C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/3rdparty.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/FindLibUSB.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/GetGitRevisionDescription.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/GetGitRevisionDescription.cmake.in C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/PreseedEmscriptenCache.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/PreseedMSVCCache.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/SDL3Config.cmake.in C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/macros.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlchecks.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcommands.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcompilers.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcpu.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlmanpages.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlplatform.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include/build_config/SDL_build_config.h.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include/build_config/SDL_revision.h.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/CMakeLists.txt C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/Findwebp.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/GetGitRevisionDescription.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/PrivateSdlFunctions.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/sdlcpu.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/sdlmanpages.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL_image/cmake/sdlplatform.cmake C$:/msys64/ucrt64/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/msys64/ucrt64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeParseArguments.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakePushCheckState.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCSourceRuns.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCXXCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLanguage.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLibraryExists.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLinkerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckStructHasMember.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckSymbolExists.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindGit.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindOpenGL.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPkgConfig.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindTIFF.cmake C$:/msys64/ucrt64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckLinkerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceRuns.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/ucrt64/share/cmake/Modules/SelectLibraryConfigurations.cmake C$:/msys64/ucrt64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.31.5/CMakeCCompiler.cmake CMakeFiles/3.31.5/CMakeCXXCompiler.cmake CMakeFiles/3.31.5/CMakeRCCompiler.cmake CMakeFiles/3.31.5/CMakeSystem.cmake libs/SDL/CMakeFiles/SDL_build_config.h.intermediate libs/SDL/CMakeFiles/git-data/grabRef.cmake: phony
+build C$:/Users/Clark/Documents/GitHub/ProtogenStudio/CMakeLists.txt C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/.git/HEAD C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/.git/refs/heads/main C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/CMakeLists.txt C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/3rdparty.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/FindLibUSB.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/GetGitRevisionDescription.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/GetGitRevisionDescription.cmake.in C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/PreseedEmscriptenCache.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/PreseedMSVCCache.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/SDL3Config.cmake.in C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/macros.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlchecks.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcommands.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcompilers.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlcpu.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlmanpages.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/cmake/sdlplatform.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include/build_config/SDL_build_config.h.cmake C$:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/SDL/include/build_config/SDL_revision.h.cmake C$:/msys64/ucrt64/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/msys64/ucrt64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeParseArguments.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakePushCheckState.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCSourceRuns.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCXXCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLanguage.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLibraryExists.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckLinkerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckStructHasMember.cmake C$:/msys64/ucrt64/share/cmake/Modules/CheckSymbolExists.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindGit.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindOpenGL.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/ucrt64/share/cmake/Modules/FindPkgConfig.cmake C$:/msys64/ucrt64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckCompilerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckLinkerFlag.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake C$:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceRuns.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/ucrt64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.31.5/CMakeCCompiler.cmake CMakeFiles/3.31.5/CMakeCXXCompiler.cmake CMakeFiles/3.31.5/CMakeRCCompiler.cmake CMakeFiles/3.31.5/CMakeSystem.cmake libs/SDL/CMakeFiles/SDL_build_config.h.intermediate libs/SDL/CMakeFiles/git-data/grabRef.cmake: phony
 
 
 #############################################

@@ -8,21 +8,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # This assumes the SDL source is available in libs/SDL
 add_subdirectory(libs/SDL EXCLUDE_FROM_ALL)
 
-# This assumes the SDL_image source is available in libs/SDL_image
-add_subdirectory(libs/SDL_image EXCLUDE_FROM_ALL)
-
 find_package(OpenGL REQUIRED)
 
 # Protogen Library
 file(GLOB_RECURSE PROTOGEN_SOURCES
     "src/protogen/*.cpp"
     "src/protogen/*.c"
+    "libs/lodepng/*.cpp"
 )
 
 set(EXTERNAL_INCLUDE_DIRS
     libs
     libs/SDL/include
-    libs/SDL_image/include/SDL3_image
+    libs/lodepng
 )
 
 add_library(Protogen ${PROTOGEN_SOURCES})
@@ -30,6 +28,7 @@ target_include_directories(Protogen PRIVATE
     ${EXTERNAL_INCLUDE_DIRS}
     src/protogen
 )
+target_link_libraries(Protogen)
 
 # ---- Protogen Studio ---- 
 file(GLOB_RECURSE STUDIO_SOURCES
@@ -67,7 +66,7 @@ target_include_directories(ProtogenStudio PRIVATE
     ${INTERNAL_INCLUDE_DIRS}
     src/
 )
-target_link_libraries(ProtogenStudio Protogen SDL3::SDL3 OpenGL::GL SDL3_image::SDL3_image)
+target_link_libraries(ProtogenStudio Protogen SDL3::SDL3 OpenGL::GL)
 
 # ---- Post Build ----
 file(COPY assets DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

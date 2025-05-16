@@ -5572,3 +5572,85 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1237 (message)"
+      - "C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineASMCompiler.cmake:135 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "libs/libpng/CMakeLists.txt:28 (project)"
+    message: |
+      Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+      cc.exe (Rev2, Built by MSYS2 project) 14.2.0
+      Copyright (C) 2024 Free Software Foundation, Inc.
+      This is free software; see the source for copying conditions.  There is NO
+      warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "C:/msys64/ucrt64/share/cmake/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "libs/libpng/CMakeLists.txt:393 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_LD_VERSION_SCRIPT"
+    directories:
+      source: "C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/CMakeScratch/TryCompile-czw7xo"
+      binary: "C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/CMakeScratch/TryCompile-czw7xo"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_LD_VERSION_SCRIPT"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/CMakeScratch/TryCompile-czw7xo'
+        
+        Run Build Command(s): C:/msys64/ucrt64/bin/ninja.exe -v cmTC_b0648
+        [1/2] C:\\msys64\\ucrt64\\bin\\cc.exe -DHAVE_LD_VERSION_SCRIPT  -Wl,--version-script='C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/libpng/conftest.map' -o CMakeFiles/cmTC_b0648.dir/src.c.obj -c C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/CMakeScratch/TryCompile-czw7xo/src.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\ucrt64\\bin\\cc.exe -Wl,--version-script='C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/libpng/conftest.map'  CMakeFiles/cmTC_b0648.dir/src.c.obj -o cmTC_b0648.exe -Wl,--out-implib,libcmTC_b0648.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        FAILED: cmTC_b0648.exe 
+        C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\ucrt64\\bin\\cc.exe -Wl,--version-script='C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/libpng/conftest.map'  CMakeFiles/cmTC_b0648.dir/src.c.obj -o cmTC_b0648.exe -Wl,--out-implib,libcmTC_b0648.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open linker script file 'C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/libpng/conftest.map': Invalid argument\x0d
+        collect2.exe: error: ld returned 1 exit status
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "C:/msys64/ucrt64/share/cmake/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "libs/libpng/CMakeLists.txt:406 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_SOLARIS_LD_VERSION_SCRIPT"
+    directories:
+      source: "C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/CMakeScratch/TryCompile-inhu7o"
+      binary: "C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/CMakeScratch/TryCompile-inhu7o"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SOLARIS_LD_VERSION_SCRIPT"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/CMakeScratch/TryCompile-inhu7o'
+        
+        Run Build Command(s): C:/msys64/ucrt64/bin/ninja.exe -v cmTC_c22c4
+        [1/2] C:\\msys64\\ucrt64\\bin\\cc.exe -DHAVE_SOLARIS_LD_VERSION_SCRIPT  -Wl,-M -Wl,C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/libpng/conftest.map -o CMakeFiles/cmTC_c22c4.dir/src.c.obj -c C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/CMakeScratch/TryCompile-inhu7o/src.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\ucrt64\\bin\\cc.exe -Wl,-M -Wl,C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/libpng/conftest.map  CMakeFiles/cmTC_c22c4.dir/src.c.obj -o cmTC_c22c4.exe -Wl,--out-implib,libcmTC_c22c4.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        FAILED: cmTC_c22c4.exe 
+        C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\ucrt64\\bin\\cc.exe -Wl,-M -Wl,C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/libpng/conftest.map  CMakeFiles/cmTC_c22c4.dir/src.c.obj -o cmTC_c22c4.exe -Wl,--out-implib,libcmTC_c22c4.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe:C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/libpng/conftest.map: file format not recognized; treating as linker script\x0d
+        C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe:C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/libpng/conftest.map:2: syntax error\x0d
+        collect2.exe: error: ld returned 1 exit status
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...

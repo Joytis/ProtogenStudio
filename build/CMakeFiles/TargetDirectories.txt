@@ -7,6 +7,3 @@ C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/CMakeFiles/SDL3_te
 C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/CMakeFiles/SDL_uclibc.dir
 C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/CMakeFiles/edit_cache.dir
 C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/CMakeFiles/rebuild_cache.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL_image/CMakeFiles/SDL3_image-shared.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL_image/CMakeFiles/edit_cache.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL_image/CMakeFiles/rebuild_cache.dir

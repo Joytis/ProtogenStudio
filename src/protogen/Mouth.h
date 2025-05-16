@@ -6,7 +6,7 @@
 
 namespace Proto
 {
-    class Mouth
+    struct Mouth
     {
         void LoadFromImage(SDL_Surface* surface);
 
