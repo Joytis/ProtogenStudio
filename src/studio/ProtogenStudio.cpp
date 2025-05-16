@@ -14,7 +14,12 @@ namespace Studio
 
     void ProtogenStudio::LoadProject(std::filesystem::path& path)
     {
+        // Initialze the project. 
         _project.LoadProject(path);
+
+        // re-create our protogen
+        _protogen = std::make_unique<Proto::Protogen>(_project.Settings());
+
         _initialized = true;
     }
 
@@ -45,7 +50,7 @@ namespace Studio
 
     void ProtogenStudio::Reload()
     {
-        _project.LoadProject(_rootPath);
+        LoadProject(_rootPath);
         _statusBar.SetStatus(StatusBar::Status::Info, "Reload successful!");
     }
 
@@ -103,6 +108,7 @@ namespace Studio
 
             RenderStudioSettings();
             ProtoWindows::RenderProjectSettingsWindow(_project.Settings());
+            ProtoWindows::RenderProtogenPanelsWindow(*_protogen);
             ImGui::End();
         }
 

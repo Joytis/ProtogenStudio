@@ -1,5 +1,6 @@
 #pragma once
 
+#include "protogen/Protogen.h"
 #include "protogen/ProtogenProject.h"
 
 #include "StatusBar.h"
@@ -32,7 +33,7 @@ namespace Studio
         
         void CheckInput();
 
-        bool showDemoWindow = true;
+        bool showDemoWindow = false;
         bool showAnotherWindow = false;
         ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
         
@@ -46,5 +47,7 @@ namespace Studio
         std::filesystem::path _rootPath;
         Proto::ProtogenProject _project;
         Studio::StatusBar _statusBar;
+
+        std::unique_ptr<Proto::Protogen> _protogen;
     };
 }

@@ -19,5 +19,7 @@ namespace Proto
 
         bool _isLoaded = false;
         ProjectSettings _settings;
+
+        
     };
 }

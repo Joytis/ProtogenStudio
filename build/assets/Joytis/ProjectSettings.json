@@ -1,4 +1,4 @@
 {
-    "PanelWidth": 64,
-    "PanelHeight": 16
+    "FacePanelWidth": 64,
+    "FacePanelHeight": 32
 }

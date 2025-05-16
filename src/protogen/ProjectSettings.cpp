@@ -9,13 +9,13 @@ namespace Proto
 {
     void ProjectSettings::Load(rapidjson::Value& value)
     {
-        panelWidth = Utils::GetIntOr(value, "PanelWidth", 0);
-        panelHeight = Utils::GetIntOr(value, "PanelHeight", 0);
+        facePanelWidth = Utils::GetIntOr(value, "FacePanelWidth", 0);
+        facePanelHeight = Utils::GetIntOr(value, "FacePanelHeight", 0);
     }
 
     void ProjectSettings::Save(rapidjson::Value& value, rapidjson::Document& d)
     {
-        value.AddMember("PanelWidth", panelWidth, d.GetAllocator());
-        value.AddMember("PanelHeight", panelHeight, d.GetAllocator());
+        value.AddMember("FacePanelWidth", facePanelWidth, d.GetAllocator());
+        value.AddMember("FacePanelHeight", facePanelHeight, d.GetAllocator());
     }
 }

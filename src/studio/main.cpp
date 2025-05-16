@@ -14,8 +14,9 @@
 #include "ProtogenStudio.h"
 
 #include <stdio.h>
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_opengl.h>
+#include "SDL3/SDL.h"
+#include "SDL_image.h"
+#include "SDL3/SDL_opengl.h"
 
 #include <iostream>
 

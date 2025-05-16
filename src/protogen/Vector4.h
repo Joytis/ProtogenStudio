@@ -1,5 +1,7 @@
 #pragma once
 
+#include "rapidjson/document.h"
+
 namespace Proto
 {
     struct Vector4
@@ -12,4 +14,14 @@ namespace Proto
         void Load(rapidjson::Value& value);
         void Save(rapidjson::Value& value);
     };
+
+    namespace Color
+    {
+        static constexpr Vector4 Black = Vector4(0.0f, 0.0f, 0.0f, 1.0f);
+        static constexpr Vector4 White = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+        static constexpr Vector4 Red = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+        static constexpr Vector4 Blue = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+        static constexpr Vector4 Green = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+    }
+
 }

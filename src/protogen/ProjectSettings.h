@@ -9,8 +9,8 @@ namespace Proto
 {
     struct ProjectSettings
     {
-        int panelWidth;
-        int panelHeight;
+        int facePanelWidth;
+        int facePanelHeight;
         
         void Load(rapidjson::Value& value);
         void Save(rapidjson::Value& value, rapidjson::Document& d);
