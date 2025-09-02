@@ -1,6 +1,7 @@
 #pragma once
 
 #include "rapidjson/document.h"
+#include "Common.h"
 
 namespace Proto
 {
@@ -10,6 +11,16 @@ namespace Proto
     
         constexpr Vector4() : x(0.0f), y(0.0f), z(0.0f), w(0.0f) { }
         constexpr Vector4(float _x, float _y, float _z, float _w)  : x(_x), y(_y), z(_z), w(_w) { }
+
+        constexpr u32 ToRGBA() const
+        {
+            u32 returnColor = 0;
+            returnColor |= static_cast<u8>(x * 255) << 24;
+            returnColor |= static_cast<u8>(y * 255) << 16;
+            returnColor |= static_cast<u8>(z * 255) << 8;
+            returnColor |= static_cast<u8>(w * 255) << 0;
+            return returnColor;
+        }
 
         void Load(rapidjson::Value& value);
         void Save(rapidjson::Value& value);

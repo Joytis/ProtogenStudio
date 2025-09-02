@@ -2,10 +2,10 @@
 
 namespace Proto
 {
-    Expression::Expression(std::filesystem::path& rootPath, SDL_Surface* surface) :
+    Expression::Expression(std::filesystem::path& rootPath, u32 width, u32 height) :
         path(rootPath),
-        grid(surface->w, surface->h, false)
+        grid(width, height, false)
     {
-           
+        
     }
 }

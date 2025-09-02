@@ -2,6 +2,7 @@
 
 #include "Grid.h"
 #include "ProjectSettings.h"
+#include "ProtogenProject.h"
 #include "Vector4.h"
 
 #include <vector>
@@ -11,9 +12,11 @@ namespace Proto
 {
     struct Protogen
     {
-        using Vector4GridList = std::vector<std::unique_ptr<Vector4Grid>>;
+        using Vector4GridList = std::vector<Vector4Grid>;
 
         Protogen(const ProjectSettings& settings);
+
+        void Update(ProtogenProject& project, float deltaTime);
 
         Vector4GridList faceGrids;
     };

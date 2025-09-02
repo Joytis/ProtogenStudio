@@ -116,7 +116,7 @@ int main(int, char**)
         ImGui_ImplSDL3_NewFrame();
         
         // Studio render
-        bool studioSuccess = studio.Render(io);
+        bool studioSuccess = studio.Render(io, *window);
 
         // Render viewport
         glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);

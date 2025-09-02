@@ -23,15 +23,21 @@ namespace Studio
         void Save();
         void Reload();
         
-        bool Render(ImGuiIO& io);
+        bool Render(ImGuiIO& io, SDL_Window& window);
         
         void RenderStudioSettings();
         
-        bool RenderStandardUI(ImGuiIO& io);
+        bool RenderStandardUI(ImGuiIO& io, SDL_Window& window);
+        void RenderProtogenPanelsWindow();
+
+
         bool RenderProjectLoadUI(ImGuiIO& io);
         bool RenderErrorUI(ImGuiIO& io);
         
         void CheckInput();
+
+        void GenerateTextures(SDL_Window& window);
+        void ClearTextures();
 
         bool showDemoWindow = false;
         bool showAnotherWindow = false;
@@ -49,5 +55,6 @@ namespace Studio
         Studio::StatusBar _statusBar;
 
         std::unique_ptr<Proto::Protogen> _protogen;
+        std::vector<SDL_Texture*> _textures;
     };
 }

@@ -7,7 +7,4 @@
 namespace Studio::ProtoWindows
 {
     void RenderProjectSettingsWindow(Proto::ProjectSettings& settings);
-
-    void RenderProtogenPanelsWindow(const Proto::Protogen& protogen);
-
 }

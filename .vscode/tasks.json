@@ -8,11 +8,12 @@
             "command": "cmake",
             "args": [
                 "-S", "${workspaceFolder}",
-                "-B", "${workspaceFolder}/build"
+                "-B", "${workspaceFolder}/build",
+                "-DCMAKE_BUILD_TYPE=Debug"
             ],
             "group": "build",
             "problemMatcher": [],
-            "detail": "Configure all CMake projects"
+            "detail": "Configure all CMake projects with Debug build type"
         },
         {
             "label": "CMake: build",

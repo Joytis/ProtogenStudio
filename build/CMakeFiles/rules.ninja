@@ -7,14 +7,14 @@
 
 # =============================================================================
 # Project: protogen_studio
-# Configurations: 
+# Configurations: Debug
 # =============================================================================
 # =============================================================================
 
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__Protogen_
+rule CXX_SCAN__Protogen_Debug
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -23,7 +23,7 @@ rule CXX_SCAN__Protogen_
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__Protogen_
+rule CXX_DYNDEP__Protogen_Debug
   command = C:\msys64\ucrt64\bin\cmake.exe -E cmake_ninja_dyndep --tdi=CMakeFiles\Protogen.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
@@ -34,7 +34,7 @@ rule CXX_DYNDEP__Protogen_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__Protogen_scanned_
+rule CXX_COMPILER__Protogen_scanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -44,7 +44,7 @@ rule CXX_COMPILER__Protogen_scanned_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__Protogen_unscanned_
+rule CXX_COMPILER__Protogen_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -54,7 +54,7 @@ rule CXX_COMPILER__Protogen_unscanned_
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__Protogen_
+rule CXX_SHARED_LIBRARY_LINKER__Protogen_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -shared -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   restat = $RESTAT
@@ -63,7 +63,7 @@ rule CXX_SHARED_LIBRARY_LINKER__Protogen_
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__ProtogenStudio_
+rule CXX_SCAN__ProtogenStudio_Debug
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -72,7 +72,7 @@ rule CXX_SCAN__ProtogenStudio_
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__ProtogenStudio_
+rule CXX_DYNDEP__ProtogenStudio_Debug
   command = C:\msys64\ucrt64\bin\cmake.exe -E cmake_ninja_dyndep --tdi=CMakeFiles\ProtogenStudio.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
@@ -83,7 +83,7 @@ rule CXX_DYNDEP__ProtogenStudio_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__ProtogenStudio_scanned_
+rule CXX_COMPILER__ProtogenStudio_scanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -93,7 +93,7 @@ rule CXX_COMPILER__ProtogenStudio_scanned_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__ProtogenStudio_unscanned_
+rule CXX_COMPILER__ProtogenStudio_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -103,7 +103,7 @@ rule CXX_COMPILER__ProtogenStudio_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__ProtogenStudio_
+rule CXX_EXECUTABLE_LINKER__ProtogenStudio_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -120,7 +120,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__SDL3-shared_unscanned_
+rule C_COMPILER__SDL3-shared_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\cc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -130,7 +130,7 @@ rule C_COMPILER__SDL3-shared_unscanned_
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__SDL3-shared_
+rule CXX_SCAN__SDL3-shared_Debug
   depfile = $DEP_FILE
   command = C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -139,7 +139,7 @@ rule CXX_SCAN__SDL3-shared_
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__SDL3-shared_
+rule CXX_DYNDEP__SDL3-shared_Debug
   command = C:\msys64\ucrt64\bin\cmake.exe -E cmake_ninja_dyndep --tdi=libs\SDL\CMakeFiles\SDL3-shared.dir\CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
@@ -150,7 +150,7 @@ rule CXX_DYNDEP__SDL3-shared_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__SDL3-shared_scanned_
+rule CXX_COMPILER__SDL3-shared_scanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -160,7 +160,7 @@ rule CXX_COMPILER__SDL3-shared_scanned_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__SDL3-shared_unscanned_
+rule CXX_COMPILER__SDL3-shared_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\c++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -170,7 +170,7 @@ rule CXX_COMPILER__SDL3-shared_unscanned_
 #############################################
 # Rule for compiling RC files.
 
-rule RC_COMPILER__SDL3-shared_unscanned_
+rule RC_COMPILER__SDL3-shared_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\windres.exe -O coff $DEFINES $INCLUDES $FLAGS $in $out
@@ -180,7 +180,7 @@ rule RC_COMPILER__SDL3-shared_unscanned_
 #############################################
 # Rule for linking CXX shared library.
 
-rule CXX_SHARED_LIBRARY_LINKER__SDL3-shared_
+rule CXX_SHARED_LIBRARY_LINKER__SDL3-shared_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\c++.exe $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -shared -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 @$RSP_FILE && $POST_BUILD"
   description = Linking CXX shared library $TARGET_FILE
   rspfile = $RSP_FILE
@@ -191,7 +191,7 @@ rule CXX_SHARED_LIBRARY_LINKER__SDL3-shared_
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__SDL3_test_unscanned_
+rule C_COMPILER__SDL3_test_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\cc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -201,7 +201,7 @@ rule C_COMPILER__SDL3_test_unscanned_
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER__SDL3_test_
+rule C_STATIC_LIBRARY_LINKER__SDL3_test_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\cmake.exe -E rm -f $TARGET_FILE && C:\msys64\ucrt64\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\msys64\ucrt64\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -210,7 +210,7 @@ rule C_STATIC_LIBRARY_LINKER__SDL3_test_
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__SDL_uclibc_unscanned_
+rule C_COMPILER__SDL_uclibc_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\ucrt64\bin\cc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -220,7 +220,7 @@ rule C_COMPILER__SDL_uclibc_unscanned_
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER__SDL_uclibc_
+rule C_STATIC_LIBRARY_LINKER__SDL_uclibc_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && C:\msys64\ucrt64\bin\cmake.exe -E rm -f $TARGET_FILE && C:\msys64\ucrt64\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\msys64\ucrt64\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT

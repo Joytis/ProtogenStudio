@@ -21,10 +21,10 @@ namespace Proto
             assert(height <= MAX_GRID_HEIGHT);
         }
 
-        int Width() { return _width; }
-        int Height() { return _height; }
+        int Width() const { return _width; }
+        int Height() const { return _height; }
 
-        int GetIndex(int x, int y)
+        int GetIndex(int x, int y) const
         {
             assert(x < _width);
             assert(y < _height);
@@ -49,7 +49,12 @@ namespace Proto
             }
         }
 
-        T& Get(int x, int y)
+        const T& Get(int x, int y) const
+        {
+            return _buffer[GetIndex(x, y)];
+        }
+
+        T& GetMutable(int x, int y)
         {
             return _buffer[GetIndex(x, y)];
         }

@@ -19,6 +19,9 @@ namespace Proto
 
         ProjectSettings& Settings() { return _settings; }
 
+        const std::vector<Expression>& Expressions() { return _expressions; }
+        const std::vector<Mouth>& Mouths() { return _mouths; }
+
     private:
 
         bool _isLoaded = false;
