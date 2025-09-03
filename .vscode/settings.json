@@ -7,6 +7,11 @@
         "Protogen",
         "Roboto",
         "segoeui"
-    ]
+    ],
+    "files.exclude": {
+        "**/*.rpyc": true,
+        "**/*.rpa": true,
+        "**/*.rpymc": true,
+        "**/cache/": true
+    }
 }
-    

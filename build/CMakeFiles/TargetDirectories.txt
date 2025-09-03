@@ -1,9 +1,0 @@
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/Protogen.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/ProtogenStudio.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/edit_cache.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/CMakeFiles/rebuild_cache.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/CMakeFiles/SDL3-shared.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/CMakeFiles/SDL3_test.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/CMakeFiles/SDL_uclibc.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/CMakeFiles/edit_cache.dir
-C:/Users/Clark/Documents/GitHub/ProtogenStudio/build/libs/SDL/CMakeFiles/rebuild_cache.dir

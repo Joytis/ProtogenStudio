@@ -17,6 +17,8 @@
 #include "SDL3/SDL.h"
 #include "SDL3/SDL_opengl.h"
 
+// Include all external .cpp files for our unity build. Nice. 
+
 #include <iostream>
 
 // Main code
