@@ -19,6 +19,7 @@ namespace Studio
         bool IsInitialized();
 
         void LoadProject(std::filesystem::path& path);
+        void CreateFaceTextures(SDL_Window* window);
 
         void Save();
         void Reload();
@@ -37,7 +38,6 @@ namespace Studio
         void CheckInput();
 
         void GenerateTextures(SDL_Window& window);
-        void ClearTextures();
 
         bool showDemoWindow = false;
         bool showAnotherWindow = false;
@@ -54,7 +54,7 @@ namespace Studio
         Proto::ProtogenProject _project;
         Studio::StatusBar _statusBar;
 
-        std::unique_ptr<Proto::Protogen> _protogen;
+        Proto::Protogen _protogen;
         std::vector<SDL_Texture*> _textures;
     };
 }

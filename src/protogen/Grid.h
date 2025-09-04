@@ -51,17 +51,20 @@ namespace Proto
 
         const T& Get(int x, int y) const
         {
-            return _buffer[GetIndex(x, y)];
+            int index = GetIndex(x, y);
+            return _buffer[index];
         }
 
         T& GetMutable(int x, int y)
         {
-            return _buffer[GetIndex(x, y)];
+            int index = GetIndex(x, y);
+            return _buffer[index];
         }
 
-        void Set(int x, int y, T& value)
+        void Set(int x, int y, const T& value)
         {
-            _buffer[GetIndex(x, y)] = value;
+            int index = GetIndex(x, y);
+            _buffer[index] = value;
         }
 
     private:

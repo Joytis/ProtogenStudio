@@ -11,18 +11,8 @@ namespace SDL
             return nullptr;
         }
     
-        // GL 3.0 + GLSL 130
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
-    
-        // Create window with graphics context
-        SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-        SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-        SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-        SDL_WindowFlags window_flags = SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIDDEN | SDL_WINDOW_HIGH_PIXEL_DENSITY;
-        SDL_Window* window = SDL_CreateWindow("Dear ImGui SDL3+OpenGL3 example", 1920, 1080, window_flags);
+        SDL_WindowFlags window_flags = SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIDDEN | SDL_WINDOW_HIGH_PIXEL_DENSITY;
+        SDL_Window* window = SDL_CreateWindow("Dear ImGui SDL3", 1920, 1080, window_flags);
         if (window == nullptr)
         {
             printf("Error: SDL_CreateWindow(): %s\n", SDL_GetError());
@@ -30,6 +20,20 @@ namespace SDL
         }
         
         return window;
+    }
+
+    SDL_Renderer* MakeRenderer(SDL_Window* window)
+    {
+        SDL_Renderer* renderer = SDL_CreateRenderer(window, nullptr);
+        SDL_SetRenderVSync(renderer, 1);
+        if (renderer == nullptr)
+        {
+            SDL_Log("Error: SDL_CreateRenderer(): %s\n", SDL_GetError());
+            return nullptr;
+        }
+        SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+        SDL_ShowWindow(window);
+        return renderer;
     }
 
     SDL_GLContext MakeGLContext(SDL_Window* window)
@@ -87,25 +91,19 @@ namespace SDL
         return ProcessResult::NotDone;
     }
 
-    void Viewport(int width, int height, ImVec4 color)
+    void Render(SDL_Renderer* renderer, ImGuiIO& io, ImVec4 color)
     {
-        // Render viewport
-        glViewport(0, 0, width, height);
-
-        glClearColor(color.x * color.w, color.y * color.w, color.z * color.w, color.w);
-        glClear(GL_COLOR_BUFFER_BIT);
+        SDL_SetRenderScale(renderer, io.DisplayFramebufferScale.x, io.DisplayFramebufferScale.y);
+        SDL_SetRenderDrawColorFloat(renderer, color.x * color.w, color.y * color.w, color.z * color.w, color.w);
+        SDL_RenderClear(renderer);
+        ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData(), renderer);
+        SDL_RenderPresent(renderer);
     }
 
-    void SwapBackbuffer(SDL_Window* window)
+    void Shutdown(SDL_Window* window, SDL_Renderer* renderer)
     {
-        SDL_GL_SwapWindow(window);
-    }
-
-    void Shutdown(SDL_GLContext context, SDL_Window* window)
-    {
-        SDL_GL_DestroyContext(context);
+        SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
         SDL_Quit();
     }
-
 }

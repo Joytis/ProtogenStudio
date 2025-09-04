@@ -2,28 +2,43 @@
 
 namespace Proto
 {
-    Protogen::Protogen(const ProjectSettings& settings)
+    void Protogen::Load(const ProjectSettings& settings)
     {
-        auto& grid = faceGrids.emplace_back(settings.facePanelWidth, settings.facePanelHeight, false);
-        grid.Fill(Color::Black);
+        faceGrids.clear();
+        auto& grid1 = faceGrids.emplace_back(settings.facePanelWidth, settings.facePanelHeight, true);
+        grid1.Fill(Color::Black);
 
-        grid = faceGrids.emplace_back(settings.facePanelWidth, settings.facePanelHeight, true);
-        grid.Fill(Color::Black);
+        auto& grid2 = faceGrids.emplace_back(settings.facePanelWidth, settings.facePanelHeight, true);
+        grid2.Fill(Color::Black);
     }
 
     void Protogen::Update(ProtogenProject& project, float deltaTime)
     {
-        // Update the face grids
-
         // Blend between all expressions 
-        // TODO: Actually blend. Right now, we're just blanket applying them. 
         for(Vector4Grid& faceGrid : faceGrids)
         {
             for(const Expression& expression : project.Expressions())
             {
-                const auto& grid = expression.grid;
-                assert(faceGrid.Width() == grid.Width());
-                assert(faceGrid.Height() == grid.Height());
+                assert(faceGrid.Width() == expression.grid.Width());
+                assert(faceGrid.Height() == expression.grid.Height());
+
+                int width = faceGrid.Width();
+                int height = faceGrid.Height();
+
+                // Simply iterate over the thing
+                for (int y = 0; y < height; ++y) 
+                {
+                    for (int x = 0; x < width; ++x) 
+                    {
+                        // Figure out appropriate color mechanism. 
+                        u8 expr = expression.grid.Get(x, y);
+                        Vector4 color(expr, expr, expr, 255);
+                        faceGrid.Set(x, y, color);
+
+                        // Vector4 color((float)x / width, (float)y / height, 0.0, 1.0);
+                        // faceGrid.Set(x, y, color);
+                    }
+                }
             }
         }
     }

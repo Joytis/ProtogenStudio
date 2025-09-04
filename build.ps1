@@ -90,8 +90,7 @@ $StudioArguments = (
     '/I', '.\src',
     '/I', '.\src\protogen',
     $StudioMain,
-    $SDLLocation,
-    "opengl32.lib"
+    $SDLLocation
 )
 
 $NeedsRecompile = $false

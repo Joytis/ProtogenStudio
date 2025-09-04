@@ -33,11 +33,23 @@ namespace Proto
             std::vector<u8> image;
             u32 width, height;
             u32 error = lodepng::decode(image, width, height, expressionFile.string().c_str());
-            
-            Expression& expression = _expressions.emplace_back(rootExpresisonPath, width, height);
 
-            // If there's an error, display it.
-            std::cout << width << ", " << height << ", " << image.size() << std::endl;
+            // Expect RGB format
+            assert(width * height * 4 == image.size());
+            assert(error == 0);
+
+            // Load the expression into memory.. As... Greyscale! I guess. 
+            Expression& expression = _expressions.emplace_back(rootExpresisonPath, width, height);
+            expression.grid.Fill(0);
+
+            for(int y = 0; y < height; y++)
+            {
+                for(int x = 0; x < width; x++)
+                {
+                    int baseIndex = (y * (width * 4) + (x * 4));
+                    expression.grid.Set(x, y, image[baseIndex]);
+                }
+            }
         }
     }
 

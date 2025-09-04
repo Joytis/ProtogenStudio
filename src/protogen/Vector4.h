@@ -11,6 +11,7 @@ namespace Proto
     
         constexpr Vector4() : x(0.0f), y(0.0f), z(0.0f), w(0.0f) { }
         constexpr Vector4(float _x, float _y, float _z, float _w)  : x(_x), y(_y), z(_z), w(_w) { }
+        constexpr Vector4(u8 _x, u8 _y, u8 _z, u8 _w)  : x(_x / 256.0f), y(_y / 256.0f), z(_z / 256.0f), w(_w / 256.0f) { }
 
         constexpr u32 ToRGBA() const
         {
@@ -31,8 +32,8 @@ namespace Proto
         static constexpr Vector4 Black = Vector4(0.0f, 0.0f, 0.0f, 1.0f);
         static constexpr Vector4 White = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
         static constexpr Vector4 Red = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
-        static constexpr Vector4 Blue = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
-        static constexpr Vector4 Green = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+        static constexpr Vector4 Green = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+        static constexpr Vector4 Blue = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
     }
 
 }

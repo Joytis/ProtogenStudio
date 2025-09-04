@@ -21,10 +21,10 @@ int main(int, char**)
 {
     // SDL
     SDL_Window* window = SDL::CreateSDL3Window();
-    SDL_GLContext gl_context = SDL::MakeGLContext(window);
+    SDL_Renderer* renderer = SDL::MakeRenderer(window);
 
     // ImGUI
-    ImGuiIO& io = ImGUI::CreateImGUIIO(window, gl_context);
+    ImGuiIO& io = ImGUI::CreateImGUIIO(window, renderer);
 
     // TODO - Implement a 'project picker' before we select our current protogen. 
 
@@ -47,16 +47,16 @@ int main(int, char**)
         }
         
         // Start the Dear ImGui frame
-        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplSDLRenderer3_NewFrame();
         ImGui_ImplSDL3_NewFrame();
         
         // Studio render
+        ImGui::NewFrame();
         bool studioSuccess = studio.Render(io, *window);
+        ImGui::Render();
 
         // Render viewport
-        SDL::Viewport((int)io.DisplaySize.x, (int)io.DisplaySize.y, studio.clear_color);
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        SDL::SwapBackbuffer(window);
+        SDL::Render(renderer, io, studio.clear_color);
     }
 
 #ifdef __EMSCRIPTEN__
@@ -64,6 +64,6 @@ int main(int, char**)
 #endif
    
     ImGUI::Shutdown();
-    SDL::Shutdown(gl_context, window);
+    SDL::Shutdown(window, renderer);
     return 0;
 }

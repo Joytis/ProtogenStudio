@@ -1,7 +1,7 @@
 
 namespace ImGUI
 {
-    ImGuiIO& CreateImGUIIO(SDL_Window* window, SDL_GLContext context)
+    ImGuiIO& CreateImGUIIO(SDL_Window* window, SDL_Renderer* renderer)
     {
         // Setup Dear ImGui context
         IMGUI_CHECKVERSION();
@@ -17,9 +17,8 @@ namespace ImGUI
         ImGui::StyleColorsDark();
 
         // Setup Platform/Renderer backends
-        const char* glsl_version = "#version 130";
-        ImGui_ImplSDL3_InitForOpenGL(window, context);
-        ImGui_ImplOpenGL3_Init(glsl_version);
+        ImGui_ImplSDL3_InitForSDLRenderer(window, renderer);
+        ImGui_ImplSDLRenderer3_Init(renderer);
         return io;
     }
 
@@ -27,7 +26,7 @@ namespace ImGUI
     {
         // Cleanup
         // [If using SDL_MAIN_USE_CALLBACKS: all code below would likely be your SDL_AppQuit() function]
-        ImGui_ImplOpenGL3_Shutdown();
+        ImGui_ImplSDLRenderer3_Shutdown();
         ImGui_ImplSDL3_Shutdown();
         ImGui::DestroyContext();
     }

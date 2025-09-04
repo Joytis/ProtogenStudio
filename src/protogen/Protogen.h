@@ -14,8 +14,7 @@ namespace Proto
     {
         using Vector4GridList = std::vector<Vector4Grid>;
 
-        Protogen(const ProjectSettings& settings);
-
+        void Load(const ProjectSettings& settings);
         void Update(ProtogenProject& project, float deltaTime);
 
         Vector4GridList faceGrids;

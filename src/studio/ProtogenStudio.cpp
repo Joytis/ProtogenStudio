@@ -16,17 +16,45 @@ namespace Studio
         return _initialized;
     }
 
+
     void ProtogenStudio::LoadProject(std::filesystem::path& path)
     {
         // Initialze the project. 
         _project.LoadProject(path);
 
         // re-create our protogen
-        _protogen = std::make_unique<Proto::Protogen>(_project.Settings());
+        _protogen.Load(_project.Settings());
+        
 
         _initialized = true;
     }
 
+    void ProtogenStudio::CreateFaceTextures(SDL_Window* window)
+    {
+        for(SDL_Texture* texture : _textures)
+        {
+            SDL_DestroyTexture(texture);
+        }
+        _textures.clear();
+
+        // Create some textures
+        for(auto& faceGrid : _protogen.faceGrids)
+        {
+            int width = faceGrid.Width();
+            int height = faceGrid.Height();
+
+            SDL_Texture* texture = SDL_CreateTexture(
+                SDL_GetRenderer(window), 
+                SDL_PIXELFORMAT_RGBA8888, 
+                SDL_TEXTUREACCESS_STREAMING, 
+                width, 
+                height
+            );
+            SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_NEAREST);
+            
+            _textures.push_back(texture);
+        }
+    }
     
     bool ProtogenStudio::RenderErrorUI(ImGuiIO& io)
     {
@@ -87,7 +115,7 @@ namespace Studio
         float dt = io.DeltaTime;
 
         // Update the protogen
-        _protogen->Update(_project, dt);
+        _protogen.Update(_project, dt);
         GenerateTextures(window);
 
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
@@ -139,50 +167,37 @@ namespace Studio
 
     void ProtogenStudio::GenerateTextures(SDL_Window& window)
     {
-        for(int i = 0; i < _protogen->faceGrids.size(); i++)
-        {
-            // Render a grid. 
-            const auto& grid = _protogen->faceGrids[i];
-            int width = grid.Width();
-            int height = grid.Height();
+        assert(_protogen.faceGrids.size() == _textures.size());
 
-            SDL_Texture* texture = SDL_CreateTexture(
-                SDL_GetRenderer(&window), 
-                SDL_PIXELFORMAT_RGBA8888, 
-                SDL_TEXTUREACCESS_STREAMING, 
-                width, 
-                height
-            );
-        
+        for(int i = 0; i < _protogen.faceGrids.size(); i++)
+        {
+            SDL_Texture* texture = _textures[i];
+            auto& faceGrid = _protogen.faceGrids[i];
+            int width = faceGrid.Width();
+            int height = faceGrid.Height();
+
             // Nested, colored grid elements
             void *pixels;
             int pitch;
-            SDL_LockTexture(texture, NULL, &pixels, &pitch);
-
-            // Example: Set a pixel to red
-            u32* pixel_data = (u32*)pixels;
-            
-            
-            for(int y = 0; y < height; y++)
-            {   
-                for(int x = 0; x < width; x++)
+            if(SDL_LockTexture(texture, NULL, &pixels, &pitch))
+            {
+                u32* pixel_data = static_cast<u32*>(pixels);
+                for (int y = 0; y < height; ++y) 
                 {
-                    // pixel_data[y * (pitch / sizeof(u32)) + x] = grid.Get(x, y).ToRGBA(); // RGBA
-                    float fWidth = static_cast<float>(width);
-                    float fHeight = static_cast<float>(height);
-                    u8 r = static_cast<u8>(((x / fWidth) * 255.0f));
-                    u8 g = static_cast<u8>(((y / fHeight) * 255.0f));
-
-                    // u32 testColor = 0; 
-                    // testColor |= (r << 24);
-                    // testColor |= (r << 16);
-                    // testColor |= (0xFF);
-                    // pixel_data[y * (pitch / sizeof(u32)) + x] = testColor; // RGBA
-
+                    for (int x = 0; x < width; ++x) 
+                    {
+                        pixel_data[y * (pitch / sizeof(u32)) + x] = faceGrid.Get(x, y).ToRGBA();
+                    }
                 }
+
+                SDL_UnlockTexture(texture);
+            } 
+            else 
+            {
+                // Handle error
+                std::cerr << "SDL_LockTexture failed: " << SDL_GetError() << std::endl;
             }
-            SDL_UnlockTexture(texture);
-            _textures.push_back(texture);
+
         }
     }
 
@@ -190,9 +205,9 @@ namespace Studio
     {
         ImGui::Begin("Protogen Panels");   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
 
-        assert(_protogen->faceGrids.size() == _textures.size());
+        assert(_protogen.faceGrids.size() == _textures.size());
 
-        for(int i = 0; i < _protogen->faceGrids.size(); i++)
+        for(int i = 0; i < _protogen.faceGrids.size(); i++)
         {
             ImGui::SeparatorText("Face grid");
 
@@ -201,7 +216,7 @@ namespace Studio
 
             // Render a grid. 
             SDL_Texture* texture = _textures[i];
-            const auto& grid = _protogen->faceGrids[i];
+            const auto& grid = _protogen.faceGrids[i];
             float width = (grid.Width() * (PIXEL_WIDTH));
             float height = (grid.Height() * (PIXEL_HEIGHT));
 
@@ -213,55 +228,32 @@ namespace Studio
         ImGui::End();
     }
 
-    void ProtogenStudio::ClearTextures()
-    {
-        for(auto& texture : _textures)
-        {
-            SDL_DestroyTexture(texture);
-        }
-        _textures.clear();
-    }
-
     bool ProtogenStudio::Render(ImGuiIO& io, SDL_Window& window)
     {
         float dt = io.DeltaTime;
 
         CheckInput();
 
-        // Start ImGUI frame
-        ImGui::NewFrame();
-
         // Render the status bar at the bottom of screen. 
         _statusBar.Render(dt);
 
         bool shouldContinue = true;
-        try
+        if(_hasError)
         {
-            if(_hasError)
-            {
-                shouldContinue = RenderErrorUI(io);
-            }
-            else if(!_initialized)
-            {
-                shouldContinue = RenderProjectLoadUI(io);
-                LoadProject(_rootPath);
-                _initialized = true;
-            }
-            else
-            {
-                shouldContinue = RenderStandardUI(io, window);
-            }
+            shouldContinue = RenderErrorUI(io);
         }
-        catch (const std::exception& e)
+        else if(!_initialized)
         {
-            _hasError = true;
-            _errorMessage = e.what();
-            std::cout << "Caught an exception: " << _errorMessage << std::endl;
+            shouldContinue = RenderProjectLoadUI(io);
+            LoadProject(_rootPath);
+            CreateFaceTextures(&window);
+
+            _initialized = true;
         }
-        
-        // Rendering
-        ImGui::Render();
-        ClearTextures();
+        else
+        {
+            shouldContinue = RenderStandardUI(io, window);
+        }
 
         return shouldContinue;
     }
