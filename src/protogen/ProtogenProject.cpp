@@ -1,11 +1,6 @@
 #include "ProtogenProject.h"
 #include "Utils.h"
 
-#include "SDL3/SDL.h"
-#include "lodepng.h"
-
-#include <iostream>
-
 namespace
 {
     constexpr const char* PROJECT_SETTINGS_FILE = "ProjectSettings.json";

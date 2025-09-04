@@ -1,10 +1,6 @@
 #include "ProjectSettings.h"
 #include "Utils.h"
 
-#include "rapidjson/document.h"
-
-#include <filesystem>
-
 namespace Proto
 {
     void ProjectSettings::Load(rapidjson::Value& value)

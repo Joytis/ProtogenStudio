@@ -69,16 +69,43 @@ Write-Host "Project: Protogen Library" -ForegroundColor Green
 
 # ----------- Build protogen studio
 Write-Host "Project: Protogen Studio" -ForegroundColor Green
+
+
+
 $Includes = (
     '/I', '.\libs',
     '/I', '.\libs\imgui',
     '/I', '.\libs\imgui\backends',
     '/I', '.\libs\lodepng',
     '/I', '.\libs\SDL\include',
-    '/I', '.\src'
+    '/I', '.\src',
+    '/I', '.\src\protogen'
 )
 
-$StudioMain = 'src\studio\main.cpp'
-$StudioExecutableArg = '/Fe:'+$StudioLocation+'protogen_studio.exe'
+$SourceDirectory = ".\src"
+$StudioMain = "$($SourceDirectory)\studio\main.cpp"
+$StudioExe = "$($StudioLocation)protogen_studio.exe"
+$StudioExecutableArg = "/Fe:$($StudioExe)"
 
-& 'cl' '/std:c++20' $StudioExecutableArg $Includes $BuildFlags $StudioMain $SDLLocation "opengl32.lib"
+$NeedsRecompile = $false
+
+# If any files are newer than our build, recompile. 
+Get-ChildItem -Path $SourceDirectory -File -Recurse | ForEach-Object {
+    $SourceFile = $_
+    if (-not (Test-Path $StudioExe) -or ($SourceFile.LastWriteTime -gt (Get-Item $StudioExe).LastWriteTime)) 
+    {
+        Write-Host "Found newer file: $($SourceFile.FullName)"
+        $NeedsRecompile = $true
+    }
+}
+
+if ($NeedsRecompile) {
+    Write-Host "Recompile needed for $($StudioMain.FullName)" -ForegroundColor Green
+    & 'cl' '/std:c++20' $StudioExecutableArg $Includes $BuildFlags $StudioMain $SDLLocation "opengl32.lib"
+}
+else {
+    Write-Host "All files up to date - no work to do uwu"
+}
+
+
+Write-Host "ALL DONE <33 uwuwuwuwu" -ForegroundColor Green
