@@ -1,14 +1,21 @@
 #pragma once
 
 #include "ProjectSettings.h"
-#include "Expression.h"
-#include "Mouth.h"
 
 #include <vector>
 #include <filesystem>
 
 namespace Proto
 {
+    struct ExpressionData
+    {
+        ExpressionData(int width, int height) : grid(width, height, false) {}
+
+        Grid<u8> grid;
+    };
+
+    using ExpressionDataVector = std::vector<ExpressionData>;
+
     class ProtogenProject
     {
     public:
@@ -19,15 +26,15 @@ namespace Proto
 
         ProjectSettings& Settings() { return _settings; }
 
-        const std::vector<Expression>& Expressions() { return _expressions; }
-        const std::vector<Mouth>& Mouths() { return _mouths; }
+        const ExpressionDataVector& Expressions() { return _expressions; }
+        const ExpressionDataVector& Mouths() { return _mouths; }
 
     private:
 
         bool _isLoaded = false;
         ProjectSettings _settings;
 
-        std::vector<Expression> _expressions;
-        std::vector<Mouth> _mouths;
+        ExpressionDataVector _expressions;
+        ExpressionDataVector _mouths;
     };
 }

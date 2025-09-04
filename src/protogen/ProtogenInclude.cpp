@@ -15,13 +15,7 @@
 // Aaaaand the rest of everything. 
 #include "Common.h"
 
-#include "Expression.h"
-#include "Expression.cpp"
-
 #include "Grid.h"
-
-#include "Mouth.h"
-#include "Mouth.cpp"
 
 #include "ProjectSettings.h"
 #include "ProjectSettings.cpp"
