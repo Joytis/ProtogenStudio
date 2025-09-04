@@ -1,4 +1,18 @@
+// rapidjson
+#include "rapidjson/document.h"
+#include "rapidjson/istreamwrapper.h"
+#include "rapidjson/ostreamwrapper.h"
+#include "rapidjson/prettywriter.h"
 
+// lodepng 
+#include "lodepng.h"
+#include "lodepng.cpp"
+
+// std lib
+#include <filesystem>
+#include <fstream>
+
+// Aaaaand the rest of everything. 
 #include "Common.h"
 
 #include "Expression.h"

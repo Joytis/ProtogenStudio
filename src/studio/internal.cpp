@@ -7,3 +7,6 @@
 
 #include "StatusBar.h"
 #include "StatusBar.cpp"
+
+#include "imgui_config.cpp"
+#include "sdl3_config.cpp"

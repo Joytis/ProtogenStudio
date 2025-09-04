@@ -37,7 +37,7 @@ $SDLLocation = $SDLBuildLocation + '\SDL3.lib'
 
 # Get build arguments. 
 if ($Mode = "Debug") {
-    $BuildFlags = "/DEBUG:FULL"
+    $BuildFlags = ("/DEBUG:FULL", "/Zi")
 }
 else {
     $BuildFlags = "/O2"
@@ -70,22 +70,29 @@ Write-Host "Project: Protogen Library" -ForegroundColor Green
 # ----------- Build protogen studio
 Write-Host "Project: Protogen Studio" -ForegroundColor Green
 
+$SourceDirectory = ".\src"
+$StudioMain = "$($SourceDirectory)\studio\main.cpp"
+$StudioName = "protogen_studio"
+$StudioExe = "$($StudioLocation)\$($StudioName).exe"
+$StudioExecutableArg = "/Fe:$($StudioExe)"
+$StudioObjArg = "/Fd:$($StudioLocation)\$($StudioName).pdb"
+$StudioPdbArg = "/Fo:$($StudioLocation)\$($StudioName).obj"
 
-
-$Includes = (
+$StudioArguments = (
+    $StudioExecutableArg,
+    $StudioObjArg,
+    $StudioPdbArg,
     '/I', '.\libs',
     '/I', '.\libs\imgui',
     '/I', '.\libs\imgui\backends',
     '/I', '.\libs\lodepng',
     '/I', '.\libs\SDL\include',
     '/I', '.\src',
-    '/I', '.\src\protogen'
+    '/I', '.\src\protogen',
+    $StudioMain,
+    $SDLLocation,
+    "opengl32.lib"
 )
-
-$SourceDirectory = ".\src"
-$StudioMain = "$($SourceDirectory)\studio\main.cpp"
-$StudioExe = "$($StudioLocation)protogen_studio.exe"
-$StudioExecutableArg = "/Fe:$($StudioExe)"
 
 $NeedsRecompile = $false
 
@@ -101,11 +108,14 @@ Get-ChildItem -Path $SourceDirectory -File -Recurse | ForEach-Object {
 
 if ($NeedsRecompile) {
     Write-Host "Recompile needed for $($StudioMain.FullName)" -ForegroundColor Green
-    & 'cl' '/std:c++20' $StudioExecutableArg $Includes $BuildFlags $StudioMain $SDLLocation "opengl32.lib"
+    & 'cl' '/std:c++20'  $StudioArguments $BuildFlags 
 }
 else {
     Write-Host "All files up to date - no work to do uwu"
 }
 
+# Copy the assets to our build directory. 
 
+
+# WOOHOO!!
 Write-Host "ALL DONE <33 uwuwuwuwu" -ForegroundColor Green

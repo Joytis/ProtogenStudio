@@ -1,5 +1,5 @@
-
-
+// Protogen 
+#include "ProtogenInclude.cpp"
 
 // ImGUI
 #include "imgui_impl_sdl3.h"
@@ -20,8 +20,5 @@
 #include "SDL3/SDL.h"
 #include "SDL3/SDL_opengl.h"
 
-#include "lodepng.h"
-#include "lodepng.cpp"
 
-// Protogen 
-#include "ProtogenInclude.cpp"
+

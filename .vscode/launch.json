@@ -4,31 +4,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug ProtogenStudio",
-            "type": "cppdbg",
+            "name": "Debug Protogen Studio (MSVC)",
+            "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/ProtogenStudio.exe",
+            "program": "${workspaceFolder}/build/Debug/studio/protogen_studio.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
-            "preLaunchTask": "CMake: build",
-            "MIMode": "gdb",
-            "miDebuggerPath": "gdb.exe",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "logging": {
-                "engineLogging": true,
-                "trace": true,
-                "traceResponse": true
-            },
-            "visualizerFile": "${workspaceFolder}/.vscode/gdb.natvis"
+            "preLaunchTask": "Build Protogen Studio"
         }
     ]
 }
