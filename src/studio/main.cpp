@@ -16,7 +16,6 @@
 #include "external.cpp"
 #include "internal.cpp"
 
-
 // Main code
 int main(int, char**)
 {

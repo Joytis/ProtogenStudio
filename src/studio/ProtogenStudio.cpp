@@ -173,11 +173,11 @@ namespace Studio
                     u8 r = static_cast<u8>(((x / fWidth) * 255.0f));
                     u8 g = static_cast<u8>(((y / fHeight) * 255.0f));
 
-                    u32 testColor = 0; 
-                    testColor |= (r << 24);
-                    testColor |= (r << 16);
-                    testColor |= (0xFF);
-                    pixel_data[y * (pitch / sizeof(u32)) + x] = testColor; // RGBA
+                    // u32 testColor = 0; 
+                    // testColor |= (r << 24);
+                    // testColor |= (r << 16);
+                    // testColor |= (0xFF);
+                    // pixel_data[y * (pitch / sizeof(u32)) + x] = testColor; // RGBA
 
                 }
             }

@@ -36,17 +36,6 @@ namespace Proto
             
             Expression& expression = _expressions.emplace_back(rootExpresisonPath, width, height);
 
-            // Expressions loaded in RGBA - we really only care about greyscale here, so read the red channel. 
-            // It's not efficient, but I'm lazy :)
-            // for(u32 y = 0; y < height; y++)
-            // {
-            //     for(u32 x = 0; x < height; x++)
-            //     {
-            //         u32 index = (y * 4 * width) + (x * 4);
-            //         expression.grid.Set(x, y, image[index]);
-            //     }
-            // }
-
             // If there's an error, display it.
             std::cout << width << ", " << height << ", " << image.size() << std::endl;
         }
