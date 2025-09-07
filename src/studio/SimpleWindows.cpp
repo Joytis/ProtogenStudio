@@ -15,14 +15,15 @@ namespace Studio::ProtoWindows
         ImGui::BeginChild("Project Settings", ImVec2(0, 200), ImGuiChildFlags_None);
 
         ImGui::Text("Edit project settings here!");
-        ImGui::SliderInt("LED Panel Width", &p.facePanelWidth, 1, Proto::MAX_GRID_WIDTH);
-        ImGui::SliderInt("LED Panel Height", &p.facePanelHeight, 1, Proto::MAX_GRID_HEIGHT);
+        ImGui::InputInt("LED Panel Width", &p.facePanelWidth, 1, Proto::MAX_GRID_WIDTH);
+        ImGui::InputInt("LED Panel Height", &p.facePanelHeight, 1, Proto::MAX_GRID_HEIGHT);
 
         // Testing file dialog
         static char* file_dialog_buffer = nullptr;
         static char path[512] = "";
+        static bool coolBoolField = false;
 
-        Controls::PathInput("Path", path, sizeof(path));
+        Controls::PathInput(coolBoolField, "Path", path, sizeof(path));
 
         ImGui::EndChild();
     }

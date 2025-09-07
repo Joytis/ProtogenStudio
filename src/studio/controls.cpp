@@ -5,30 +5,27 @@
 
 namespace Controls
 {
-    void OpenFileDialog()
+    
+    FileDialog::Result RenderFileDialog(bool& open, char* output, const char* extension = "")
     {
-        FileDialog::file_dialog_open = true;
-    }
-
-    FileDialog::Result RenderFileDialog(char* output, const char* extension = "")
-    {
-        if (FileDialog::file_dialog_open) {
-            return FileDialog::ShowFileDialog(&FileDialog::file_dialog_open, output, extension);
+        if (open) 
+        {
+            return FileDialog::ShowFileDialog(open, output, extension);
         }
         return FileDialog::Result::None;
     }
-
-    void PathInput(const char* name, char* output, u32 outputSize, const char* extension = "")
+    
+    void PathInput(bool& open, const char* name, char* output, u32 outputSize, const char* extension = "")
     {
         ImGui::TextUnformatted(name);
         ImGui::InputText("##path", output, outputSize);
         ImGui::SameLine();
         if (ImGui::Button("Browse##path")) 
         {
-            OpenFileDialog();
+            open = true;
         }
 
-        RenderFileDialog(output, extension);
+        RenderFileDialog(open, output, extension);
     }
 
     void ErrorPopup(const char* message, u32 size)

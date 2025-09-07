@@ -110,7 +110,6 @@ namespace Studio
     void ProtogenStudio::Open()
     {
         _showOpenFileDialog = true;
-        Controls::OpenFileDialog();
     }
 
     void ProtogenStudio::ShowOpenModal()
@@ -118,7 +117,7 @@ namespace Studio
         char path[512] = {};
         if(_showOpenFileDialog)
         {
-            auto result = Controls::RenderFileDialog(path, ".proot");
+            auto result = Controls::RenderFileDialog(_showOpenFileDialog, path, ".proot");
             if(result != FileDialog::Result::None)
             {
                 if(result == FileDialog::Result::Confirm)
@@ -126,7 +125,6 @@ namespace Studio
                     std::filesystem::path filePath = path;
                     LoadProject(filePath);
                 }
-                _showOpenFileDialog = false;
             }
         }
     }

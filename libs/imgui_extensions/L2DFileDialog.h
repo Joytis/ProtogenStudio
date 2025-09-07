@@ -46,11 +46,8 @@ namespace FileDialog {
 		Cancel
 	};
 
-	static bool file_dialog_open = false;
-
-	Result ShowFileDialog(bool* open, char* buffer, const char* extension = "", FileDialogType type = FileDialogType::OpenFile) 
+	Result ShowFileDialog(bool& open, char* buffer, const char* extension = "", FileDialogType type = FileDialogType::OpenFile) 
 	{
-		
 		static int file_dialog_file_select_index = 0;
 		static int file_dialog_folder_select_index = 0;
 		static std::string file_dialog_current_path = std::filesystem::current_path().string();
@@ -300,7 +297,6 @@ namespace FileDialog {
 				file_dialog_current_file = "";
 				strcpy_s(file_dialog_error, "");
 				initial_path_set = false;
-				file_dialog_open = false;
 			};
 			
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - 220);
@@ -319,6 +315,7 @@ namespace FileDialog {
 						strcpy_s(buffer, path.length() + 1, path.c_str());
 						strcpy_s(file_dialog_error, "");
 						result = Result::Confirm;
+						open = false;
 						reset_everything();
 					}
 				}
@@ -331,6 +328,7 @@ namespace FileDialog {
 						strcpy_s(buffer, path.length() + 1, path.c_str());
 						strcpy_s(file_dialog_error, "");
 						result = Result::Confirm;
+						open = false;
 						reset_everything();
 					}
 				}
