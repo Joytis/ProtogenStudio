@@ -2,77 +2,69 @@
 
 namespace Proto
 {
-    void Protogen::Load(const ProjectSettings& settings)
-    {
-        faceGrids.clear();
-        auto& grid1 = faceGrids.emplace_back(settings.facePanelWidth, settings.facePanelHeight, true);
-        grid1.Fill(Color::Black);
-
-        auto& grid2 = faceGrids.emplace_back(settings.facePanelWidth, settings.facePanelHeight, true);
-        grid2.Fill(Color::Black);
-    }
-
-    void Protogen::Update(ProtogenProject& project, float deltaTime)
+    void Protogen_Update(Protogen& p, float deltaTime)
     {
         // Blend between all expressions 
-        for(Vector4Grid& faceGrid : faceGrids)
+        for(Vector4Grid& faceGrid : p.faceGrids)
         {
-            for(const auto& expression : project.Expressions())
-            {
-                assert(faceGrid.Width() == expression.grid.Width());
-                assert(faceGrid.Height() == expression.grid.Height());
+            // for(const auto& expression : project.Expressions())
+            // {
+            //     assert(faceGrid.Width() == expression.grid.Width());
+            //     assert(faceGrid.Height() == expression.grid.Height());
 
-                int width = faceGrid.Width();
-                int height = faceGrid.Height();
+            //     int width = faceGrid.Width();
+            //     int height = faceGrid.Height();
 
-                // Simply iterate over the thing
-                for (int y = 0; y < height; ++y) 
-                {
-                    for (int x = 0; x < width; ++x) 
-                    {
-                        // Figure out appropriate color mechanism. 
-                        u8 expr = expression.grid.Get(x, y);
-                        Vector4 color(expr, expr, expr, 255);
-                        faceGrid.Set(x, y, color);
+            //     // Simply iterate over the thing
+            //     for (int y = 0; y < height; ++y) 
+            //     {
+            //         for (int x = 0; x < width; ++x) 
+            //         {
+            //             // Figure out appropriate color mechanism. 
+            //             u8 expr = expression.grid.Get(x, y);
+            //             Vector4 color(expr, expr, expr, 255);
+            //             faceGrid.Set(x, y, color);
 
-                        // Vector4 color((float)x / width, (float)y / height, 0.0, 1.0);
-                        // faceGrid.Set(x, y, color);
-                    }
-                }
-            }
+            //             // Vector4 color((float)x / width, (float)y / height, 0.0, 1.0);
+            //             // faceGrid.Set(x, y, color);
+            //         }
+            //     }
+            // }
 
-            for(const auto& mouth : project.Mouths())
-            {
-                assert(faceGrid.Width() == mouth.grid.Width());
-                assert(faceGrid.Height() == mouth.grid.Height());
+            // for(const auto& mouth : project.Mouths())
+            // {
+            //     assert(faceGrid.Width() == mouth.grid.Width());
+            //     assert(faceGrid.Height() == mouth.grid.Height());
 
-                int width = faceGrid.Width();
-                int height = faceGrid.Height();
+            //     int width = faceGrid.Width();
+            //     int height = faceGrid.Height();
 
-                // Simply iterate over the thing
-                for (int y = 0; y < height; ++y) 
-                {
-                    for (int x = 0; x < width; ++x) 
-                    {
-                        // Figure out appropriate color mechanism. 
-                        u8 expr = mouth.grid.Get(x, y);
-                        Vector4 oldColor = faceGrid.Get(x, y);
-                        Vector4 newColor(expr, expr, expr, 255);
+            //     // Simply iterate over the thing
+            //     for (int y = 0; y < height; ++y) 
+            //     {
+            //         for (int x = 0; x < width; ++x) 
+            //         {
+            //             // Figure out appropriate color mechanism. 
+            //             u8 expr = mouth.grid.Get(x, y);
+            //             Vector4 oldColor = faceGrid.Get(x, y);
+            //             Vector4 newColor(expr, expr, expr, 255);
 
-                        Vector4 maxColor(
-                            std::max(oldColor.x, newColor.x),
-                            std::max(oldColor.y, newColor.y),
-                            std::max(oldColor.z, newColor.z),
-                            std::max(oldColor.w, newColor.w));
+            //             Vector4 maxColor(
+            //                 std::max(oldColor.x, newColor.x),
+            //                 std::max(oldColor.y, newColor.y),
+            //                 std::max(oldColor.z, newColor.z),
+            //                 std::max(oldColor.w, newColor.w));
 
-                        faceGrid.Set(x, y, maxColor);
+            //             faceGrid.Set(x, y, maxColor);
 
-                        // Vector4 color((float)x / width, (float)y / height, 0.0, 1.0);
-                        // faceGrid.Set(x, y, color);
-                    }
-                }
-            }
+            //             // Vector4 color((float)x / width, (float)y / height, 0.0, 1.0);
+            //             // faceGrid.Set(x, y, color);
+            //         }
+            //     }
+            // }
         }
     }
+
+
 
 }

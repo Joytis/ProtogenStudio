@@ -62,4 +62,12 @@ namespace Studio
         _status = status;
         _timeSinceLastMessage = 0.0f;
     }
+
+    void StatusBar::SetStatus(Status status, std::string& message)
+    {
+        _message = message + '\0';
+        _status = status;
+        _timeSinceLastMessage = 0.0f;
+    }
+
 }

@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Grid.h"
-#include "ProjectSettings.h"
-#include "ProtogenProject.h"
 #include "Vector4.h"
 
 #include <vector>
@@ -10,13 +8,40 @@
 
 namespace Proto
 {
+    constexpr u32 PROTO_MAX_PATH_LEN = 256;
+
+    enum class BlendMode
+    {
+        BestFit,
+        FullBlend,
+    };
+
+    struct AudioHeuristic
+    {
+        float value = 0.0f;
+    };
+
+    struct Expression
+    {
+        char name[PROTO_MAX_PATH_LEN] = "";
+        AudioHeuristic audioHeuristic;
+        Grid<u8> grid;
+    };
+
+    struct ExpressionGroup
+    {
+        char name[PROTO_MAX_PATH_LEN] = "";
+        BlendMode blendMode  = BlendMode::BestFit;
+        std::vector<Expression> expressions;
+    };
+    
     struct Protogen
     {
-        using Vector4GridList = std::vector<Vector4Grid>;
-
-        void Load(const ProjectSettings& settings);
-        void Update(ProtogenProject& project, float deltaTime);
-
-        Vector4GridList faceGrids;
+        int facePanelWidth;
+        int facePanelHeight;
+    
+        std::vector<ExpressionGroup> expressionGroups;
+        std::vector<Vector4Grid> faceGrids;
     };
+
 }

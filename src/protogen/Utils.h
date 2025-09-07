@@ -29,4 +29,9 @@ namespace Proto::Utils
         rapidjson::PrettyWriter<rapidjson::OStreamWrapper> writer(osw);
         d.Accept(writer);
     }
+
+    template <typename T>
+    T Minimum(const T a, const T b) { return a < b ? a : b; }
+    template <typename T>
+    T Maximum(const T a, const T b) { return a > b ? a : b; }
 }   

@@ -3,6 +3,8 @@
 #include "rapidjson/istreamwrapper.h"
 #include "rapidjson/ostreamwrapper.h"
 #include "rapidjson/prettywriter.h"
+#include "rapidjson/error/error.h" 
+#include "rapidjson/error/en.h"
 
 // lodepng 
 #include "lodepng.h"
@@ -11,20 +13,17 @@
 // std lib
 #include <filesystem>
 #include <fstream>
+#include <algorithm>
 
 // Aaaaand the rest of everything. 
 #include "Common.h"
 
 #include "Grid.h"
 
-#include "ProjectSettings.h"
-#include "ProjectSettings.cpp"
-
 #include "Protogen.h"
 #include "Protogen.cpp"
 
-#include "ProtogenProject.h"
-#include "ProtogenProject.cpp"
+#include "ProtogenSerializer.cpp"
 
 #include "Utils.h"
 #include "Utils.cpp"

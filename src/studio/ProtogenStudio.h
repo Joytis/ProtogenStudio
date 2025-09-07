@@ -1,7 +1,6 @@
 #pragma once
 
 #include "protogen/Protogen.h"
-#include "protogen/ProtogenProject.h"
 
 #include "StatusBar.h"
 
@@ -11,6 +10,8 @@
 
 namespace Studio
 {
+    
+
     class ProtogenStudio
     {
     public:
@@ -40,7 +41,6 @@ namespace Studio
         void GenerateTextures(SDL_Window& window);
 
         bool showDemoWindow = false;
-        bool showAnotherWindow = false;
         ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
         
     private:
@@ -48,13 +48,12 @@ namespace Studio
         bool _hasError = false;
         bool _initialized = false;
 
+        
         std::string _errorMessage;
-
-        std::filesystem::path _rootPath;
-        Proto::ProtogenProject _project;
         Studio::StatusBar _statusBar;
-
+        
         Proto::Protogen _protogen;
+        std::filesystem::path _rootPath;
         std::vector<SDL_Texture*> _textures;
     };
 }

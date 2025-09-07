@@ -1,19 +1,27 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Debug Protogen Studio (MSVC)",
-            "type": "cppvsdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/build/Debug/studio/protogen_studio.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
-            "preLaunchTask": "Build Protogen Studio"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Protogen Studio (MSVC)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/Debug/studio/protogen_studio.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "preLaunchTask": "Build Protogen Studio"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "console": "externalTerminal",
+      "cwd": "c:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui",
+      "program": "c:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/build/Debug/outDebug"
+    }
+  ]
 }

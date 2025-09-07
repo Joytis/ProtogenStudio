@@ -7,26 +7,25 @@
 
 #include <iostream>
 
-using namespace Proto;
-
 namespace Studio
 {
     bool ProtogenStudio::IsInitialized()
     {
-        return _initialized;
+        return !_rootPath.empty();
     }
-
 
     void ProtogenStudio::LoadProject(std::filesystem::path& path)
     {
-        // Initialze the project. 
-        _project.LoadProject(path);
-
         // re-create our protogen
-        _protogen.Load(_project.Settings());
-        
+        _rootPath = path;
 
-        _initialized = true;
+        // Todo- error reporting. 
+        auto loadResult =  Proto::LoadProtogenFromPath(path, _protogen);
+        _statusBar.SetStatus(StatusBar::Status::Info, loadResult.message);
+        if(loadResult.result != Proto::LoadResult::Success)
+        {
+            Controls::ErrorPopup(loadResult.message.c_str(), loadResult.message.size());
+        }
     }
 
     void ProtogenStudio::CreateFaceTextures(SDL_Window* window)
@@ -76,14 +75,13 @@ namespace Studio
 
     void ProtogenStudio::Save()
     {
-        _project.SaveProject(_rootPath);
+        Proto::SaveProtogen(_rootPath, _protogen);
         _statusBar.SetStatus(StatusBar::Status::Info, "Save successful!");
     }
 
     void ProtogenStudio::Reload()
     {
         LoadProject(_rootPath);
-        _statusBar.SetStatus(StatusBar::Status::Info, "Reload successful!");
     }
 
     void ProtogenStudio::RenderStudioSettings()
@@ -92,8 +90,6 @@ namespace Studio
         ImGui::BeginChild("Studio Settings!", ImVec2(0, 120));
 
         ImGui::Checkbox("Demo Window", &showDemoWindow);
-        ImGui::Checkbox("Another Window", &showAnotherWindow);
-
         ImGui::ColorEdit3("Background color", (float*)&clear_color);
         ImGui::EndChild();
     }
@@ -115,7 +111,7 @@ namespace Studio
         float dt = io.DeltaTime;
 
         // Update the protogen
-        _protogen.Update(_project, dt);
+        Protogen_Update(_protogen, dt);
         GenerateTextures(window);
 
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
@@ -123,44 +119,32 @@ namespace Studio
             ImGui::ShowDemoWindow(&showDemoWindow);
 
         // Show the project settings window
-        {
-            ImGui::Begin("Main Window");
+        ImGui::Begin("Main Window");
 
-            if (ImGui::BeginMainMenuBar())
+        if (ImGui::BeginMainMenuBar())
+        {
+            // Menu!
+            if (ImGui::BeginMenu("File"))
             {
-                // Menu!
-                if (ImGui::BeginMenu("File"))
+                if (ImGui::MenuItem("Save", "Ctrl+S"))
                 {
-                    if (ImGui::MenuItem("Save", "Ctrl+S"))
-                    {
-                        Save();
-                    }
-                    if (ImGui::MenuItem("Reload", "Ctrl+R"))
-                    {
-                        Reload();
-                    }
-                    ImGui::EndMenu();
+                    Save();
                 }
-                ImGui::EndMainMenuBar();
+                if (ImGui::MenuItem("Reload", "Ctrl+R"))
+                {
+                    Reload();
+                }
+                ImGui::EndMenu();
             }
-
-            RenderStudioSettings();
-
-            ProtoWindows::RenderProjectSettingsWindow(_project.Settings());
-            RenderProtogenPanelsWindow();
-
-            ImGui::End();
+            ImGui::EndMainMenuBar();
         }
 
-        // 3. Show another simple window.
-        if (showAnotherWindow)
-        {
-            ImGui::Begin("Another Window", &showAnotherWindow);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-            ImGui::Text("Hello from another window!");
-            if (ImGui::Button("Close Me"))
-                showAnotherWindow = false;
-            ImGui::End();
-        }
+        RenderStudioSettings();
+
+        ProtoWindows::RenderProjectSettingsWindow(_protogen);
+        RenderProtogenPanelsWindow();
+
+        ImGui::End();
 
         return true;
     }

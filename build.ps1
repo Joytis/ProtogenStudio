@@ -58,7 +58,6 @@ if (Test-Path -Path $SDLLocation) {
     Write-Host "SDL 3 Library already exits in build folder - skipping..."
 }
 else {
-    $SDLocation = '.\libs\SDL'
     $SDLBuildOutDirArg = "/p:OutDir=..\..\..\..\" + $SDLBuildLocation + "\"
     $SDLBuildConfig = "/p:Configuration=" + $Mode
     msbuild.exe '.\libs\SDL\VisualC\SDL\SDL.vcxproj' $SDLBuildOutDirArg $SDLBuildConfig
@@ -70,6 +69,7 @@ Write-Host "Project: Protogen Library" -ForegroundColor Green
 # ----------- Build protogen studio
 Write-Host "Project: Protogen Studio" -ForegroundColor Green
 
+$LibDirectory = ".\libs"
 $SourceDirectory = ".\src"
 $StudioMain = "$($SourceDirectory)\studio\main.cpp"
 $StudioName = "protogen_studio"
@@ -105,6 +105,17 @@ Get-ChildItem -Path $SourceDirectory -File -Recurse | ForEach-Object {
     }
 }
 
+# # If any files are newer than our build, recompile. 
+# Get-ChildItem -Path $LibDirectory -File -Recurse | ForEach-Object {
+#     $LibFile = $_
+#     if (-not (Test-Path $StudioExe) -or ($LibFile.LastWriteTime -gt (Get-Item $StudioExe).LastWriteTime)) 
+#     {
+#         Write-Host "Found newer file: $($LibFile.FullName)"
+#         $NeedsRecompile = $true
+#     }
+# }
+
+# Use $NeedsRecompile to determine if recompilation is needed
 if ($NeedsRecompile) {
     Write-Host "Recompile needed for $($StudioMain.FullName)" -ForegroundColor Green
     & 'cl' '/std:c++20'  $StudioArguments $BuildFlags 
@@ -114,7 +125,6 @@ else {
 }
 
 # Copy the assets to our build directory. 
-
 
 # WOOHOO!!
 Write-Host "ALL DONE <33 uwuwuwuwu" -ForegroundColor Green
