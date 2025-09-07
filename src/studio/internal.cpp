@@ -1,8 +1,7 @@
 
 #include "controls.cpp"
 
-#include "SimpleWindows.h"
-#include "SimpleWindows.cpp"
+#include "ProtogenWindows.cpp"
 
 #include "StatusBar.h"
 #include "StatusBar.cpp"

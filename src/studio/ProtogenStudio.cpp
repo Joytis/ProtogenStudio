@@ -1,5 +1,4 @@
 #include "ProtogenStudio.h"
-#include "SimpleWindows.h"
 
 #include "imgui.h"
 
@@ -227,7 +226,8 @@ namespace Studio
 
         RenderStudioSettings();
 
-        ProtoWindows::RenderProjectSettingsWindow(_protogen);
+        Windows::RenderProjectSettingsWindow(_protogen);
+        Windows::RenderExpressionsWindow(_protogen);
         RenderProtogenPanelsWindow();
 
         ImGui::End();
