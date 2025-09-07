@@ -67,10 +67,10 @@ namespace Studio
         _textures.clear();
 
         // Create some textures
-        for(auto& faceGrid : _protogen.faceGrids)
+        for(auto& faceGrid : _protogen.panels)
         {
-            int width = faceGrid.Width();
-            int height = faceGrid.Height();
+            int width = _protogen.PanelWidth();
+            int height = _protogen.PanelHeight();
 
             SDL_Texture* texture = SDL_CreateTexture(
                 SDL_GetRenderer(_window), 
@@ -130,7 +130,7 @@ namespace Studio
     
     void ProtogenStudio::Save()
     {
-        std::filesystem::path path = _settings.lastRootPath;
+        std::filesystem::path path = _settings.lastProjectPath;
         Proto::Utils::SaveToJSON(path, _protogen);
         std::filesystem::path settingsPath = GetSettingsPath();
         Proto::Utils::SaveToJSON(settingsPath, _settings);
@@ -237,14 +237,14 @@ namespace Studio
 
     void ProtogenStudio::UpdateTextures()
     {
-        assert(_protogen.faceGrids.size() == _textures.size());
+        assert(_protogen.panels.size() == _textures.size());
 
-        for(int i = 0; i < _protogen.faceGrids.size(); i++)
+        for(int i = 0; i < _protogen.panels.size(); i++)
         {
             SDL_Texture* texture = _textures[i];
-            auto& faceGrid = _protogen.faceGrids[i];
-            int width = faceGrid.Width();
-            int height = faceGrid.Height();
+            auto& grid = _protogen.panels[i].grid;
+            int width = grid.Width();
+            int height = grid.Height();
 
             // Nested, colored grid elements
             void *pixels;
@@ -256,7 +256,7 @@ namespace Studio
                 {
                     for (int x = 0; x < width; ++x) 
                     {
-                        pixel_data[y * (pitch / sizeof(u32)) + x] = faceGrid.Get(x, y).ToRGBA();
+                        pixel_data[y * (pitch / sizeof(u32)) + x] = grid.Get(x, y).ToRGBA();
                     }
                 }
 
@@ -275,9 +275,9 @@ namespace Studio
     {
         ImGui::Begin("Protogen Panels");   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
 
-        assert(_protogen.faceGrids.size() == _textures.size());
+        assert(_protogen.panels.size() == _textures.size());
 
-        for(int i = 0; i < _protogen.faceGrids.size(); i++)
+        for(int i = 0; i < _protogen.panels.size(); i++)
         {
             ImGui::SeparatorText("Face grid");
 
@@ -286,7 +286,7 @@ namespace Studio
 
             // Render a grid. 
             SDL_Texture* texture = _textures[i];
-            const auto& grid = _protogen.faceGrids[i];
+            const auto& grid = _protogen.panels[i].grid;
             float width = (grid.Width() * (PIXEL_WIDTH));
             float height = (grid.Height() * (PIXEL_HEIGHT));
 

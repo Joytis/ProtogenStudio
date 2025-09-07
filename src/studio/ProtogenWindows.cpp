@@ -13,14 +13,14 @@ namespace Windows
         ImGui::BeginChild("Project Settings", ImVec2(0, 200), ImGuiChildFlags_None);
 
         ImGui::Text("Edit project settings here!");
-        ImGui::InputInt("LED Panel Width", &p.facePanelWidth, 1, Proto::MAX_GRID_WIDTH);
-        ImGui::InputInt("LED Panel Height", &p.facePanelHeight, 1, Proto::MAX_GRID_HEIGHT);
+        ImGui::Combo("Panel Hardware", (int*)(&p.panelHardware), Proto::PanelHardware_Names[0], (int)Proto::PanelHardware::MAX);
 
         // Testing file dialog
         static char* file_dialog_buffer = nullptr;
         static char path[512] = "";
         static bool coolBoolField = false;
 
+        
         Controls::PathInput(coolBoolField, "Path", path, sizeof(path));
 
         ImGui::EndChild();
@@ -43,7 +43,7 @@ namespace Windows
     {
         if(LineAddButton("Group"))
         {
-            group.expressions.emplace_back(p.facePanelWidth, p.facePanelHeight);
+            group.expressions.emplace_back(p.PanelWidth(), p.PanelHeight());
         }
 
         // Render all the groups. 

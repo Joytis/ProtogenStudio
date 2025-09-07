@@ -18,8 +18,6 @@ namespace Proto
 
 namespace Proto::Utils
 {
-    int GetIntOr(rapidjson::Value& value, const char* name, int defaultValue);
-
     template <typename TData>
     LoadResult LoadFromJSON(std::filesystem::path& path, TData& data)
     {
@@ -55,9 +53,4 @@ namespace Proto::Utils
         rapidjson::PrettyWriter<rapidjson::OStreamWrapper> writer(osw);
         d.Accept(writer);
     }
-
-    template <typename T>
-    T Minimum(const T a, const T b) { return a < b ? a : b; }
-    template <typename T>
-    T Maximum(const T a, const T b) { return a > b ? a : b; }
 }   

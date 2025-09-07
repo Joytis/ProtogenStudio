@@ -6,19 +6,34 @@ namespace Proto
 {
     static constexpr int MAX_GRID_WIDTH = 128;
     static constexpr int MAX_GRID_HEIGHT = 128;
-
+    
     template<typename T>
     class Grid
     {
-    public: 
+        public: 
+        
+        Grid() : Grid(0, 0, false) {} 
 
         Grid(int width, int height, bool inverted) :
             _width(width),
             _height(height),
             _invert(inverted)
         {
+            Resize(width, height);
+        }
+        
+        void SetInverted(bool flipped)
+        {
+            _invert = flipped;
+        }
+
+        void Resize(int width, int height)
+        {
             assert(width <= MAX_GRID_WIDTH);
             assert(height <= MAX_GRID_HEIGHT);
+            _width = width;
+            _height = height;
+            memset(_buffer, sizeof(_buffer), 0);
         }
 
         int Width() const { return _width; }
@@ -32,15 +47,6 @@ namespace Proto
             return x + (y * _width);
         }
         
-
-        void Resize(int width, int height)
-        {
-            assert(width <= MAX_GRID_WIDTH);
-            assert(height <= MAX_GRID_HEIGHT);
-            _width = width;
-            _height = height;
-        }
-
         void Fill(T color)
         {
             for(auto& item : _buffer)

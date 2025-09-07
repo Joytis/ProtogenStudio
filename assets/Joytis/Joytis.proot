@@ -1,5 +1,46 @@
 {
-    "FacePanelWidth": 64,
-    "FacePanelHeight": 32,
-    "ExpressionGroups": []
+    "PanelHardware": 0,
+    "ExpressionGroups": [
+        {
+            "Name": "",
+            "BlendMode": 0,
+            "Expressions": [
+                {
+                    "Name": "",
+                    "ImagePath": "",
+                    "AudioHeuristic": {
+                        "Value": 0.0
+                    }
+                },
+                {
+                    "Name": "",
+                    "ImagePath": "",
+                    "AudioHeuristic": {
+                        "Value": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "",
+            "BlendMode": 0,
+            "Expressions": [
+                {
+                    "Name": "",
+                    "ImagePath": "",
+                    "AudioHeuristic": {
+                        "Value": 0.0
+                    }
+                },
+                {
+                    "Name": "",
+                    "ImagePath": "",
+                    "AudioHeuristic": {
+                        "Value": 0.0
+                    }
+                }
+            ]
+        }
+    ],
+    "Panels": []
 }

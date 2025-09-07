@@ -238,6 +238,7 @@ namespace FileDialog {
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - 220);
 			if (ImGui::Button("Cancel")) {
 				result = Result::Cancel;
+				open = false;
 				reset_everything();
 			}
 			ImGui::SameLine();
