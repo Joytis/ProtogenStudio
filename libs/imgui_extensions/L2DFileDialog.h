@@ -39,9 +39,16 @@ namespace FileDialog {
 		None
 	};
 
+	enum class Result
+	{
+		None,
+		Confirm,
+		Cancel
+	};
+
 	static bool file_dialog_open = false;
 
-	void ShowFileDialog(bool* open, char* buffer, FileDialogType type = FileDialogType::OpenFile) 
+	Result ShowFileDialog(bool* open, char* buffer, const char* extension = "", FileDialogType type = FileDialogType::OpenFile) 
 	{
 		
 		static int file_dialog_file_select_index = 0;
@@ -50,10 +57,11 @@ namespace FileDialog {
 		static std::string file_dialog_current_file = "";
 		static std::string file_dialog_current_folder = "";
 		static char file_dialog_error[500] = "";
-
-
+		
+		std::string extension_filter = extension;
 		static bool initial_path_set = false;
-
+		
+		Result result = Result::None;
 		if (open) {
 			// Check if there was already something in the buffer. If so, try to use that path (if it exists).
 			// If it doesn't exist, just put them into the current path.
@@ -89,7 +97,12 @@ namespace FileDialog {
 						folders.push_back(p);
 					}
 					else {
-						files.push_back(p);
+						// If we have an extension filter, filter off non-extension files
+						if(extension_filter.empty() || 
+						   (p.path().extension().string() == extension_filter)) 
+						{
+							files.push_back(p);
+						}
 					}
 				}
 			}
@@ -292,6 +305,7 @@ namespace FileDialog {
 			
 			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - 220);
 			if (ImGui::Button("Cancel")) {
+				result = Result::Cancel;
 				reset_everything();
 			}
 			ImGui::SameLine();
@@ -304,6 +318,7 @@ namespace FileDialog {
 						auto path = file_dialog_current_path + (file_dialog_current_path.back() == '\\' ? "" : "\\") + file_dialog_current_file;
 						strcpy_s(buffer, path.length() + 1, path.c_str());
 						strcpy_s(file_dialog_error, "");
+						result = Result::Confirm;
 						reset_everything();
 					}
 				}
@@ -315,6 +330,7 @@ namespace FileDialog {
 						auto path = file_dialog_current_path + (file_dialog_current_path.back() == '\\' ? "" : "\\") + file_dialog_current_file;
 						strcpy_s(buffer, path.length() + 1, path.c_str());
 						strcpy_s(file_dialog_error, "");
+						result = Result::Confirm;
 						reset_everything();
 					}
 				}
@@ -326,5 +342,6 @@ namespace FileDialog {
 
 			ImGui::End();
 		}
+		return result;
 	}
 }

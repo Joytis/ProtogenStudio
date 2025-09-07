@@ -17,18 +17,23 @@ namespace Studio
     void ProtogenStudio::LoadProject(std::filesystem::path& path)
     {
         // re-create our protogen
-        _rootPath = path;
+        _projectFilePath = path;
+        _rootPath = path.parent_path();
 
-        // Todo- error reporting. 
+        // Try a project load
         auto loadResult =  Proto::LoadProtogenFromPath(path, _protogen);
         _statusBar.SetStatus(StatusBar::Status::Info, loadResult.message);
         if(loadResult.result != Proto::LoadResult::Success)
         {
             Controls::ErrorPopup(loadResult.message.c_str(), loadResult.message.size());
+            _rootPath.clear();
         }
+
+        // Generate the SDL textures. 
+        GenerateTextures();
     }
 
-    void ProtogenStudio::CreateFaceTextures(SDL_Window* window)
+    void ProtogenStudio::CreateFaceTextures()
     {
         for(SDL_Texture* texture : _textures)
         {
@@ -43,7 +48,7 @@ namespace Studio
             int height = faceGrid.Height();
 
             SDL_Texture* texture = SDL_CreateTexture(
-                SDL_GetRenderer(window), 
+                SDL_GetRenderer(_window), 
                 SDL_PIXELFORMAT_RGBA8888, 
                 SDL_TEXTUREACCESS_STREAMING, 
                 width, 
@@ -65,12 +70,10 @@ namespace Studio
         return true;
     }
 
-    bool ProtogenStudio::RenderProjectLoadUI(ImGuiIO& io)
-    {
-        ImGui::Begin("LOADING PROJECT!!", &_initialized);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-        ImGui::Text("Loading...");
-        ImGui::End();
-        return true;
+    void ProtogenStudio::RenderProjectLoadUI()
+    {        
+        CheckInput(MenuMode::NewOpen);
+        RenderMenu(MenuMode::NewOpen);
     }
 
     void ProtogenStudio::New()
@@ -80,7 +83,26 @@ namespace Studio
 
     void ProtogenStudio::Open()
     {
+        _showOpenFileDialog = true;
+        Controls::OpenFileDialog();
+    }
 
+    void ProtogenStudio::ShowOpenModal()
+    {
+        char path[512] = {};
+        if(_showOpenFileDialog)
+        {
+            auto result = Controls::RenderFileDialog(path, ".proot");
+            if(result != FileDialog::Result::None)
+            {
+                if(result == FileDialog::Result::Confirm)
+                {
+                    std::filesystem::path filePath = path;
+                    LoadProject(filePath);
+                }
+                _showOpenFileDialog = false;
+            }
+        }
     }
     
     void ProtogenStudio::Save()
@@ -102,7 +124,7 @@ namespace Studio
                 _showReloadModal = false;
                 if(confirmCancel == Controls::ConfirmCancel::Confirm)
                 {
-                    LoadProject(_rootPath);
+                    LoadProject(_projectFilePath);
                 }
             }
         }
@@ -123,21 +145,47 @@ namespace Studio
         ImGui::EndChild();
     }
 
-    void ProtogenStudio::CheckInput()
+    void ProtogenStudio::CheckInput(MenuMode mode)
     {
         if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_N)) { New(); }
         if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_O)) { Open(); }
-        if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_S)) { Save(); }
-        if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_R)) { Reload(); }
+        if(mode == MenuMode::All)
+        {
+            if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_S)) { Save(); }
+            if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_R)) { Reload(); }
+        }
+    }
+    
+    void ProtogenStudio::RenderMenu(MenuMode mode)
+    {
+        if (ImGui::BeginMainMenuBar())
+        {
+            // Menu!
+            if (ImGui::BeginMenu("File"))
+            {
+                if (ImGui::MenuItem("New", "Ctrl+N")) { New(); }
+                if (ImGui::MenuItem("Open", "Ctrl+O")) { Open(); }
+                if(mode == MenuMode::All)
+                {
+                    ImGui::Separator();
+                    if (ImGui::MenuItem("Save", "Ctrl+S")) { Save(); }
+                    if (ImGui::MenuItem("Reload", "Ctrl+R")) { Reload(); }
+                }
+                ImGui::EndMenu();
+            }
+            ImGui::EndMainMenuBar();
+        }
     }
 
-    bool ProtogenStudio::RenderStandardUI(ImGuiIO& io, SDL_Window& window)
+    bool ProtogenStudio::RenderStandardUI(ImGuiIO& io)
     {
         float dt = io.DeltaTime;
 
+        CheckInput(MenuMode::All);
+
         // Update the protogen
         Protogen_Update(_protogen, dt);
-        GenerateTextures(window);
+        GenerateTextures();
 
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
         if (showDemoWindow)
@@ -146,21 +194,7 @@ namespace Studio
         // Show the project settings window
         ImGui::Begin("Main Window");
 
-        if (ImGui::BeginMainMenuBar())
-        {
-            // Menu!
-            if (ImGui::BeginMenu("File"))
-            {
-                if (ImGui::MenuItem("New", "Ctrl+N")) { New(); }
-                if (ImGui::MenuItem("Open", "Ctrl+O")) { Open(); }
-                ImGui::Separator();
-                if (ImGui::MenuItem("Save", "Ctrl+S")) { Save(); }
-                if (ImGui::MenuItem("Reload", "Ctrl+R")) { Reload(); }
-
-                ImGui::EndMenu();
-            }
-            ImGui::EndMainMenuBar();
-        }
+        RenderMenu(MenuMode::All);
 
         RenderStudioSettings();
 
@@ -172,7 +206,7 @@ namespace Studio
         return true;
     }
 
-    void ProtogenStudio::GenerateTextures(SDL_Window& window)
+    void ProtogenStudio::GenerateTextures()
     {
         assert(_protogen.faceGrids.size() == _textures.size());
 
@@ -235,11 +269,9 @@ namespace Studio
         ImGui::End();
     }
 
-    bool ProtogenStudio::Render(ImGuiIO& io, SDL_Window& window)
+    bool ProtogenStudio::Render(ImGuiIO& io)
     {
         float dt = io.DeltaTime;
-
-        CheckInput();
 
         // Render the status bar at the bottom of screen. 
         _statusBar.Render(dt);
@@ -251,18 +283,17 @@ namespace Studio
         }
         else if(!IsInitialized())
         {
-            shouldContinue = RenderProjectLoadUI(io);
-            LoadProject(_rootPath);
-            CreateFaceTextures(&window);
+            RenderProjectLoadUI();
         }
         else
         {
-            shouldContinue = RenderStandardUI(io, window);
+            shouldContinue = RenderStandardUI(io);
         }
 
 
         // Render all active modals
         ShowReloadModal();
+        ShowOpenModal();
         
         return shouldContinue;
     }

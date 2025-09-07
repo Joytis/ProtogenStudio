@@ -15,34 +15,43 @@ namespace Studio
     class ProtogenStudio
     {
     public:
-        ProtogenStudio(std::filesystem::path path) : _rootPath(path) {} 
-
+        ProtogenStudio(SDL_Window* window) : _window(window) {}
+    
         bool IsInitialized();
 
         void LoadProject(std::filesystem::path& path);
-        void CreateFaceTextures(SDL_Window* window);
+        void CreateFaceTextures();
 
         void New();
         void Open();
         void Save();
         void Reload();
 
+        void ShowOpenModal();
         void ShowReloadModal();
         
-        bool Render(ImGuiIO& io, SDL_Window& window);
+        bool Render(ImGuiIO& io);
         
         void RenderStudioSettings();
         
-        bool RenderStandardUI(ImGuiIO& io, SDL_Window& window);
+        bool RenderStandardUI(ImGuiIO& io);
         void RenderProtogenPanelsWindow();
 
 
-        bool RenderProjectLoadUI(ImGuiIO& io);
+        void RenderProjectLoadUI();
         bool RenderErrorUI(ImGuiIO& io);
         
-        void CheckInput();
+        enum class MenuMode
+        {
+            NewOpen,
+            All
+        };
 
-        void GenerateTextures(SDL_Window& window);
+        void CheckInput(MenuMode mode);
+        void RenderMenu(MenuMode mode);
+
+
+        void GenerateTextures();
 
         bool showDemoWindow = false;
         ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
@@ -51,11 +60,15 @@ namespace Studio
 
         bool _hasError = false;
         bool _showReloadModal = false;
+        bool _showOpenFileDialog = false;
 
         std::string _errorMessage;
         Studio::StatusBar _statusBar;
-        
+
+        SDL_Window* _window;
+
         Proto::Protogen _protogen;
+        std::filesystem::path _projectFilePath;
         std::filesystem::path _rootPath;
         std::vector<SDL_Texture*> _textures;
     };

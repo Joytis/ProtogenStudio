@@ -50,9 +50,7 @@ namespace Proto
     ProtogenLoadResult LoadProtogenFromPath(std::filesystem::path& path, Protogen& protogen)
     {
         // We want to assume we're loading the project file. Make sure it exists and all that. 
-        auto filePath = path/PROTOGEN_FILE_NAME;
-
-        std::ifstream ifs(filePath);
+        std::ifstream ifs(path);
         rapidjson::IStreamWrapper isw(ifs);
         
         rapidjson::Document d;

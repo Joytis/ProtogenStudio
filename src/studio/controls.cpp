@@ -5,23 +5,31 @@
 
 namespace Controls
 {
-    void PathInput(const char* name, char* output, u32 outputSize)
+    void OpenFileDialog()
+    {
+        FileDialog::file_dialog_open = true;
+    }
+
+    FileDialog::Result RenderFileDialog(char* output, const char* extension = "")
+    {
+        if (FileDialog::file_dialog_open) {
+            return FileDialog::ShowFileDialog(&FileDialog::file_dialog_open, output, extension);
+        }
+        return FileDialog::Result::None;
+    }
+
+    void PathInput(const char* name, char* output, u32 outputSize, const char* extension = "")
     {
         ImGui::TextUnformatted(name);
         ImGui::InputText("##path", output, outputSize);
         ImGui::SameLine();
-        if (ImGui::Button("Browse##path")) {
-            FileDialog::file_dialog_open = true;
+        if (ImGui::Button("Browse##path")) 
+        {
+            OpenFileDialog();
         }
 
-        if (FileDialog::file_dialog_open) {
-            FileDialog::ShowFileDialog(
-                &FileDialog::file_dialog_open, 
-                output, 
-                FileDialog::FileDialogType::OpenFile);
-        }
+        RenderFileDialog(output, extension);
     }
-
 
     void ErrorPopup(const char* message, u32 size)
     {
@@ -45,6 +53,20 @@ namespace Controls
             // {
             //     ImGui::EndPopup();
             // }
+            ImGui::EndPopup();
+        }
+    }
+
+    void InfoModal(const char* message, ImGuiWindowFlags flags = ImGuiWindowFlags_None)
+    {
+        // Simple selection popup (if you want to show the current selection inside the Button itself,
+        // you may want to build a string using the "###" operator to preserve a constant ID with a variable label)
+        ImGui::OpenPopup("studio_info_modal");
+        ImGui::SameLine();
+        if (ImGui::BeginPopup("studio_info_modal", flags))
+        {
+            ImGui::SeparatorText("Info");
+            ImGui::Text(message);
             ImGui::EndPopup();
         }
     }

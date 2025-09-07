@@ -26,11 +26,7 @@ int main(int, char**)
     // ImGUI
     ImGuiIO& io = ImGUI::CreateImGUIIO(window, renderer);
 
-    // TODO - Implement a 'project picker' before we select our current protogen. 
-
-    // Load Fonts
-    std::filesystem::path rootPath = std::filesystem::absolute("assets/Joytis");
-    Studio::ProtogenStudio studio(rootPath);
+    Studio::ProtogenStudio protogenStudio(window);
 
     // Main loop
     bool done = false;
@@ -52,11 +48,11 @@ int main(int, char**)
         
         // Studio render
         ImGui::NewFrame();
-        bool studioSuccess = studio.Render(io, *window);
+        bool studioSuccess = protogenStudio.Render(io);
         ImGui::Render();
 
         // Render viewport
-        SDL::Render(renderer, io, studio.clear_color);
+        SDL::Render(renderer, io, protogenStudio.clear_color);
     }
 
 #ifdef __EMSCRIPTEN__
