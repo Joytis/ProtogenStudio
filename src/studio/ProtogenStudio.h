@@ -22,6 +22,7 @@ namespace Studio
         void LoadSettings();
         void LoadProject(std::filesystem::path& path);
         void CreateFaceTextures();
+        void UpdateTextures();
 
         void New();
         void Open();
@@ -50,9 +51,6 @@ namespace Studio
 
         void CheckInput(MenuMode mode);
         void RenderMenu(MenuMode mode);
-
-
-        void GenerateTextures();
 
         bool showDemoWindow = false;
         ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);

@@ -55,8 +55,8 @@ namespace Studio
             _settings.lastRootPath.clear();
         }
 
-        // // Generate the SDL textures. 
-        // GenerateTextures();
+        // Generate the SDL textures. 
+        CreateFaceTextures();
     }
 
     void ProtogenStudio::CreateFaceTextures()
@@ -214,7 +214,7 @@ namespace Studio
 
         // Update the protogen
         Protogen_Update(_protogen, dt);
-        // GenerateTextures();
+        UpdateTextures();
 
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
         if (showDemoWindow)
@@ -228,14 +228,14 @@ namespace Studio
         RenderStudioSettings();
 
         ProtoWindows::RenderProjectSettingsWindow(_protogen);
-        // RenderProtogenPanelsWindow();
+        RenderProtogenPanelsWindow();
 
         ImGui::End();
 
         return true;
     }
 
-    void ProtogenStudio::GenerateTextures()
+    void ProtogenStudio::UpdateTextures()
     {
         assert(_protogen.faceGrids.size() == _textures.size());
 
