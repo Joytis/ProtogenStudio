@@ -73,15 +73,44 @@ namespace Studio
         return true;
     }
 
+    void ProtogenStudio::New()
+    {
+
+    }
+
+    void ProtogenStudio::Open()
+    {
+
+    }
+    
     void ProtogenStudio::Save()
     {
         Proto::SaveProtogen(_rootPath, _protogen);
         _statusBar.SetStatus(StatusBar::Status::Info, "Save successful!");
     }
 
+    void ProtogenStudio::ShowReloadModal()
+    {
+        if(_showReloadModal)
+        {
+            const char* message = "Are you sure you'd like to reload the project? All unsaved "
+                "progress will be lost.";
+    
+            auto confirmCancel = Controls::ConfirmCancelPopup(message); 
+            if(confirmCancel != Controls::ConfirmCancel::None)
+            {
+                _showReloadModal = false;
+                if(confirmCancel == Controls::ConfirmCancel::Confirm)
+                {
+                    LoadProject(_rootPath);
+                }
+            }
+        }
+    }
+
     void ProtogenStudio::Reload()
     {
-        LoadProject(_rootPath);
+        _showReloadModal = true;
     }
 
     void ProtogenStudio::RenderStudioSettings()
@@ -96,14 +125,10 @@ namespace Studio
 
     void ProtogenStudio::CheckInput()
     {
-        if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_S))
-        {
-            Save();
-        }
-        if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_R))
-        {
-            Reload();
-        }
+        if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_N)) { New(); }
+        if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_O)) { Open(); }
+        if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_S)) { Save(); }
+        if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_R)) { Reload(); }
     }
 
     bool ProtogenStudio::RenderStandardUI(ImGuiIO& io, SDL_Window& window)
@@ -126,14 +151,12 @@ namespace Studio
             // Menu!
             if (ImGui::BeginMenu("File"))
             {
-                if (ImGui::MenuItem("Save", "Ctrl+S"))
-                {
-                    Save();
-                }
-                if (ImGui::MenuItem("Reload", "Ctrl+R"))
-                {
-                    Reload();
-                }
+                if (ImGui::MenuItem("New", "Ctrl+N")) { New(); }
+                if (ImGui::MenuItem("Open", "Ctrl+O")) { Open(); }
+                ImGui::Separator();
+                if (ImGui::MenuItem("Save", "Ctrl+S")) { Save(); }
+                if (ImGui::MenuItem("Reload", "Ctrl+R")) { Reload(); }
+
                 ImGui::EndMenu();
             }
             ImGui::EndMainMenuBar();
@@ -226,19 +249,21 @@ namespace Studio
         {
             shouldContinue = RenderErrorUI(io);
         }
-        else if(!_initialized)
+        else if(!IsInitialized())
         {
             shouldContinue = RenderProjectLoadUI(io);
             LoadProject(_rootPath);
             CreateFaceTextures(&window);
-
-            _initialized = true;
         }
         else
         {
             shouldContinue = RenderStandardUI(io, window);
         }
 
+
+        // Render all active modals
+        ShowReloadModal();
+        
         return shouldContinue;
     }
 }

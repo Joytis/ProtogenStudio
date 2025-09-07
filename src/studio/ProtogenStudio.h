@@ -22,8 +22,12 @@ namespace Studio
         void LoadProject(std::filesystem::path& path);
         void CreateFaceTextures(SDL_Window* window);
 
+        void New();
+        void Open();
         void Save();
         void Reload();
+
+        void ShowReloadModal();
         
         bool Render(ImGuiIO& io, SDL_Window& window);
         
@@ -46,9 +50,8 @@ namespace Studio
     private:
 
         bool _hasError = false;
-        bool _initialized = false;
+        bool _showReloadModal = false;
 
-        
         std::string _errorMessage;
         Studio::StatusBar _statusBar;
         
