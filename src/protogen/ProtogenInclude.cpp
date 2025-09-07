@@ -23,8 +23,6 @@
 #include "Protogen.h"
 #include "Protogen.cpp"
 
-#include "ProtogenSerializer.cpp"
-
 #include "Utils.h"
 #include "Utils.cpp"
 

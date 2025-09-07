@@ -42,6 +42,9 @@ namespace Proto
     
         std::vector<ExpressionGroup> expressionGroups;
         std::vector<Vector4Grid> faceGrids;
+
+        static Protogen LoadFromJSON(rapidjson::Document& d);
+        static void SaveToJSON(Protogen& p, rapidjson::Value& o, rapidjson::Document& d);
     };
 
 }

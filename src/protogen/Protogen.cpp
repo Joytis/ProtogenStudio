@@ -1,4 +1,5 @@
 #include "Protogen.h"
+#include "Utils.h"
 
 namespace Proto
 {
@@ -65,6 +66,32 @@ namespace Proto
         }
     }
 
+    Protogen Protogen::LoadFromJSON(rapidjson::Document& d)
+    {
+        Protogen p;
+        p.facePanelWidth = Utils::GetIntOr(d, "FacePanelWidth", 64);
+        p.facePanelHeight = Utils::GetIntOr(d, "FacePanelHeight", 32);
 
 
+        // Create the face grids while we're here. 
+        p.faceGrids.emplace_back(p.facePanelWidth, p.facePanelHeight, false);
+        p.faceGrids.emplace_back(p.facePanelWidth, p.facePanelHeight, true);
+        return p;
+    }
+
+
+    void Protogen::SaveToJSON(Protogen& p, rapidjson::Value& o, rapidjson::Document& d)
+    {
+        o.AddMember("FacePanelWidth", p.facePanelWidth, d.GetAllocator());
+        o.AddMember("FacePanelHeight", p.facePanelHeight, d.GetAllocator());
+
+        rapidjson::Value expressionGroups(rapidjson::kArrayType);
+        for(const auto& expressionGroup : p.expressionGroups)
+        {
+            rapidjson::Value expression(rapidjson::kObjectType);
+            // expression
+            
+        }
+        o.AddMember("ExpressionGroups", expressionGroups, d.GetAllocator());
+    }
 }

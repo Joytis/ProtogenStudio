@@ -7,6 +7,8 @@
 #include "StatusBar.h"
 #include "StatusBar.cpp"
 
+#include "StudioSettings.cpp"
+
 #include "ProtogenStudio.h"
 #include "ProtogenStudio.cpp"
 

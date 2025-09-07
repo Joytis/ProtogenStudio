@@ -21,16 +21,16 @@ namespace Studio
         _rootPath = path.parent_path();
 
         // Try a project load
-        auto loadResult =  Proto::LoadProtogenFromPath(path, _protogen);
+        auto loadResult =  Proto::Utils::LoadFromJson(path, _protogen);
         _statusBar.SetStatus(StatusBar::Status::Info, loadResult.message);
-        if(loadResult.result != Proto::LoadResult::Success)
+        if(loadResult.result != Proto::LoadResultType::Success)
         {
             Controls::ErrorPopup(loadResult.message.c_str(), loadResult.message.size());
             _rootPath.clear();
         }
 
-        // Generate the SDL textures. 
-        GenerateTextures();
+        // // Generate the SDL textures. 
+        // GenerateTextures();
     }
 
     void ProtogenStudio::CreateFaceTextures()
@@ -107,7 +107,7 @@ namespace Studio
     
     void ProtogenStudio::Save()
     {
-        Proto::SaveProtogen(_rootPath, _protogen);
+        Proto::Utils::SaveToJSON(_rootPath, _protogen);
         _statusBar.SetStatus(StatusBar::Status::Info, "Save successful!");
     }
 
@@ -185,7 +185,7 @@ namespace Studio
 
         // Update the protogen
         Protogen_Update(_protogen, dt);
-        GenerateTextures();
+        // GenerateTextures();
 
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
         if (showDemoWindow)
@@ -199,7 +199,7 @@ namespace Studio
         RenderStudioSettings();
 
         ProtoWindows::RenderProjectSettingsWindow(_protogen);
-        RenderProtogenPanelsWindow();
+        // RenderProtogenPanelsWindow();
 
         ImGui::End();
 
