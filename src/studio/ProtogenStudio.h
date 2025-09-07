@@ -19,6 +19,7 @@ namespace Studio
     
         bool IsInitialized();
 
+        void LoadSettings();
         void LoadProject(std::filesystem::path& path);
         void CreateFaceTextures();
 
@@ -58,18 +59,23 @@ namespace Studio
         
     private:
 
+        // Random window status booleans. 
         bool _hasError = false;
         bool _showReloadModal = false;
         bool _showOpenFileDialog = false;
 
+        // Simulation variables
+        Proto::Protogen _protogen;
+
+        // Elements
         std::string _errorMessage;
         Studio::StatusBar _statusBar;
 
+        // Project paths
+        StudioSettings _settings;
+        
+        // Retained rendering data
         SDL_Window* _window;
-
-        Proto::Protogen _protogen;
-        std::filesystem::path _projectFilePath;
-        std::filesystem::path _rootPath;
         std::vector<SDL_Texture*> _textures;
     };
 }

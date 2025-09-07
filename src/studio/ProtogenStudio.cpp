@@ -9,24 +9,50 @@
 
 namespace Studio
 {
-    bool ProtogenStudio::IsInitialized()
+    constexpr char SETTINGS_FILE[] = "settings.json";
+
+    std::filesystem::path GetSettingsPath()
     {
-        return !_rootPath.empty();
+        return std::filesystem::current_path()/SETTINGS_FILE;
     }
 
+    bool ProtogenStudio::IsInitialized()
+    {
+        return !_settings.lastRootPath.empty();
+    }
+
+    void ProtogenStudio::LoadSettings()
+    {
+        std::filesystem::path path = GetSettingsPath();
+        if(std::filesystem::exists(path))
+        {
+            Proto::Utils::LoadFromJSON(path, _settings);
+
+            // If we have a project path, load it. 
+            if(!_settings.lastProjectPath.empty())
+            {
+                std::filesystem::path projectPath = _settings.lastProjectPath;
+                LoadProject(projectPath);
+            }
+
+            SDL_SetWindowSize(_window, _settings.lastWindowWidth, _settings.lastWindowHeight);
+            SDL_SetWindowPosition(_window, _settings.lastWindowX, _settings.lastWindowY);
+        }
+    }
+    
     void ProtogenStudio::LoadProject(std::filesystem::path& path)
     {
         // re-create our protogen
-        _projectFilePath = path;
-        _rootPath = path.parent_path();
+        _settings.lastProjectPath = path.string();
+        _settings.lastRootPath = path.parent_path().string();
 
         // Try a project load
-        auto loadResult =  Proto::Utils::LoadFromJson(path, _protogen);
+        auto loadResult =  Proto::Utils::LoadFromJSON(path, _protogen);
         _statusBar.SetStatus(StatusBar::Status::Info, loadResult.message);
         if(loadResult.result != Proto::LoadResultType::Success)
         {
             Controls::ErrorPopup(loadResult.message.c_str(), loadResult.message.size());
-            _rootPath.clear();
+            _settings.lastRootPath.clear();
         }
 
         // // Generate the SDL textures. 
@@ -107,7 +133,11 @@ namespace Studio
     
     void ProtogenStudio::Save()
     {
-        Proto::Utils::SaveToJSON(_rootPath, _protogen);
+        std::filesystem::path path = _settings.lastRootPath;
+        Proto::Utils::SaveToJSON(path, _protogen);
+        std::filesystem::path settingsPath = GetSettingsPath();
+        Proto::Utils::SaveToJSON(settingsPath, _settings);
+
         _statusBar.SetStatus(StatusBar::Status::Info, "Save successful!");
     }
 
@@ -124,7 +154,8 @@ namespace Studio
                 _showReloadModal = false;
                 if(confirmCancel == Controls::ConfirmCancel::Confirm)
                 {
-                    LoadProject(_projectFilePath);
+                    std::filesystem::path path = _settings.lastProjectPath;
+                    LoadProject(path);
                 }
             }
         }
@@ -294,7 +325,11 @@ namespace Studio
         // Render all active modals
         ShowReloadModal();
         ShowOpenModal();
-        
+
+        // Skim the active window size. 
+        SDL_GetWindowSize(_window, &_settings.lastWindowWidth, &_settings.lastWindowHeight);
+        SDL_GetWindowPosition(_window, &_settings.lastWindowX, &_settings.lastWindowY);
+
         return shouldContinue;
     }
 }

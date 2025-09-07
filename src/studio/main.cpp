@@ -27,6 +27,7 @@ int main(int, char**)
     ImGuiIO& io = ImGUI::CreateImGUIIO(window, renderer);
 
     Studio::ProtogenStudio protogenStudio(window);
+    protogenStudio.LoadSettings();
 
     // Main loop
     bool done = false;

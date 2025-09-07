@@ -20,10 +20,8 @@ namespace Proto::Utils
 {
     int GetIntOr(rapidjson::Value& value, const char* name, int defaultValue);
 
-
-
     template <typename TData>
-    LoadResult LoadFromJson(std::filesystem::path& path, TData& data)
+    LoadResult LoadFromJSON(std::filesystem::path& path, TData& data)
     {
         std::ifstream ifs(path);
         rapidjson::IStreamWrapper isw(ifs);

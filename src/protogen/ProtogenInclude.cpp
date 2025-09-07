@@ -1,3 +1,6 @@
+
+#define RAPIDJSON_HAS_STDSTRING 1
+
 // rapidjson
 #include "rapidjson/document.h"
 #include "rapidjson/istreamwrapper.h"
