@@ -13,6 +13,8 @@ namespace Proto
     namespace Color
     {
         constexpr tracy::Color::ColorType Root = tracy::Color::PaleGreen;
+        constexpr tracy::Color::ColorType Delay = tracy::Color::Gray34;
+        constexpr tracy::Color::ColorType GPU = tracy::Color::LavenderBlush1;
         constexpr tracy::Color::ColorType SDL = tracy::Color::LightGoldenrodYellow;
         constexpr tracy::Color::ColorType ExternalImGui = tracy::Color::Orange;
         constexpr tracy::Color::ColorType ProtoImGui = tracy::Color::Teal;

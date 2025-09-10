@@ -97,14 +97,14 @@ $StudioArguments = (
 $NeedsRecompile = $false
 
 # If any files are newer than our build, recompile. 
-# Get-ChildItem -Path $SourceDirectory -File -Recurse | ForEach-Object {
-#     $SourceFile = $_
-#     if (-not (Test-Path $StudioExe) -or ($SourceFile.LastWriteTime -gt (Get-Item $StudioExe).LastWriteTime)) 
-#     {
-#         Write-Host "Found newer file: $($SourceFile.FullName)"
-#         $NeedsRecompile = $true
-#     }
-# }
+Get-ChildItem -Path $SourceDirectory -File -Recurse | ForEach-Object {
+    $SourceFile = $_
+    if (-not (Test-Path $StudioExe) -or ($SourceFile.LastWriteTime -gt (Get-Item $StudioExe).LastWriteTime)) 
+    {
+        Write-Host "Found newer file: $($SourceFile.FullName)"
+        $NeedsRecompile = $true
+    }
+}
 
 # # If any files are newer than our build, recompile. 
 # Get-ChildItem -Path $LibDirectory -File -Recurse | ForEach-Object {
@@ -117,13 +117,13 @@ $NeedsRecompile = $false
 # }
 
 # Use $NeedsRecompile to determine if recompilation is needed
-# if ($NeedsRecompile) {
+if ($NeedsRecompile) {
     Write-Host "Recompile needed for $($StudioMain.FullName)" -ForegroundColor Green
     & 'cl' '/std:c++20'  $StudioArguments $BuildFlags $ModeBuildFlags 
-# }
-# else {
-    # Write-Host "All files up to date - no work to do uwu"
-# }
+}
+else {
+    Write-Host "All files up to date - no work to do uwu"
+}
 
 # Copy the assets to our build directory. 
 

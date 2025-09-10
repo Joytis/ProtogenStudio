@@ -22,7 +22,6 @@
 #include "tracy/Tracy.hpp"
 #include "TracyClient.cpp"
 
-
 // Aaaaand the rest of everything. 
 #include "ProtogenMath.h"
 #include "Common.h"

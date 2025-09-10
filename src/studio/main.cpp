@@ -16,37 +16,57 @@
 #include "external.cpp"
 #include "internal.cpp"
 
+// Please note this desired framerate is entirely nonsensical
+constexpr int DESIRED_FPS = 60;
+constexpr int FRAME_DELAY_MS = 1000 / DESIRED_FPS;
+
 bool main_loop(SDL_Window* window, SDL_Renderer* renderer, ImGuiIO& io, Studio::ProtogenStudio& protogenStudio)
 {
-    ZoneScopedNC("Protogen Studio", Proto::Color::Root);
+    u32 frameStart = SDL_GetTicks();
 
-    SDL::ProcessResult processResult = SDL::ProcessEvents(window);
-    if(processResult == SDL::ProcessResult::Done)
+    // Studio processing
     {
-        return true;
-    }
-    else if(processResult == SDL::ProcessResult::Minimized)
-    {
-        return false;
-    }
+        ZoneScopedNC("Protogen Studio", Proto::Color::Root);    
+
+        SDL::ProcessResult processResult = SDL::ProcessEvents(window);
+        if(processResult == SDL::ProcessResult::Done)
+        {
+            return true;
+        }
+        else if(processResult == SDL::ProcessResult::Minimized)
+        {
+            return false;
+        }
+        
+        // Start the Dear ImGui frame
+        ImGui_ImplSDLRenderer3_NewFrame();
+        ImGui_ImplSDL3_NewFrame();
+        
+        // Studio render
+        {
+            ZoneScopedNC("ImGui::NewFrame", Proto::Color::ExternalImGui);
+            ImGui::NewFrame();
+        }
+        bool studioSuccess = protogenStudio.Render(io);
+        {
+            ZoneScopedNC("ImGui::Render", Proto::Color::ExternalImGui);
+            ImGui::Render();
+        }
     
-    // Start the Dear ImGui frame
-    ImGui_ImplSDLRenderer3_NewFrame();
-    ImGui_ImplSDL3_NewFrame();
-    
-    // Studio render
-    {
-        ZoneScopedNC("ImGui::NewFrame", Proto::Color::ExternalImGui);
-        ImGui::NewFrame();
-    }
-    bool studioSuccess = protogenStudio.Render(io);
-    {
-        ZoneScopedNC("ImGui::Render", Proto::Color::ExternalImGui);
-        ImGui::Render();
+        // Render viewport
+        SDL::Render(renderer, io, protogenStudio.clear_color);
     }
 
-    // Render viewport
-    SDL::Render(renderer, io, protogenStudio.clear_color);
+    // Delay
+    {
+        ZoneScopedNC("Frame Delay", Proto::Color::Delay);
+
+        u32 frameTime = SDL_GetTicks() - frameStart;
+        if (frameTime < FRAME_DELAY_MS) {
+            SDL_Delay(FRAME_DELAY_MS - frameTime);
+        }
+    }
+
     FrameMark;
     return false;
 }
