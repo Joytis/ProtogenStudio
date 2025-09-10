@@ -16,13 +16,26 @@
       "request": "launch",
       "program": "${workspaceFolder}/bin/tracy-profiler.exe",
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "console": "externalTerminal",
+      "cwd": "c:/Users/Clark/Documents/GitHub/ProtogenStudio/src/studio",
+      "program": "c:/Users/Clark/Documents/GitHub/ProtogenStudio/src/studio/build/Debug/outDebug"
     }
   ],
   "compounds": [
     {
       "name": "Debug Protogen Studio With Tracy (MSVC)",
-      "configurations": ["ProtogenStudio-Debug", "tracy-profiler"]
+      "configurations": [
+        "ProtogenStudio-Debug",
+        "tracy-profiler"
+      ]
     }
   ]
 }

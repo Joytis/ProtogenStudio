@@ -18,7 +18,7 @@
 
 bool main_loop(SDL_Window* window, SDL_Renderer* renderer, ImGuiIO& io, Studio::ProtogenStudio& protogenStudio)
 {
-    ZoneScopedN("Protogen Studio");
+    ZoneScopedNC("Protogen Studio", Proto::Color::Root);
 
     SDL::ProcessResult processResult = SDL::ProcessEvents(window);
     if(processResult == SDL::ProcessResult::Done)
@@ -36,12 +36,12 @@ bool main_loop(SDL_Window* window, SDL_Renderer* renderer, ImGuiIO& io, Studio::
     
     // Studio render
     {
-        ZoneScopedN("ImGui::NewFrame");
+        ZoneScopedNC("ImGui::NewFrame", Proto::Color::ExternalImGui);
         ImGui::NewFrame();
     }
     bool studioSuccess = protogenStudio.Render(io);
     {
-        ZoneScopedN("ImGui::Render");
+        ZoneScopedNC("ImGui::Render", Proto::Color::ExternalImGui);
         ImGui::Render();
     }
 

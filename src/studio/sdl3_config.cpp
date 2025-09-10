@@ -62,7 +62,7 @@ namespace SDL
 
     ProcessResult ProcessEvents(SDL_Window* window)
     {
-        ZoneScoped;
+        ZoneScopedC(Proto::Color::SDL);
 
         // Poll and handle events (inputs, window resize, etc.)
         // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
@@ -95,7 +95,7 @@ namespace SDL
 
     void Render(SDL_Renderer* renderer, ImGuiIO& io, ImVec4 color)
     {
-        ZoneScoped;
+        ZoneScopedC(Proto::Color::SDL);
 
         SDL_SetRenderScale(renderer, io.DisplayFramebufferScale.x, io.DisplayFramebufferScale.y);
         SDL_SetRenderDrawColorFloat(renderer, color.x * color.w, color.y * color.w, color.z * color.w, color.w);

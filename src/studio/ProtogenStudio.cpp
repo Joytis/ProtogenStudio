@@ -6,6 +6,7 @@
 
 #include <iostream>
 
+
 namespace Studio
 {
     constexpr char SETTINGS_FILE[] = "settings.json";
@@ -22,7 +23,7 @@ namespace Studio
 
     void ProtogenStudio::LoadSettings()
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
         
         std::filesystem::path path = GetSettingsPath();
         if(std::filesystem::exists(path))
@@ -43,7 +44,7 @@ namespace Studio
     
     void ProtogenStudio::LoadProject(std::filesystem::path& path)
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         // re-create our protogen
         _settings.lastProjectPath = path.string();
@@ -64,7 +65,7 @@ namespace Studio
 
     void ProtogenStudio::CreateFaceTextures()
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         for(SDL_Texture* texture : _textures)
         {
@@ -93,7 +94,7 @@ namespace Studio
     
     bool ProtogenStudio::RenderErrorUI(ImGuiIO& io)
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         ImGui::Begin("ERROR!", &_hasError);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
         ImGui::Text("Hello from another window!");
@@ -121,7 +122,7 @@ namespace Studio
 
     void ProtogenStudio::ShowOpenModal()
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         char path[512] = {};
         if(_showOpenFileDialog)
@@ -150,7 +151,7 @@ namespace Studio
 
     void ProtogenStudio::ShowReloadModal()
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         if(_showReloadModal)
         {
@@ -177,7 +178,7 @@ namespace Studio
 
     void ProtogenStudio::RenderStudioSettings()
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         ImGui::SeparatorText("Studio Settings");
         ImGui::BeginChild("Studio Settings!", ImVec2(0, 120));
@@ -189,7 +190,7 @@ namespace Studio
 
     void ProtogenStudio::CheckInput(MenuMode mode)
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_N)) { New(); }
         if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_O)) { Open(); }
@@ -202,7 +203,7 @@ namespace Studio
     
     void ProtogenStudio::RenderMenu(MenuMode mode)
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         if (ImGui::BeginMainMenuBar())
         {
@@ -225,7 +226,7 @@ namespace Studio
 
     bool ProtogenStudio::RenderStandardUI(ImGuiIO& io)
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         float dt = io.DeltaTime;
 
@@ -257,7 +258,7 @@ namespace Studio
 
     void ProtogenStudio::UpdateTextures()
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         assert(_protogen.panels.size() == _textures.size());
 
@@ -295,7 +296,7 @@ namespace Studio
 
     void ProtogenStudio::RenderProtogenPanelsWindow()
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         ImGui::Begin("Protogen Panels");   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
 
@@ -324,7 +325,7 @@ namespace Studio
 
     bool ProtogenStudio::Render(ImGuiIO& io)
     {
-        ZoneScoped;
+        ZoneScopedCS(Proto::Color::ProtoImGui, Proto::StackDepth::Shallow);
 
         float dt = io.DeltaTime;
 
