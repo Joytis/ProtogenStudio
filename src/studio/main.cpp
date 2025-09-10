@@ -16,6 +16,41 @@
 #include "external.cpp"
 #include "internal.cpp"
 
+bool main_loop(SDL_Window* window, SDL_Renderer* renderer, ImGuiIO& io, Studio::ProtogenStudio& protogenStudio)
+{
+    ZoneScopedN("Protogen Studio");
+
+    SDL::ProcessResult processResult = SDL::ProcessEvents(window);
+    if(processResult == SDL::ProcessResult::Done)
+    {
+        return true;
+    }
+    else if(processResult == SDL::ProcessResult::Minimized)
+    {
+        return false;
+    }
+    
+    // Start the Dear ImGui frame
+    ImGui_ImplSDLRenderer3_NewFrame();
+    ImGui_ImplSDL3_NewFrame();
+    
+    // Studio render
+    {
+        ZoneScopedN("ImGui::NewFrame");
+        ImGui::NewFrame();
+    }
+    bool studioSuccess = protogenStudio.Render(io);
+    {
+        ZoneScopedN("ImGui::Render");
+        ImGui::Render();
+    }
+
+    // Render viewport
+    SDL::Render(renderer, io, protogenStudio.clear_color);
+    FrameMark;
+    return false;
+}
+
 // Main code
 int main(int, char**)
 {
@@ -33,27 +68,7 @@ int main(int, char**)
     bool done = false;
     while (!done)
     {
-        SDL::ProcessResult processResult = SDL::ProcessEvents(window);
-        if(processResult == SDL::ProcessResult::Done)
-        {
-            done = true;
-        }
-        else if(processResult == SDL::ProcessResult::Minimized)
-        {
-            continue;
-        }
-        
-        // Start the Dear ImGui frame
-        ImGui_ImplSDLRenderer3_NewFrame();
-        ImGui_ImplSDL3_NewFrame();
-        
-        // Studio render
-        ImGui::NewFrame();
-        bool studioSuccess = protogenStudio.Render(io);
-        ImGui::Render();
-
-        // Render viewport
-        SDL::Render(renderer, io, protogenStudio.clear_color);
+        done = main_loop(window, renderer, io, protogenStudio);
     }
 
 #ifdef __EMSCRIPTEN__

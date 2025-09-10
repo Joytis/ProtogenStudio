@@ -62,6 +62,8 @@ namespace SDL
 
     ProcessResult ProcessEvents(SDL_Window* window)
     {
+        ZoneScoped;
+
         // Poll and handle events (inputs, window resize, etc.)
         // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
         // - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application, or clear/overwrite your copy of the mouse data.
@@ -93,6 +95,8 @@ namespace SDL
 
     void Render(SDL_Renderer* renderer, ImGuiIO& io, ImVec4 color)
     {
+        ZoneScoped;
+
         SDL_SetRenderScale(renderer, io.DisplayFramebufferScale.x, io.DisplayFramebufferScale.y);
         SDL_SetRenderDrawColorFloat(renderer, color.x * color.w, color.y * color.w, color.z * color.w, color.w);
         SDL_RenderClear(renderer);

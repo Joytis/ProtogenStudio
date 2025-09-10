@@ -18,6 +18,10 @@
 #include "lodepng.h"
 #include "lodepng.cpp"
 
+// Tracy
+#include "tracy/Tracy.hpp"
+#include "TracyClient.cpp"
+
 
 // Aaaaand the rest of everything. 
 #include "ProtogenMath.h"
@@ -32,5 +36,6 @@
 #include "Protogen.h"
 
 #include "Protogen.cpp"
+
 
 #include "Vector4.h"

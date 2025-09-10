@@ -37,10 +37,10 @@ $SDLLocation = $SDLBuildLocation + '\SDL3.lib'
 
 # Get build arguments. 
 if ($Mode = "Debug") {
-    $BuildFlags = ("/DEBUG:FULL", "/Zi")
+    $ModeBuildFlags = ("/DEBUG:FULL", "/Zi", "/DTRACY_ENABLE")
 }
 else {
-    $BuildFlags = "/O2"
+    $ModeBuildFlags = "/O2"
 }
 
 $BuildDirectories = ($RootLocation, $LibraryLocation, $StudioLocation, $EmbedLocation, $SDLBuildLocation)
@@ -85,6 +85,7 @@ $StudioArguments = (
     '/I', '.\libs',
     '/I', '.\libs\imgui',
     '/I', '.\libs\imgui\backends',
+    '/I', '.\libs\tracy\public',
     '/I', '.\libs\lodepng',
     '/I', '.\libs\SDL\include',
     '/I', '.\src',
@@ -96,14 +97,14 @@ $StudioArguments = (
 $NeedsRecompile = $false
 
 # If any files are newer than our build, recompile. 
-Get-ChildItem -Path $SourceDirectory -File -Recurse | ForEach-Object {
-    $SourceFile = $_
-    if (-not (Test-Path $StudioExe) -or ($SourceFile.LastWriteTime -gt (Get-Item $StudioExe).LastWriteTime)) 
-    {
-        Write-Host "Found newer file: $($SourceFile.FullName)"
-        $NeedsRecompile = $true
-    }
-}
+# Get-ChildItem -Path $SourceDirectory -File -Recurse | ForEach-Object {
+#     $SourceFile = $_
+#     if (-not (Test-Path $StudioExe) -or ($SourceFile.LastWriteTime -gt (Get-Item $StudioExe).LastWriteTime)) 
+#     {
+#         Write-Host "Found newer file: $($SourceFile.FullName)"
+#         $NeedsRecompile = $true
+#     }
+# }
 
 # # If any files are newer than our build, recompile. 
 # Get-ChildItem -Path $LibDirectory -File -Recurse | ForEach-Object {
@@ -116,13 +117,13 @@ Get-ChildItem -Path $SourceDirectory -File -Recurse | ForEach-Object {
 # }
 
 # Use $NeedsRecompile to determine if recompilation is needed
-if ($NeedsRecompile) {
+# if ($NeedsRecompile) {
     Write-Host "Recompile needed for $($StudioMain.FullName)" -ForegroundColor Green
-    & 'cl' '/std:c++20'  $StudioArguments $BuildFlags 
-}
-else {
-    Write-Host "All files up to date - no work to do uwu"
-}
+    & 'cl' '/std:c++20'  $StudioArguments $BuildFlags $ModeBuildFlags 
+# }
+# else {
+    # Write-Host "All files up to date - no work to do uwu"
+# }
 
 # Copy the assets to our build directory. 
 

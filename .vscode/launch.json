@@ -2,26 +2,27 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Protogen Studio (MSVC)",
+      "name": "ProtogenStudio-Debug",
       "type": "cppvsdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/Debug/studio/protogen_studio.exe",
-      "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": true,
       "preLaunchTask": "Build Protogen Studio"
     },
     {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "cppvsdbg",
+      "name": "tracy-profiler",
+      "type": "cppdbg",
       "request": "launch",
-      "args": [],
+      "program": "${workspaceFolder}/bin/tracy-profiler.exe",
       "stopAtEntry": false,
-      "console": "externalTerminal",
-      "cwd": "c:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui",
-      "program": "c:/Users/Clark/Documents/GitHub/ProtogenStudio/libs/imgui/build/Debug/outDebug"
+      "cwd": "${workspaceFolder}",
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug Protogen Studio With Tracy (MSVC)",
+      "configurations": ["ProtogenStudio-Debug", "tracy-profiler"]
     }
   ]
 }

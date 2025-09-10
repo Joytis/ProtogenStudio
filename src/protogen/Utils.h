@@ -16,11 +16,19 @@ namespace Proto
     };
 }
 
+// Stupid windows bullshit - The windows 'GetObject' macro conflicts with... like everything. 
+#ifdef GetObject
+    #define MYPROJECT_MACRO_GETOBJECT_WAS_DEFINED
+#endif
+#undef GetObject
+
 namespace Proto::Utils
 {
     template <typename TData>
     LoadResult LoadFromJSON(std::filesystem::path& path, TData& data)
     {
+        ZoneScoped;
+
         std::ifstream ifs(path);
         rapidjson::IStreamWrapper isw(ifs);
         
@@ -43,6 +51,8 @@ namespace Proto::Utils
     template <typename TData>
     void SaveToJSON(std::filesystem::path& path, TData& data)
     {
+        ZoneScoped;
+        
         rapidjson::Document d;
         d.SetObject();
         TData::SaveToJSON(data, d.GetObject(), d);
@@ -54,3 +64,9 @@ namespace Proto::Utils
         d.Accept(writer);
     }
 }   
+
+// Stupid windows bullshit - The windows 'GetObject' macro conflicts with... like everything. 
+#if defined(MYPROJECT_MACRO_GETOBJECT_WAS_DEFINED)
+    #undef MYPROJECT_MACRO_GETOBJECT_WAS_DEFINED
+    #define GetObject GetObjectA
+#endif

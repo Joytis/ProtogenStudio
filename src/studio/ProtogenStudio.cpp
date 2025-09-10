@@ -22,6 +22,8 @@ namespace Studio
 
     void ProtogenStudio::LoadSettings()
     {
+        ZoneScoped;
+        
         std::filesystem::path path = GetSettingsPath();
         if(std::filesystem::exists(path))
         {
@@ -41,6 +43,8 @@ namespace Studio
     
     void ProtogenStudio::LoadProject(std::filesystem::path& path)
     {
+        ZoneScoped;
+
         // re-create our protogen
         _settings.lastProjectPath = path.string();
         _settings.lastRootPath = path.parent_path().string();
@@ -60,6 +64,8 @@ namespace Studio
 
     void ProtogenStudio::CreateFaceTextures()
     {
+        ZoneScoped;
+
         for(SDL_Texture* texture : _textures)
         {
             SDL_DestroyTexture(texture);
@@ -87,6 +93,8 @@ namespace Studio
     
     bool ProtogenStudio::RenderErrorUI(ImGuiIO& io)
     {
+        ZoneScoped;
+
         ImGui::Begin("ERROR!", &_hasError);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
         ImGui::Text("Hello from another window!");
         if (ImGui::Button("Continue"))
@@ -113,6 +121,8 @@ namespace Studio
 
     void ProtogenStudio::ShowOpenModal()
     {
+        ZoneScoped;
+
         char path[512] = {};
         if(_showOpenFileDialog)
         {
@@ -140,6 +150,8 @@ namespace Studio
 
     void ProtogenStudio::ShowReloadModal()
     {
+        ZoneScoped;
+
         if(_showReloadModal)
         {
             const char* message = "Are you sure you'd like to reload the project? All unsaved "
@@ -165,6 +177,8 @@ namespace Studio
 
     void ProtogenStudio::RenderStudioSettings()
     {
+        ZoneScoped;
+
         ImGui::SeparatorText("Studio Settings");
         ImGui::BeginChild("Studio Settings!", ImVec2(0, 120));
 
@@ -175,6 +189,8 @@ namespace Studio
 
     void ProtogenStudio::CheckInput(MenuMode mode)
     {
+        ZoneScoped;
+
         if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_N)) { New(); }
         if(ImGui::IsKeyChordPressed(ImGuiMod_Ctrl | ImGuiKey_O)) { Open(); }
         if(mode == MenuMode::All)
@@ -186,6 +202,8 @@ namespace Studio
     
     void ProtogenStudio::RenderMenu(MenuMode mode)
     {
+        ZoneScoped;
+
         if (ImGui::BeginMainMenuBar())
         {
             // Menu!
@@ -207,6 +225,8 @@ namespace Studio
 
     bool ProtogenStudio::RenderStandardUI(ImGuiIO& io)
     {
+        ZoneScoped;
+
         float dt = io.DeltaTime;
 
         CheckInput(MenuMode::All);
@@ -237,6 +257,8 @@ namespace Studio
 
     void ProtogenStudio::UpdateTextures()
     {
+        ZoneScoped;
+
         assert(_protogen.panels.size() == _textures.size());
 
         for(int i = 0; i < _protogen.panels.size(); i++)
@@ -273,6 +295,8 @@ namespace Studio
 
     void ProtogenStudio::RenderProtogenPanelsWindow()
     {
+        ZoneScoped;
+
         ImGui::Begin("Protogen Panels");   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
 
         assert(_protogen.panels.size() == _textures.size());
@@ -300,6 +324,8 @@ namespace Studio
 
     bool ProtogenStudio::Render(ImGuiIO& io)
     {
+        ZoneScoped;
+
         float dt = io.DeltaTime;
 
         // Render the status bar at the bottom of screen. 

@@ -8,6 +8,8 @@ namespace Studio
 {
     bool StatusBar::Render(float dt)
     {
+        ZoneScoped;
+
         // ---- Change state ----
         _timeSinceLastMessage += dt;
         if(_timeSinceLastMessage > MAX_MESSAGE_TIME)

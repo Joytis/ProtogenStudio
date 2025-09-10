@@ -73,6 +73,8 @@ namespace Proto
 
     Protogen Protogen::LoadFromJSON(rapidjson::Document& d)
     {
+        ZoneScoped;
+        
         Protogen p;
         p.panelHardware = (PanelHardware)Utils::GetIntOr(d, "PanelHardware", 0);
         int width = PanelHardware_Width(p.panelHardware);
@@ -121,6 +123,8 @@ namespace Proto
 
     void Protogen::SaveToJSON(Protogen& p, rapidjson::Value& o, rapidjson::Document& d)
     {
+        ZoneScoped;
+
         auto a = d.GetAllocator();
         o.AddMember("PanelHardware", (int)p.panelHardware, a);
 
