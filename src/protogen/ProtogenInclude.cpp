@@ -22,9 +22,14 @@
 #include "tracy/Tracy.hpp"
 #include "TracyClient.cpp"
 
+// Include some tracy math
+#include "tracy_math/Maths.h"
+#include "tracy_math/MathSimd.h"
+#include "tracy_math/Maths.cpp"
+
 // Aaaaand the rest of everything. 
-#include "ProtogenMath.h"
 #include "Common.h"
+#include "ProtogenMath.h"
 #include "Enums.cpp"
 
 #include "Utils.h"
@@ -35,6 +40,3 @@
 #include "Protogen.h"
 
 #include "Protogen.cpp"
-
-
-#include "Vector4.h"

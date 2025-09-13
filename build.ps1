@@ -86,6 +86,7 @@ $StudioArguments = (
     '/I', '.\libs\imgui',
     '/I', '.\libs\imgui\backends',
     '/I', '.\libs\tracy\public',
+    '/I', '.\libs\tracy_math',
     '/I', '.\libs\lodepng',
     '/I', '.\libs\SDL\include',
     '/I', '.\src',

@@ -1,20 +1,19 @@
 #pragma once
 
-namespace Proto
-{
-    enum class LoadResultType
-    {
-        Success,
-        JsonError,
-        FileDoesNotExist,
-    };
+PROTO_NAMESPACE
 
-    struct LoadResult
-    {
-        LoadResultType result;
-        std::string message;
-    };
-}
+enum class LoadResultType
+{
+    Success,
+    JsonError,
+    FileDoesNotExist,
+};
+
+struct LoadResult
+{
+    LoadResultType result;
+    std::string message;
+};
 
 // Stupid windows bullshit - The windows 'GetObject' macro conflicts with... like everything. 
 #ifdef GetObject
@@ -22,7 +21,8 @@ namespace Proto
 #endif
 #undef GetObject
 
-namespace Proto::Utils
+
+namespace Utils
 {
     template <typename TData>
     LoadResult LoadFromJSON(std::filesystem::path& path, TData& data)
@@ -70,3 +70,5 @@ namespace Proto::Utils
     #undef MYPROJECT_MACRO_GETOBJECT_WAS_DEFINED
     #define GetObject GetObjectA
 #endif
+
+PROTO_NAMESPACE_END

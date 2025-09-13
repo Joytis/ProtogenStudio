@@ -18,6 +18,13 @@
                     "AudioHeuristic": {
                         "Value": 0.0
                     }
+                },
+                {
+                    "Name": "",
+                    "ImagePath": "",
+                    "AudioHeuristic": {
+                        "Value": 0.0
+                    }
                 }
             ]
         },

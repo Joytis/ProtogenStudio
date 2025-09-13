@@ -36,7 +36,7 @@ namespace Controls
 
         std::memset(errorMessage, '\0', sizeof(errorMessage));
         char* dest = errorMessage;
-        std::strncpy(dest, message, Proto::Math::Minimum(size, errorSize));
+        std::strncpy(dest, message, Minimum(size, errorSize));
 
         // Simple selection popup (if you want to show the current selection inside the Button itself,
         // you may want to build a string using the "###" operator to preserve a constant ID with a variable label)

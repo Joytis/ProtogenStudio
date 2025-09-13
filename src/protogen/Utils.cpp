@@ -1,6 +1,8 @@
 #include "Utils.h"
 
-namespace Proto::Utils
+PROTO_NAMESPACE
+
+namespace Utils
 {
     int GetIntOr(const rapidjson::Value& value, const char* name, int defaultValue)
     {
@@ -34,11 +36,11 @@ namespace Proto::Utils
         {
             const rapidjson::Value& nestedValue = value[name];
             const char* internalString = nestedValue.IsString() ? nestedValue.GetString() : defaultValue;
-            memcpy(dest, defaultValue, Math::Minimum((u32)nestedValue.GetStringLength(), (u32)size));
+            memcpy(dest, defaultValue, Minimum((u32)nestedValue.GetStringLength(), (u32)size));
         }
         else
         {
-            memcpy(dest, defaultValue, Math::Minimum((u32)strlen(defaultValue), (u32)size));
+            memcpy(dest, defaultValue, Minimum((u32)strlen(defaultValue), (u32)size));
         }
     }
 
@@ -73,5 +75,6 @@ namespace Proto::Utils
             return defaultValue;
         }
     }
-
 }
+
+PROTO_NAMESPACE_END

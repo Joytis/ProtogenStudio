@@ -279,7 +279,7 @@ namespace Studio
                 {
                     for (int x = 0; x < width; ++x) 
                     {
-                        pixel_data[y * (pitch / sizeof(u32)) + x] = grid.Get(x, y).ToRGBA();
+                        pixel_data[y * (pitch / sizeof(u32)) + x] = Float4ToRGBAU32(grid.Get(x, y));
                     }
                 }
 
