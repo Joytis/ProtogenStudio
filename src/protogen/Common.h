@@ -10,6 +10,8 @@ constexpr u32 KBs(u32 kbs) { return 1024 * kbs; }
 constexpr u32 MBs(u32 mbs) { return 1024 * KBs(mbs); }
 constexpr u32 GBs(u32 gbs) { return 1024 * MBs(gbs); }
 
+#define PROOT_ARRAYSIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
+
 #define PROTO_NAMESPACE namespace Proto {
 #define PROTO_NAMESPACE_END }
 

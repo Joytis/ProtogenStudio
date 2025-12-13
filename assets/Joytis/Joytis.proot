@@ -1,26 +1,33 @@
 {
     "PanelHardware": 0,
-    "ExpressionGroups": [
+    "FacialRegions": [
         {
-            "Name": "",
+            "Type": 1,
             "BlendMode": 0,
             "Expressions": [
                 {
-                    "Name": "",
+                    "Type": 0,
                     "ImagePath": "",
                     "AudioHeuristic": {
                         "Value": 0.0
                     }
                 },
                 {
-                    "Name": "",
+                    "Type": 0,
                     "ImagePath": "",
                     "AudioHeuristic": {
                         "Value": 0.0
                     }
                 },
                 {
-                    "Name": "",
+                    "Type": 0,
+                    "ImagePath": "",
+                    "AudioHeuristic": {
+                        "Value": 0.0
+                    }
+                },
+                {
+                    "Type": 0,
                     "ImagePath": "",
                     "AudioHeuristic": {
                         "Value": 0.0
@@ -29,18 +36,32 @@
             ]
         },
         {
-            "Name": "",
+            "Type": 1,
             "BlendMode": 0,
             "Expressions": [
                 {
-                    "Name": "",
+                    "Type": 0,
                     "ImagePath": "",
                     "AudioHeuristic": {
                         "Value": 0.0
                     }
                 },
                 {
-                    "Name": "",
+                    "Type": 0,
+                    "ImagePath": "",
+                    "AudioHeuristic": {
+                        "Value": 0.0
+                    }
+                },
+                {
+                    "Type": 0,
+                    "ImagePath": "",
+                    "AudioHeuristic": {
+                        "Value": 0.0
+                    }
+                },
+                {
+                    "Type": 0,
                     "ImagePath": "",
                     "AudioHeuristic": {
                         "Value": 0.0

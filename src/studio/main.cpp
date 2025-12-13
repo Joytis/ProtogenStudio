@@ -70,6 +70,7 @@ bool main_loop(SDL_Window* window, SDL_Renderer* renderer, ImGuiIO& io, Studio::
     return false;
 }
 
+
 // Main code
 int main(int, char**)
 {
@@ -80,14 +81,14 @@ int main(int, char**)
     // ImGUI
     ImGuiIO& io = ImGUI::CreateImGUIIO(window, renderer);
 
-    Studio::ProtogenStudio protogenStudio(window);
-    protogenStudio.LoadSettings();
+    auto studio = std::make_unique<Studio::ProtogenStudio>(window);
+    studio->LoadSettings();
 
     // Main loop
     bool done = false;
     while (!done)
     {
-        done = main_loop(window, renderer, io, protogenStudio);
+        done = main_loop(window, renderer, io, *studio);
     }
 
 #ifdef __EMSCRIPTEN__

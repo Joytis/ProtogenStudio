@@ -28,82 +28,58 @@ namespace Windows
         ImGui::EndChild();
     }
     
-    enum GroupResult
-    {
-        None,
-        Remove
-    };
 
-    GroupResult RenderExpression(Proto::Expression& e)
+    void RenderExpression(Proto::Expression& e)
     {
-        ImGui::SeparatorText("Expression");
+        e.editorTreeFoldedOut = ImGui::TreeNode("##Expression");
         ImGui::SameLine();
-        if(ImGui::Button("-"))
+        ImGui::Text("%s", ExpressionType_Name(e.type));
+        if(e.editorTreeFoldedOut)
         {
-            return GroupResult::Remove;
-            // Todo remove this expression
+
+            ImGui::TreePop();
+            
         }
-        return GroupResult::None;
     }
 
-    GroupResult RenderExpressionGroup(Proto::Protogen& p, Proto::ExpressionGroup& group)
+    void RenderExpressionGroup(Proto::Protogen& p, Proto::FacialRegion& region)
     {
-        ImGui::SeparatorText("Group");
+        region.editorTreeFoldedOut = ImGui::TreeNode("##Facial Region");
         ImGui::SameLine();
-        if(ImGui::Button("+"))
-        {
-            group.expressions.emplace_back(p.PanelWidth(), p.PanelHeight());
-        }
-        ImGui::SameLine();
-        if(ImGui::Button("-"))
-        {
-            return GroupResult::Remove;
-        }
+        ImGui::Text("%s", FacialRegionType_Name(region.type));
 
-        // Render all the groups.
-        int toRemove = -1;
-        for(int i = 0; i < group.expressions.size(); i++)
+        if(region.editorTreeFoldedOut)
         {
-            ImGui::PushID(i);
-            if(RenderExpression(group.expressions[i]) == GroupResult::Remove)
+            // Render the Facial Region data
+            bool treeActive = ImGui::TreeNode("Expressions");
+
+            if(treeActive)
             {
-                toRemove = i;
+                for(int i = 0; i < PROOT_ARRAYSIZE(region.expressions); i++)
+                {
+                    ImGui::PushID(i);
+                    RenderExpression(region.expressions[i]);
+                    ImGui::PopID();
+                }
+                ImGui::TreePop();
             }
-            ImGui::PopID();
-        }
-        // Remove something if we've noted we should!
-        if(toRemove != -1)
-        {
-            group.expressions.erase(group.expressions.begin() + toRemove);
-        }
 
-        return GroupResult::None;
+            ImGui::TreePop();
+        }
     }
 
     void RenderExpressionGroups(Proto::Protogen& p)
     {
-        ImGui::SeparatorText("Expression Groups");
-        ImGui::SameLine();
-        if(ImGui::Button("+"))
+        if(ImGui::TreeNode("Facial Regions"))
         {
-            p.expressionGroups.emplace_back();
-        }
-
-        // Render all the groups. 
-        int toRemove = -1;
-        for(int i = 0; i < p.expressionGroups.size(); i++)
-        {
-            ImGui::PushID(i);
-            if(RenderExpressionGroup(p, p.expressionGroups[i])  == GroupResult::Remove)
+            // Render all the groups. 
+            for(int i = 0; i < PROOT_ARRAYSIZE(p.facialRegions); i++)
             {
-                toRemove = i;
+                ImGui::PushID(i);
+                RenderExpressionGroup(p, p.facialRegions[i]);
+                ImGui::PopID();
             }
-            ImGui::PopID();
-        }
-        // Remove something if we've noted we should!
-        if(toRemove != -1)
-        {
-            p.expressionGroups.erase(p.expressionGroups.begin() + toRemove);
+            ImGui::TreePop();
         }
     }
 

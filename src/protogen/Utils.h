@@ -43,7 +43,7 @@ namespace Utils
         }
         else
         {
-            data = TData::LoadFromJSON(d);
+            TData::LoadFromJSON(data, d);
             return { LoadResultType::Success, "Success" };
         }
     }

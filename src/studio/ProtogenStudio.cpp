@@ -146,7 +146,9 @@ namespace Studio
         std::filesystem::path settingsPath = GetSettingsPath();
         Proto::Utils::SaveToJSON(settingsPath, _settings);
 
-        _statusBar.SetStatus(StatusBar::Status::Info, "Save successful!");
+        std::string status_message = std::format("Save Successful! ({})", path.string());
+
+        _statusBar.SetStatus(StatusBar::Status::Info, status_message);
     }
 
     void ProtogenStudio::ShowReloadModal()

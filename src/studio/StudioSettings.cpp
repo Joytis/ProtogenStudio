@@ -12,7 +12,7 @@ namespace Studio
         int lastWindowX;
         int lastWindowY;
 
-        static StudioSettings LoadFromJSON(rapidjson::Document& d)
+        static void LoadFromJSON(StudioSettings& settings, rapidjson::Document& d)
         {
             using namespace Proto;
 
@@ -22,7 +22,6 @@ namespace Studio
             s.lastWindowHeight = Utils::GetIntOr(d, "LastWindowHeight", 600);
             s.lastWindowX = Utils::GetIntOr(d, "LastWindowX", 200);
             s.lastWindowY = Utils::GetIntOr(d, "LastWindowY", 200);
-            return s;
         }
 
         static void SaveToJSON(StudioSettings& settings, rapidjson::Value& o, rapidjson::Document& d)

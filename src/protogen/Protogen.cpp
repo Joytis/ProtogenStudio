@@ -71,36 +71,42 @@ void LoadExpressionGrid(Expression& expression)
 
 }
 
-Protogen Protogen::LoadFromJSON(rapidjson::Document& d)
+void Protogen::LoadFromJSON(Protogen& p, rapidjson::Document& d)
 {
     ZoneScoped;
-    
-    Protogen p;
+
     p.panelHardware = (PanelHardware)Utils::GetIntOr(d, "PanelHardware", 0);
     int width = PanelHardware_Width(p.panelHardware);
     int height = PanelHardware_Height(p.panelHardware);
 
     // Expressions
-    if (d.HasMember("ExpressionGroups") && d["ExpressionGroups"].IsArray()) 
+    if (d.HasMember("FacialRegions") && d["FacialRegions"].IsArray()) 
     {
-        const rapidjson::Value& groupsArray = d["ExpressionGroups"];
+        const rapidjson::Value& groupsArray = d["FacialRegions"];
         for(int i = 0; i < groupsArray.Size(); i++)
         {
-            ExpressionGroup& group = p.expressionGroups.emplace_back();
-            Utils::GetStringOr(groupsArray[i], "Name", "group", group.name);
-            group.blendMode = (BlendMode)Utils::GetIntOr(groupsArray[i], "BlendMode", 0);
+            if(i >= PROOT_ARRAYSIZE(p.facialRegions))
+            {
+                continue;
+            }
+            
+            FacialRegion& region = p.facialRegions[i];
+            region.type = (FacialRegionType)i;
+            region.blendMode = (BlendMode)Utils::GetIntOr(groupsArray[i], "BlendMode", 0);
 
             if (groupsArray[i].HasMember("Expressions") && groupsArray[i]["Expressions"].IsArray()) 
             {
                 const rapidjson::Value& expressionsArray = groupsArray[i]["Expressions"];
-                for(int i = 0; i < expressionsArray.Size(); i++)
+                for(int j = 0; j < expressionsArray.Size(); j++)
                 {
-                    Expression& e = group.expressions.emplace_back(width, height);
-                    Utils::GetStringOr(expressionsArray[i], "Name", "expression", e.name);
-                    Utils::GetStringOr(expressionsArray[i], "ImagePath", "", e.imagePath);
-
-                    int audio = Utils::GetIntOr(expressionsArray[i], "AudioHeuristic", 0);
-                    e.audioHeuristic = (AudioHeuristic)audio;
+                    if(j >= PROOT_ARRAYSIZE(region.expressions))
+                    {
+                        continue;
+                    }
+                    
+                    Expression& e = region.expressions[j];
+                    region.type = (FacialRegionType)j;
+                    Utils::GetStringOr(expressionsArray[j], "ImagePath", "", e.imagePath);
                 }
             }
         }
@@ -110,14 +116,14 @@ Protogen Protogen::LoadFromJSON(rapidjson::Document& d)
     if (d.HasMember("Panels") && d["Panels"].IsArray()) 
     {
         const rapidjson::Value& panelsArray = d["Panels"];
+        
+        p.panels.clear();
         for(int i = 0; i < panelsArray.Size(); i++)
         {
             Panel& panel = p.panels.emplace_back();
             panel.flipped = Utils::GetBoolOr(panelsArray[i], "Flipped", false);
         }
     }
-
-    return p;
 }
 
 
@@ -129,20 +135,18 @@ void Protogen::SaveToJSON(Protogen& p, rapidjson::Value& o, rapidjson::Document&
     o.AddMember("PanelHardware", (int)p.panelHardware, a);
 
     // Expressions
-    rapidjson::Value expressionGroups(rapidjson::kArrayType);
-    for(const auto& group : p.expressionGroups)
+    rapidjson::Value facialRegions(rapidjson::kArrayType);
+    for(const auto& region : p.facialRegions)
     {
-        rapidjson::Value expressionGroup(rapidjson::kObjectType);
-        expressionGroup.AddMember("Name", rapidjson::StringRef(group.name), a);
-
-        int blendMode = static_cast<int>(group.blendMode);
-        expressionGroup.AddMember("BlendMode", blendMode, a);
+        rapidjson::Value facialRegion(rapidjson::kObjectType);
+        facialRegion.AddMember("Type", (int)region.type, a);
+        facialRegion.AddMember("BlendMode", (int)region.blendMode, a);
         
         rapidjson::Value expressions(rapidjson::kArrayType);
-        for(const auto& e : group.expressions)
+        for(const auto& e : region.expressions)
         {
             rapidjson::Value expression(rapidjson::kObjectType);
-            expression.AddMember("Name", rapidjson::StringRef(e.name), a);
+            expression.AddMember("Type", (int)e.type, a);
             expression.AddMember("ImagePath", rapidjson::StringRef(e.imagePath), a);
 
             rapidjson::Value audioHeuristic(rapidjson::kObjectType);
@@ -152,11 +156,11 @@ void Protogen::SaveToJSON(Protogen& p, rapidjson::Value& o, rapidjson::Document&
             expressions.PushBack(expression, a);
             
         }
-        expressionGroup.AddMember("Expressions", expressions, a);
+        facialRegion.AddMember("Expressions", expressions, a);
 
-        expressionGroups.PushBack(expressionGroup, a);
+        facialRegions.PushBack(facialRegion, a);
     }
-    o.AddMember("ExpressionGroups", expressionGroups, a);
+    o.AddMember("FacialRegions", facialRegions, a);
 
     // Face Panels
     rapidjson::Value panels(rapidjson::kArrayType);

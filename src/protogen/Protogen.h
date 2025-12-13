@@ -3,6 +3,7 @@
 #include "Grid.h"
 
 #include <vector>
+#include <array>
 #include <memory>
 
 PROTO_NAMESPACE
@@ -16,33 +17,31 @@ struct AudioHeuristic
 
 struct Expression
 {
-    Expression(int width, int height) : grid(width, height, false) {}
-
     // Serialized
-    char name[PROTO_MAX_PATH_LEN] = "";
+    ExpressionType type = ExpressionType::Happy;
     char imagePath[PROTO_MAX_PATH_LEN] = "";
+    bool editorTreeFoldedOut = false;
     AudioHeuristic audioHeuristic;
     
     // Not serialized 
-    bool nameOpen = false; // This is really only used on the Studio UI... but fuck it. 
     Grid grid;
 };
 
-struct ExpressionGroup
+
+struct FacialRegion
 {
     // Serialized
-    char name[PROTO_MAX_PATH_LEN] = "";
+    FacialRegionType type = FacialRegionType::Mouth;
     BlendMode blendMode  = BlendMode::BestFit;
-    std::vector<Expression> expressions;
-
-    // Not serialized 
-    bool nameOpen = false; // This is really only used on the Studio UI... but fuck it. 
+    bool editorTreeFoldedOut = false;
+    Expression expressions[(int)ExpressionType::MAX];
 };
 
 struct Panel
 {
     // Serialized
-    bool flipped;
+    bool editorTreeFoldedOut = false;
+    bool flipped = false;
 
     // Non Serialized
     Grid grid;
@@ -52,13 +51,13 @@ struct Protogen
 {
     PanelHardware panelHardware = PanelHardware::AdaFruitLED64x32;
     
-    std::vector<ExpressionGroup> expressionGroups;
+    FacialRegion facialRegions[(int)FacialRegionType::MAX];
     std::vector<Panel> panels;
 
     int PanelWidth() { return PanelHardware_Width(panelHardware); }
     int PanelHeight() { return PanelHardware_Height(panelHardware); }
 
-    static Protogen LoadFromJSON(rapidjson::Document& d);
+    static void LoadFromJSON(Protogen& p, rapidjson::Document& d);
     static void SaveToJSON(Protogen& p, rapidjson::Value& o, rapidjson::Document& d);
 };
 

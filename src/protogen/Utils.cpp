@@ -36,7 +36,7 @@ namespace Utils
         {
             const rapidjson::Value& nestedValue = value[name];
             const char* internalString = nestedValue.IsString() ? nestedValue.GetString() : defaultValue;
-            memcpy(dest, defaultValue, Minimum((u32)nestedValue.GetStringLength(), (u32)size));
+            memcpy(dest, internalString, Minimum((u32)nestedValue.GetStringLength(), (u32)size));
         }
         else
         {

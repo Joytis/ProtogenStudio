@@ -31,6 +31,36 @@ static const char* PanelHardware_Names[] {
 };
 ENUM_NAME_FUNCTION(PanelHardware)
 
+// Expressions Enums ========
+enum class ExpressionType
+{
+    Happy,
+    Sadge,
+    Pensive,
+    Shocked,
+    MAX
+};
+static const char* ExpressionType_Names[] {
+    "Happy",
+    "Sadge",
+    "Pensive",
+    "Shocked"
+};
+ENUM_NAME_FUNCTION(ExpressionType)
+
+// Expressions Groups ========
+enum class FacialRegionType
+{
+    Eyes,
+    Mouth,
+    MAX
+};
+static const char* FacialRegionType_Names[] {
+    "Eyes",
+    "Mouth",
+};
+ENUM_NAME_FUNCTION(FacialRegionType)
+
 struct PanelTableRow { int width; int height; };
 static const PanelTableRow PanelHardware_Dimensions[] {
     { 64, 32 }
