@@ -7,6 +7,8 @@
 
 namespace Windows
 {
+
+
     void RenderProjectSettingsWindow(Proto::Protogen& p)
     {
         ImGui::SeparatorText("Child windows");
@@ -25,49 +27,83 @@ namespace Windows
 
         ImGui::EndChild();
     }
-
-    bool LineAddButton(const char* label)
-    {
-        ImGui::SeparatorText(label);
-        ImGui::SameLine();
-        return ImGui::Button("+");
-    }
     
-    void RenderExpression(Proto::Expression& e)
+    enum GroupResult
+    {
+        None,
+        Remove
+    };
+
+    GroupResult RenderExpression(Proto::Expression& e)
     {
         ImGui::SeparatorText("Expression");
-        
+        ImGui::SameLine();
+        if(ImGui::Button("-"))
+        {
+            return GroupResult::Remove;
+            // Todo remove this expression
+        }
+        return GroupResult::None;
     }
 
-    void RenderExpressionGroup(Proto::Protogen& p, Proto::ExpressionGroup& group)
+    GroupResult RenderExpressionGroup(Proto::Protogen& p, Proto::ExpressionGroup& group)
     {
-        if(LineAddButton("Group"))
+        ImGui::SeparatorText("Group");
+        ImGui::SameLine();
+        if(ImGui::Button("+"))
         {
             group.expressions.emplace_back(p.PanelWidth(), p.PanelHeight());
         }
+        ImGui::SameLine();
+        if(ImGui::Button("-"))
+        {
+            return GroupResult::Remove;
+        }
 
-        // Render all the groups. 
+        // Render all the groups.
+        int toRemove = -1;
         for(int i = 0; i < group.expressions.size(); i++)
         {
             ImGui::PushID(i);
-            RenderExpression(group.expressions[i]);
+            if(RenderExpression(group.expressions[i]) == GroupResult::Remove)
+            {
+                toRemove = i;
+            }
             ImGui::PopID();
         }
+        // Remove something if we've noted we should!
+        if(toRemove != -1)
+        {
+            group.expressions.erase(group.expressions.begin() + toRemove);
+        }
+
+        return GroupResult::None;
     }
 
     void RenderExpressionGroups(Proto::Protogen& p)
     {
-        if(LineAddButton("Expression Groups"))
+        ImGui::SeparatorText("Expression Groups");
+        ImGui::SameLine();
+        if(ImGui::Button("+"))
         {
             p.expressionGroups.emplace_back();
         }
 
         // Render all the groups. 
+        int toRemove = -1;
         for(int i = 0; i < p.expressionGroups.size(); i++)
         {
             ImGui::PushID(i);
-            RenderExpressionGroup(p, p.expressionGroups[i]);
+            if(RenderExpressionGroup(p, p.expressionGroups[i])  == GroupResult::Remove)
+            {
+                toRemove = i;
+            }
             ImGui::PopID();
+        }
+        // Remove something if we've noted we should!
+        if(toRemove != -1)
+        {
+            p.expressionGroups.erase(p.expressionGroups.begin() + toRemove);
         }
     }
 

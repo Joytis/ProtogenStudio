@@ -36,6 +36,7 @@ $SDLBuildLocation = $RootLocation + '\SDL'
 $SDLLocation = $SDLBuildLocation + '\SDL3.lib'
 
 # Get build arguments. 
+$BuildFlags = ("/FC")
 if ($Mode = "Debug") {
     $ModeBuildFlags = ("/DEBUG:FULL", "/Zi", "/DTRACY_ENABLE")
 }

@@ -1,3 +1,5 @@
+#include "CommandBuffer.cpp"
+#include "UndoBuffer.cpp"
 
 #include "controls.cpp"
 

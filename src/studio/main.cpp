@@ -27,7 +27,6 @@ bool main_loop(SDL_Window* window, SDL_Renderer* renderer, ImGuiIO& io, Studio::
     // Studio processing
     {
         ZoneScopedNC("Protogen Studio", Proto::Color::Root);    
-
         SDL::ProcessResult processResult = SDL::ProcessEvents(window);
         if(processResult == SDL::ProcessResult::Done)
         {
